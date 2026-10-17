@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dplq5ksji7ncg"]
+
+[ext_resource type="Script" uid="uid://bad0t32y3mypw" path="res://utils/ui/pager_layer.gd" id="1_3j3ux"]
+[ext_resource type="AudioStream" uid="uid://0cesl6iife08" path="res://utils/pager/blipSelect.wav" id="2_ewait"]
+
+[node name="PagerLayer" type="CanvasLayer" unique_id=469005054]
+layer = 7
+script = ExtResource("1_3j3ux")
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="." unique_id=757089520]
+unique_name_in_owner = true
+stream = ExtResource("2_ewait")
+bus = &"SFX"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=395234922]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel" type="PanelContainer" parent="MarginContainer" unique_id=511269702]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel" unique_id=1918159176]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer" unique_id=4063403]
+layout_mode = 2
+
+[node name="LabelsContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1672065507]
+layout_mode = 2
+
+[node name="CounterLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/LabelsContainer" unique_id=884234903]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="BleepLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/LabelsContainer" unique_id=1272761698]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1330237371]
+layout_mode = 2
+
+[node name="PrevButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/ButtonsContainer" unique_id=561327287]
+unique_name_in_owner = true
+layout_mode = 2
+text = "<"
+
+[node name="NextButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/ButtonsContainer" unique_id=723494462]
+unique_name_in_owner = true
+layout_mode = 2
+text = ">"
+
+[node name="DeleteButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/ButtonsContainer" unique_id=1729114302]
+unique_name_in_owner = true
+layout_mode = 2
+text = "DEL"
+
+[node name="CloseButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/ButtonsContainer" unique_id=1140450343]
+unique_name_in_owner = true
+layout_mode = 2
+text = "X"

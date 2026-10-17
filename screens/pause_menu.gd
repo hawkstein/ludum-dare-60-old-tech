@@ -7,6 +7,7 @@ signal paused_changed(paused: bool)
 
 var _close_button: Button
 var _was_captured := false
+var resume_mouse_mode := Input.MOUSE_MODE_CAPTURED
 
 func _ready() -> void:
 	_build_content()
@@ -18,7 +19,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	# Watching for browser change.
 	var captured := Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
-	if _was_captured and not captured and not get_tree().paused:
+	if resume_mouse_mode == Input.MOUSE_MODE_CAPTURED and _was_captured and not captured and not get_tree().paused:
 		set_paused(true)
 	_was_captured = captured
 
@@ -47,7 +48,7 @@ func toggle() -> void:
 func set_paused(paused: bool) -> void:
 	get_tree().paused = paused
 	visible = paused
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if paused else Input.MOUSE_MODE_CAPTURED
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if paused else resume_mouse_mode
 	if paused and _close_button:
 		_close_button.grab_focus()
 	paused_changed.emit(paused)

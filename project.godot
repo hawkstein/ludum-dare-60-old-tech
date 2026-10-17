@@ -20,7 +20,6 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/stretch_mode=0
 boot_splash/image="uid://4iakeclf4k4b"
-config/icon="res://icon.svg"
 
 [autoload]
 

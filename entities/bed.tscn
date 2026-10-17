@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://mt56oyien0xm"]
+
+[ext_resource type="Script" uid="uid://byc1p4mnq27ey" path="res://entities/event_target.gd" id="1_snt4t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cd33c"]
+size = Vector3(2, 1, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cd33c"]
+size = Vector3(0.7, 0.2, 1.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cbuj4"]
+albedo_color = Color(0.101960786, 0.28627452, 0.078431375, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wysbo"]
+size = Vector3(0.7, 0.2, 1.8)
+
+[node name="Bed" type="Area3D" unique_id=1517169828]
+script = ExtResource("1_snt4t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=508424934]
+shape = SubResource("BoxShape3D_cd33c")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1159242977]
+mesh = SubResource("BoxMesh_cd33c")
+surface_material_override/0 = SubResource("StandardMaterial3D_cbuj4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1106441178]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=240192408]
+shape = SubResource("BoxShape3D_wysbo")

@@ -17,6 +17,7 @@ const MOUSE_SCALE := 0.01
 @onready var spring_arm: SpringArm3D = %SpringArm3D
 
 var gameplay := DataStore.get_model(&"Gameplay") as GameplayData
+var input_enabled := true
 
 func _ready() -> void:
 	spring_arm.add_excluded_object(get_rid())
@@ -24,6 +25,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if not input_enabled: return
 	if event is InputEventMouseButton and event.pressed and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		get_viewport().set_input_as_handled()
@@ -32,16 +34,16 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var stick := Input.get_vector(&"LookLeft", &"LookRight", &"LookUp", &"LookDown")
+	var stick := Input.get_vector(&"LookLeft", &"LookRight", &"LookUp", &"LookDown") if input_enabled else Vector2.ZERO
 	if stick:
 		_look(stick * pad_look_speed * delta)
 
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	elif Input.is_action_just_pressed(&"Jump"):
+	elif input_enabled and Input.is_action_just_pressed(&"Jump"):
 		velocity.y = jump_velocity
 
-	var input := Input.get_vector(&"Left", &"Right", &"Up", &"Down")
+	var input := Input.get_vector(&"Left", &"Right", &"Up", &"Down") if input_enabled else Vector2.ZERO
 	var direction := Basis(Vector3.UP, camera_pivot.global_rotation.y) * Vector3(input.x, 0, input.y)
 	var weight := 1.0 - exp(-acceleration * delta)
 	velocity.x = lerpf(velocity.x, direction.x * speed, weight)

@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://vck4bl5wwflb"]
+
+[ext_resource type="Script" uid="uid://omkrdyrq3u73" path="res://screens/main.gd" id="1_la406"]
+[ext_resource type="PackedScene" uid="uid://icg5dtww7q44" path="res://entities/player/third_person_player.tscn" id="2_ee7ou"]
+[ext_resource type="Script" uid="uid://b7e81rn1pwe8d" path="res://utils/pager/bleep_timeline.gd" id="2_ramac"]
+[ext_resource type="Script" uid="uid://uty2uvhso70y" path="res://utils/pager/bleep_event.gd" id="3_nrb37"]
+[ext_resource type="Script" uid="uid://s7rv5glhh784" path="res://utils/pager/bleep.gd" id="4_owlgm"]
+[ext_resource type="PackedScene" uid="uid://cbuas17ydfjcl" path="res://utils/ui/message_layer.tscn" id="4_tci2t"]
+[ext_resource type="PackedScene" uid="uid://dplq5ksji7ncg" path="res://utils/ui/pager_layer.tscn" id="5_cbuj4"]
+[ext_resource type="PackedScene" uid="uid://mt56oyien0xm" path="res://entities/bed.tscn" id="5_la406"]
+[ext_resource type="PackedScene" uid="uid://bkpggl0lwqmju" path="res://screens/pause_menu.tscn" id="5_ycjph"]
+[ext_resource type="PackedScene" uid="uid://dggvfey44w4bn" path="res://entities/phone.tscn" id="6_ee7ou"]
+[ext_resource type="Script" uid="uid://bdro23r2xo7a1" path="res://utils/pager/event_tracker.gd" id="12_owlgm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1bvp3"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_lquwl"]
+sky_material = SubResource("ProceduralSkyMaterial_1bvp3")
+
+[sub_resource type="Environment" id="Environment_7mycd"]
+background_mode = 2
+sky = SubResource("Sky_lquwl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cd33c"]
+albedo_color = Color(0.32172796, 0.32172796, 0.32172796, 1)
+
+[sub_resource type="Resource" id="Resource_wysbo"]
+script = ExtResource("4_owlgm")
+extension = "3010"
+suffix = "3451"
+message = "No serious event in Ward 3, bed 1"
+target_id = &"ward3_bed1"
+metadata/_custom_type_script = "uid://s7rv5glhh784"
+
+[sub_resource type="Resource" id="Resource_cd33c"]
+script = ExtResource("3_nrb37")
+bleep = SubResource("Resource_wysbo")
+metadata/_custom_type_script = "uid://uty2uvhso70y"
+
+[sub_resource type="Resource" id="Resource_qr0o4"]
+script = ExtResource("4_owlgm")
+extension = "4020"
+suffix = "2222"
+message = "Patient is crashing! Get to Trauma 1 Bed 1 NOW!"
+target_id = &"trauma1_bed1"
+time_limit = 10.0
+severity = 1
+metadata/_custom_type_script = "uid://s7rv5glhh784"
+
+[sub_resource type="Resource" id="Resource_b8li8"]
+script = ExtResource("3_nrb37")
+time = 30.0
+bleep = SubResource("Resource_qr0o4")
+metadata/_custom_type_script = "uid://uty2uvhso70y"
+
+[node name="Main" type="Node3D" unique_id=438766484]
+script = ExtResource("1_la406")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1400865103]
+environment = SubResource("Environment_7mycd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=186871282]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Level" type="Node3D" parent="." unique_id=239694746]
+
+[node name="Floor" type="CSGBox3D" parent="Level" unique_id=1989360109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(40, 1, 40)
+material = SubResource("StandardMaterial3D_cd33c")
+metadata/_edit_lock_ = true
+
+[node name="NorthWall" type="CSGBox3D" parent="Level" unique_id=541581789]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.84765625, 1.5, -8)
+use_collision = true
+size = Vector3(36.91992, 3, 0.7)
+
+[node name="SouthWall" type="CSGBox3D" parent="Level" unique_id=1679676882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.84765625, 1.5, 19.52106)
+use_collision = true
+size = Vector3(36.91992, 3, 0.7)
+
+[node name="Partition" type="CSGBox3D" parent="Level" unique_id=1082055537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0217285, 1.5, 0.5916443)
+use_collision = true
+size = Vector3(11.181152, 3, 0.7)
+
+[node name="Partition2" type="CSGBox3D" parent="Level" unique_id=988815384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0217285, 1.5, 8.144815)
+use_collision = true
+size = Vector3(11.181152, 3, 0.7)
+
+[node name="Partition3" type="CSGBox3D" parent="Level" unique_id=61804754]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0217285, 1.5, 14.149065)
+use_collision = true
+size = Vector3(11.181152, 3, 0.7)
+
+[node name="EntranceWall" type="CSGBox3D" parent="Level" unique_id=1235799440]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.586491, 1.5, 2.3162127)
+use_collision = true
+size = Vector3(20, 3, 0.7)
+
+[node name="EastWall" type="CSGBox3D" parent="Level" unique_id=439103050]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -17.269478, 1.5, 6.144826)
+use_collision = true
+size = Vector3(27.657227, 3, 0.7)
+
+[node name="NursesDesk" type="CSGBox3D" parent="Level" unique_id=520053847]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.1656265, 0.71523476, 2.3162127)
+use_collision = true
+size = Vector3(10, 1.5, 0.4)
+
+[node name="ThirdPersonPlayer" parent="." unique_id=653190174 instance=ExtResource("2_ee7ou")]
+unique_name_in_owner = true
+
+[node name="Bed" parent="." unique_id=1517169828 instance=ExtResource("5_la406")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.425, 1, 1.9398189)
+target_id = &"ward3_bed1"
+
+[node name="Bed2" parent="." unique_id=492083183 instance=ExtResource("5_la406")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.055022, 1, 18.104574)
+target_id = &"trauma1_bed1"
+
+[node name="Phone" parent="." unique_id=1631206121 instance=ExtResource("6_ee7ou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1545496, 1, 0.277)
+
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=77984751]
+bus = &"Music"
+
+[node name="BleepTimeline" type="Node" parent="." unique_id=2140517253]
+unique_name_in_owner = true
+script = ExtResource("2_ramac")
+events = Array[ExtResource("3_nrb37")]([SubResource("Resource_cd33c"), SubResource("Resource_b8li8")])
+metadata/_custom_type_script = "uid://b7e81rn1pwe8d"
+
+[node name="EventTracker" type="Node" parent="." unique_id=340607232 node_paths=PackedStringArray("messages", "phone")]
+unique_name_in_owner = true
+script = ExtResource("12_owlgm")
+messages = NodePath("../MessageLayer")
+phone = NodePath("../Phone")
+
+[node name="MessageLayer" parent="." unique_id=1692279544 instance=ExtResource("4_tci2t")]
+unique_name_in_owner = true
+
+[node name="PagerLayer" parent="." unique_id=469005054 instance=ExtResource("5_cbuj4")]
+unique_name_in_owner = true
+
+[node name="PauseMenu" parent="." unique_id=1387676273 instance=ExtResource("5_ycjph")]
+unique_name_in_owner = true

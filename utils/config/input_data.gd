@@ -7,6 +7,7 @@ var left_events:Array[String] = ["A", "LEFT"]
 var right_events:Array[String] = ["D", "RIGHT"]
 var jump_events:Array[String] = ["SPACE"]
 var pause_events:Array[String] = ["P"]
+var pager_events:Array[String] = ["Y"]
 
 const JOY_DEFAULTS := {
 	&"Up": [[JOY_AXIS_LEFT_Y, -1.0], JOY_BUTTON_DPAD_UP],
@@ -19,6 +20,7 @@ const JOY_DEFAULTS := {
 	&"LookDown": [[JOY_AXIS_RIGHT_Y, 1.0]],
 	&"LookLeft": [[JOY_AXIS_RIGHT_X, -1.0]],
 	&"LookRight": [[JOY_AXIS_RIGHT_X, 1.0]],
+	&"Pager": [JOY_BUTTON_Y],
 }
 
 func _init() -> void:
@@ -29,6 +31,7 @@ func _init() -> void:
 	set_meta("right_events", PropertyMeta.new("Right"))
 	set_meta("jump_events", PropertyMeta.new("Jump"))
 	set_meta("pause_events", PropertyMeta.new("Pause"))
+	set_meta("pager_events", PropertyMeta.new("Pager"))
 
 ## Rebuild the InputMap from the saved keys and gamepad defaults.
 func apply() -> void:
