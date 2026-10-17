@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://mt56oyien0xm" path="res://entities/bed.tscn" id="5_la406"]
 [ext_resource type="PackedScene" uid="uid://bkpggl0lwqmju" path="res://screens/pause_menu.tscn" id="5_ycjph"]
 [ext_resource type="PackedScene" uid="uid://dggvfey44w4bn" path="res://entities/phone.tscn" id="6_ee7ou"]
+[ext_resource type="Script" uid="uid://bdro23r2xo7a1" path="res://utils/pager/event_tracker.gd" id="12_owlgm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1bvp3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -22,10 +23,15 @@ sky_material = SubResource("ProceduralSkyMaterial_1bvp3")
 background_mode = 2
 sky = SubResource("Sky_lquwl")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cd33c"]
+albedo_color = Color(0.32172796, 0.32172796, 0.32172796, 1)
+
 [sub_resource type="Resource" id="Resource_wysbo"]
 script = ExtResource("4_owlgm")
 extension = "3010"
 suffix = "3451"
+message = "No serious event in Ward 3, bed 1"
+target_id = &"ward3_bed1"
 metadata/_custom_type_script = "uid://s7rv5glhh784"
 
 [sub_resource type="Resource" id="Resource_cd33c"]
@@ -37,6 +43,10 @@ metadata/_custom_type_script = "uid://uty2uvhso70y"
 script = ExtResource("4_owlgm")
 extension = "4020"
 suffix = "2222"
+message = "Patient is crashing! Get to Trauma 1 Bed 1 NOW!"
+target_id = &"trauma1_bed1"
+time_limit = 10.0
+severity = 1
 metadata/_custom_type_script = "uid://s7rv5glhh784"
 
 [sub_resource type="Resource" id="Resource_b8li8"]
@@ -44,9 +54,6 @@ script = ExtResource("3_nrb37")
 time = 30.0
 bleep = SubResource("Resource_qr0o4")
 metadata/_custom_type_script = "uid://uty2uvhso70y"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cd33c"]
-albedo_color = Color(0.32172796, 0.32172796, 0.32172796, 1)
 
 [node name="Main" type="Node3D" unique_id=438766484]
 script = ExtResource("1_la406")
@@ -57,12 +64,6 @@ environment = SubResource("Environment_7mycd")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=186871282]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
-
-[node name="BleepTimeline" type="Node" parent="." unique_id=2140517253]
-unique_name_in_owner = true
-script = ExtResource("2_ramac")
-events = Array[ExtResource("3_nrb37")]([SubResource("Resource_cd33c"), SubResource("Resource_b8li8")])
-metadata/_custom_type_script = "uid://b7e81rn1pwe8d"
 
 [node name="Level" type="Node3D" parent="." unique_id=239694746]
 
@@ -118,20 +119,35 @@ unique_name_in_owner = true
 
 [node name="Bed" parent="." unique_id=1517169828 instance=ExtResource("5_la406")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.425, 1, 1.9398189)
+target_id = &"ward3_bed1"
 
 [node name="Bed2" parent="." unique_id=492083183 instance=ExtResource("5_la406")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.055022, 1, 18.104574)
+target_id = &"trauma1_bed1"
+
+[node name="Phone" parent="." unique_id=1631206121 instance=ExtResource("6_ee7ou")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1545496, 1, 0.277)
 
 [node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=77984751]
 bus = &"Music"
 
+[node name="BleepTimeline" type="Node" parent="." unique_id=2140517253]
+unique_name_in_owner = true
+script = ExtResource("2_ramac")
+events = Array[ExtResource("3_nrb37")]([SubResource("Resource_cd33c"), SubResource("Resource_b8li8")])
+metadata/_custom_type_script = "uid://b7e81rn1pwe8d"
+
+[node name="EventTracker" type="Node" parent="." unique_id=340607232 node_paths=PackedStringArray("messages", "phone")]
+unique_name_in_owner = true
+script = ExtResource("12_owlgm")
+messages = NodePath("../MessageLayer")
+phone = NodePath("../Phone")
+
 [node name="MessageLayer" parent="." unique_id=1692279544 instance=ExtResource("4_tci2t")]
+unique_name_in_owner = true
 
 [node name="PagerLayer" parent="." unique_id=469005054 instance=ExtResource("5_cbuj4")]
 unique_name_in_owner = true
 
 [node name="PauseMenu" parent="." unique_id=1387676273 instance=ExtResource("5_ycjph")]
 unique_name_in_owner = true
-
-[node name="Phone" parent="." unique_id=1631206121 instance=ExtResource("6_ee7ou")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1545496, 1, 0.277)
