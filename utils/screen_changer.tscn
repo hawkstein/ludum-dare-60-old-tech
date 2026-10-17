@@ -5,12 +5,16 @@
 [ext_resource type="PackedScene" uid="uid://vck4bl5wwflb" path="res://screens/main.tscn" id="3_0ty40"]
 [ext_resource type="PackedScene" uid="uid://bctrkav2hq5nh" path="res://utils/ui/credits_screen.tscn" id="4_p77q5"]
 [ext_resource type="PackedScene" uid="uid://d304m7pn6lnlt" path="res://utils/ui/scores_screen.tscn" id="5_yscu7"]
+[ext_resource type="PackedScene" uid="uid://crohtd4vptla0" path="res://screens/success.tscn" id="6_vr3sm"]
+[ext_resource type="PackedScene" uid="uid://dypp83aba6fhc" path="res://screens/failure.tscn" id="7_xmplb"]
 
 [node name="ScreenChanger" type="Node" unique_id=1076999280]
 script = ExtResource("1_ahmay")
 screens = Dictionary[StringName, PackedScene]({
 &"credits": ExtResource("4_p77q5"),
+&"failure": ExtResource("7_xmplb"),
 &"main": ExtResource("3_0ty40"),
 &"main_menu": ExtResource("2_stj24"),
-&"scores": ExtResource("5_yscu7")
+&"scores": ExtResource("5_yscu7"),
+&"success": ExtResource("6_vr3sm")
 })

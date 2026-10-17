@@ -20,6 +20,8 @@ class ActiveEvent:
 
 var _active: Array[ActiveEvent] = []
 var _targets: Dictionary[StringName, EventTarget] = {}
+var resolved: Dictionary[int, int] = {}
+var failed: Dictionary[int, int] = {}
 
 func _ready() -> void:
 	if phone:
@@ -31,6 +33,7 @@ func _process(delta: float) -> void:
 		event.time_left -= delta
 		if event.time_left <= 0.0:
 			_active.erase(event)
+			failed[event.bleep.severity] = failed.get(event.bleep.severity, 0) + 1
 			event_failed.emit(event.bleep, event.bleep.severity)
 
 
@@ -46,10 +49,16 @@ func track(bleep: Bleep) -> void:
 		_on_target_reached(bleep.target_id)
 
 
+## Are there active events?
+func is_idle() -> bool:
+	return _active.is_empty()
+
+
 func _on_target_reached(target_id: StringName) -> void:
 	for event in _active.duplicate():
 		if event.bleep.target_id == target_id:
 			_active.erase(event)
+			resolved[event.bleep.severity] = resolved.get(event.bleep.severity, 0) + 1
 			event_resolved.emit(event.bleep)
 
 
