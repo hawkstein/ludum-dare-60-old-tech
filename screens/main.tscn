@@ -78,11 +78,12 @@ extension = "4010"
 suffix = "4995"
 message = "Some followup on this patient in Major Injury 2, Bed 1  required"
 target_id = &"major2_bed1"
+time_limit = 25.0
 metadata/_custom_type_script = "uid://s7rv5glhh784"
 
 [sub_resource type="Resource" id="Resource_iwpbl"]
 script = ExtResource("3_nrb37")
-time = 12.0
+time = 10.0
 bleep = SubResource("Resource_owlgm")
 metadata/_custom_type_script = "uid://uty2uvhso70y"
 
@@ -107,6 +108,7 @@ extension = "6020"
 suffix = "4995"
 message = "Consult needed on this cardiac patient please at request of Dr Carter in Cardiac Care Unit Bed 2"
 target_id = &"ccu1_bed2"
+time_limit = 30.0
 metadata/_custom_type_script = "uid://s7rv5glhh784"
 
 [sub_resource type="Resource" id="Resource_1s7cm"]
@@ -135,7 +137,7 @@ metadata/_custom_type_script = "uid://uty2uvhso70y"
 script = ExtResource("4_owlgm")
 extension = "7401"
 suffix = "999"
-message = "Urgent reqeust for patient's previous doctor in Surgery 1!"
+message = "Urgent reqeust for patient's previous doctor in Surgery 2!"
 target_id = &"surgery2_bed1"
 severity = 1
 metadata/_custom_type_script = "uid://s7rv5glhh784"
@@ -152,7 +154,7 @@ extension = "1010"
 suffix = "1"
 message = "No rush, when you have a mo there's something interesting to see here in Minor Injury 1 Bed 1"
 target_id = &"minor1_bed1"
-time_limit = 30.0
+time_limit = 40.0
 metadata/_custom_type_script = "uid://s7rv5glhh784"
 
 [sub_resource type="Resource" id="Resource_ft7qg"]
@@ -167,6 +169,7 @@ extension = "3010"
 suffix = "1"
 message = "You owe me one so this difficult patient in Major Injury 1 Bed 1 is all yours"
 target_id = &"major1_bed1"
+time_limit = 40.0
 metadata/_custom_type_script = "uid://s7rv5glhh784"
 
 [sub_resource type="Resource" id="Resource_1dcbi"]
@@ -181,7 +184,6 @@ extension = "7401"
 suffix = "2222"
 message = "Patient is in arrest! Code resuscitation in Surgery 2!"
 target_id = &"surgery2_bed1"
-time_limit = 15.0
 severity = 1
 metadata/_custom_type_script = "uid://s7rv5glhh784"
 
@@ -197,11 +199,12 @@ extension = "7404"
 suffix = "1"
 message = "Patient would like to pass on their thanks and has a few follow up questions in Recovery Bed 4"
 target_id = &"recovery1_bed4"
+time_limit = 40.0
 metadata/_custom_type_script = "uid://s7rv5glhh784"
 
 [sub_resource type="Resource" id="Resource_mupnj"]
 script = ExtResource("3_nrb37")
-time = 10.0
+time = 15.0
 bleep = SubResource("Resource_i5cpu")
 metadata/_custom_type_script = "uid://uty2uvhso70y"
 
@@ -241,6 +244,7 @@ extension = "7301"
 suffix = "1"
 message = "No rush but there are some follow up questions from the surgical team in Surgery 1"
 target_id = &"surgery1_bed1"
+time_limit = 30.0
 metadata/_custom_type_script = "uid://s7rv5glhh784"
 
 [sub_resource type="Resource" id="Resource_bi2gy"]
@@ -255,13 +259,13 @@ extension = "5010"
 suffix = "999"
 message = "Patient emergency, drop everything and get to Trauma 1 now!"
 target_id = &"trauma1_bed1"
-time_limit = 12.0
+time_limit = 15.0
 severity = 1
 metadata/_custom_type_script = "uid://s7rv5glhh784"
 
 [sub_resource type="Resource" id="Resource_7v20j"]
 script = ExtResource("3_nrb37")
-time = 1.0
+time = 3.0
 bleep = SubResource("Resource_rmwy0")
 metadata/_custom_type_script = "uid://uty2uvhso70y"
 
