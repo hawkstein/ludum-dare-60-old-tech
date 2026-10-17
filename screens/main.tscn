@@ -67,8 +67,215 @@ metadata/_custom_type_script = "uid://s7rv5glhh784"
 
 [sub_resource type="Resource" id="Resource_b8li8"]
 script = ExtResource("3_nrb37")
-time = 15.0
+time = 12.0
 bleep = SubResource("Resource_qr0o4")
+metadata/_custom_type_script = "uid://uty2uvhso70y"
+
+[sub_resource type="Resource" id="Resource_owlgm"]
+script = ExtResource("4_owlgm")
+extension = "4010"
+suffix = "4995"
+message = "Some followup on this patient in Major Injury 2, Bed 1  required"
+target_id = &"major2_bed1"
+metadata/_custom_type_script = "uid://s7rv5glhh784"
+
+[sub_resource type="Resource" id="Resource_iwpbl"]
+script = ExtResource("3_nrb37")
+time = 12.0
+bleep = SubResource("Resource_owlgm")
+metadata/_custom_type_script = "uid://uty2uvhso70y"
+
+[sub_resource type="Resource" id="Resource_era8c"]
+script = ExtResource("4_owlgm")
+extension = "3040"
+suffix = "1"
+message = "No rush, check if this patient  in Majory Injury 1, Bed 4 can be discharged tomorrow"
+target_id = &"major1_bed4"
+time_limit = 40.0
+metadata/_custom_type_script = "uid://s7rv5glhh784"
+
+[sub_resource type="Resource" id="Resource_xd12c"]
+script = ExtResource("3_nrb37")
+time = 10.0
+bleep = SubResource("Resource_era8c")
+metadata/_custom_type_script = "uid://uty2uvhso70y"
+
+[sub_resource type="Resource" id="Resource_lwayx"]
+script = ExtResource("4_owlgm")
+extension = "6020"
+suffix = "4995"
+message = "Consult needed on this cardiac patient please at request of Dr Carter in Cardiac Care Unit Bed 2"
+target_id = &"ccu1_bed2"
+metadata/_custom_type_script = "uid://s7rv5glhh784"
+
+[sub_resource type="Resource" id="Resource_1s7cm"]
+script = ExtResource("3_nrb37")
+time = 10.0
+bleep = SubResource("Resource_lwayx")
+metadata/_custom_type_script = "uid://uty2uvhso70y"
+
+[sub_resource type="Resource" id="Resource_fu4o2"]
+script = ExtResource("4_owlgm")
+extension = "5010"
+suffix = "2222"
+message = "Patient is crashing again in Trauma 1!"
+target_id = &"trauma1_bed1"
+time_limit = 15.0
+severity = 1
+metadata/_custom_type_script = "uid://s7rv5glhh784"
+
+[sub_resource type="Resource" id="Resource_o25a7"]
+script = ExtResource("3_nrb37")
+time = 15.0
+bleep = SubResource("Resource_fu4o2")
+metadata/_custom_type_script = "uid://uty2uvhso70y"
+
+[sub_resource type="Resource" id="Resource_k2lyy"]
+script = ExtResource("4_owlgm")
+extension = "7401"
+suffix = "999"
+message = "Urgent reqeust for patient's previous doctor in Surgery 1!"
+target_id = &"surgery2_bed1"
+severity = 1
+metadata/_custom_type_script = "uid://s7rv5glhh784"
+
+[sub_resource type="Resource" id="Resource_g5qc2"]
+script = ExtResource("3_nrb37")
+time = 11.0
+bleep = SubResource("Resource_k2lyy")
+metadata/_custom_type_script = "uid://uty2uvhso70y"
+
+[sub_resource type="Resource" id="Resource_n85nt"]
+script = ExtResource("4_owlgm")
+extension = "1010"
+suffix = "1"
+message = "No rush, when you have a mo there's something interesting to see here in Minor Injury 1 Bed 1"
+target_id = &"minor1_bed1"
+time_limit = 30.0
+metadata/_custom_type_script = "uid://s7rv5glhh784"
+
+[sub_resource type="Resource" id="Resource_ft7qg"]
+script = ExtResource("3_nrb37")
+time = 5.0
+bleep = SubResource("Resource_n85nt")
+metadata/_custom_type_script = "uid://uty2uvhso70y"
+
+[sub_resource type="Resource" id="Resource_txw8p"]
+script = ExtResource("4_owlgm")
+extension = "3010"
+suffix = "1"
+message = "You owe me one so this difficult patient in Major Injury 1 Bed 1 is all yours"
+target_id = &"major1_bed1"
+metadata/_custom_type_script = "uid://s7rv5glhh784"
+
+[sub_resource type="Resource" id="Resource_1dcbi"]
+script = ExtResource("3_nrb37")
+time = 5.0
+bleep = SubResource("Resource_txw8p")
+metadata/_custom_type_script = "uid://uty2uvhso70y"
+
+[sub_resource type="Resource" id="Resource_yxj50"]
+script = ExtResource("4_owlgm")
+extension = "7401"
+suffix = "2222"
+message = "Patient is in arrest! Code resuscitation in Surgery 2!"
+target_id = &"surgery2_bed1"
+time_limit = 15.0
+severity = 1
+metadata/_custom_type_script = "uid://s7rv5glhh784"
+
+[sub_resource type="Resource" id="Resource_2ta00"]
+script = ExtResource("3_nrb37")
+time = 15.0
+bleep = SubResource("Resource_yxj50")
+metadata/_custom_type_script = "uid://uty2uvhso70y"
+
+[sub_resource type="Resource" id="Resource_i5cpu"]
+script = ExtResource("4_owlgm")
+extension = "7404"
+suffix = "1"
+message = "Patient would like to pass on their thanks and has a few follow up questions in Recovery Bed 4"
+target_id = &"recovery1_bed4"
+metadata/_custom_type_script = "uid://s7rv5glhh784"
+
+[sub_resource type="Resource" id="Resource_mupnj"]
+script = ExtResource("3_nrb37")
+time = 10.0
+bleep = SubResource("Resource_i5cpu")
+metadata/_custom_type_script = "uid://uty2uvhso70y"
+
+[sub_resource type="Resource" id="Resource_ivls5"]
+script = ExtResource("4_owlgm")
+extension = "7103"
+suffix = "4995"
+message = "Consult needed for Intensive Care Unit Bed 3"
+target_id = &"icu1_bed3"
+time_limit = 30.0
+metadata/_custom_type_script = "uid://s7rv5glhh784"
+
+[sub_resource type="Resource" id="Resource_jfmve"]
+script = ExtResource("3_nrb37")
+time = 10.0
+bleep = SubResource("Resource_ivls5")
+metadata/_custom_type_script = "uid://uty2uvhso70y"
+
+[sub_resource type="Resource" id="Resource_ubl6d"]
+script = ExtResource("4_owlgm")
+extension = "7201"
+suffix = "3451"
+message = "Easy peasy when you have a mo in ICU 2 Bed 1"
+target_id = &"icu2_bed1"
+time_limit = 30.0
+metadata/_custom_type_script = "uid://s7rv5glhh784"
+
+[sub_resource type="Resource" id="Resource_46mcu"]
+script = ExtResource("3_nrb37")
+time = 3.0
+bleep = SubResource("Resource_ubl6d")
+metadata/_custom_type_script = "uid://uty2uvhso70y"
+
+[sub_resource type="Resource" id="Resource_a42hq"]
+script = ExtResource("4_owlgm")
+extension = "7301"
+suffix = "1"
+message = "No rush but there are some follow up questions from the surgical team in Surgery 1"
+target_id = &"surgery1_bed1"
+metadata/_custom_type_script = "uid://s7rv5glhh784"
+
+[sub_resource type="Resource" id="Resource_bi2gy"]
+script = ExtResource("3_nrb37")
+time = 3.0
+bleep = SubResource("Resource_a42hq")
+metadata/_custom_type_script = "uid://uty2uvhso70y"
+
+[sub_resource type="Resource" id="Resource_rmwy0"]
+script = ExtResource("4_owlgm")
+extension = "5010"
+suffix = "999"
+message = "Patient emergency, drop everything and get to Trauma 1 now!"
+target_id = &"trauma1_bed1"
+time_limit = 12.0
+severity = 1
+metadata/_custom_type_script = "uid://s7rv5glhh784"
+
+[sub_resource type="Resource" id="Resource_7v20j"]
+script = ExtResource("3_nrb37")
+time = 1.0
+bleep = SubResource("Resource_rmwy0")
+metadata/_custom_type_script = "uid://uty2uvhso70y"
+
+[sub_resource type="Resource" id="Resource_rv5xl"]
+script = ExtResource("4_owlgm")
+extension = "7504"
+suffix = "4995"
+message = "Feels like this shift will never end, help out with Recovery Bed 4 one last time?"
+target_id = &"reovery1_bed4"
+metadata/_custom_type_script = "uid://s7rv5glhh784"
+
+[sub_resource type="Resource" id="Resource_ih88u"]
+script = ExtResource("3_nrb37")
+time = 10.0
+bleep = SubResource("Resource_rv5xl")
 metadata/_custom_type_script = "uid://uty2uvhso70y"
 
 [node name="Main" type="Node3D" unique_id=438766484]
@@ -84,9 +291,9 @@ shadow_enabled = true
 [node name="Level" type="Node3D" parent="." unique_id=239694746]
 
 [node name="Floor" type="CSGBox3D" parent="Level" unique_id=1989360109]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9563904, -0.5, 16.36243)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4928284, -0.5, 21.58603)
 use_collision = true
-size = Vector3(80.549255, 1, 78.588066)
+size = Vector3(91.82805, 1, 72.1606)
 material = SubResource("StandardMaterial3D_cd33c")
 metadata/_edit_lock_ = true
 
@@ -690,7 +897,7 @@ bus = &"Music"
 [node name="BleepTimeline" type="Node" parent="." unique_id=2140517253]
 unique_name_in_owner = true
 script = ExtResource("2_ramac")
-events = Array[ExtResource("3_nrb37")]([SubResource("Resource_cd33c"), SubResource("Resource_nrb37"), SubResource("Resource_b8li8")])
+events = Array[ExtResource("3_nrb37")]([SubResource("Resource_cd33c"), SubResource("Resource_nrb37"), SubResource("Resource_b8li8"), SubResource("Resource_iwpbl"), SubResource("Resource_xd12c"), SubResource("Resource_1s7cm"), SubResource("Resource_o25a7"), SubResource("Resource_g5qc2"), SubResource("Resource_ft7qg"), SubResource("Resource_1dcbi"), SubResource("Resource_2ta00"), SubResource("Resource_mupnj"), SubResource("Resource_jfmve"), SubResource("Resource_46mcu"), SubResource("Resource_bi2gy"), SubResource("Resource_7v20j"), SubResource("Resource_ih88u")])
 metadata/_custom_type_script = "uid://b7e81rn1pwe8d"
 
 [node name="EventTracker" type="Node" parent="." unique_id=340607232 node_paths=PackedStringArray("messages")]
