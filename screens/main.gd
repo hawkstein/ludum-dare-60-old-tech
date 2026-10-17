@@ -4,6 +4,23 @@ extends Node3D
 @export var end_speaker := "Medical Director"
 @export var end_message_duration := 2.5
 
+const JOY_BUTTON_NAMES := {
+	JOY_BUTTON_A: "A",
+	JOY_BUTTON_B: "B",
+	JOY_BUTTON_X: "X",
+	JOY_BUTTON_Y: "Y",
+	JOY_BUTTON_BACK: "Back",
+	JOY_BUTTON_START: "Start",
+	JOY_BUTTON_LEFT_STICK: "LS",
+	JOY_BUTTON_RIGHT_STICK: "RS",
+	JOY_BUTTON_LEFT_SHOULDER: "LB",
+	JOY_BUTTON_RIGHT_SHOULDER: "RB",
+	JOY_BUTTON_DPAD_UP: "D-Pad Up",
+	JOY_BUTTON_DPAD_DOWN: "D-Pad Down",
+	JOY_BUTTON_DPAD_LEFT: "D-Pad Left",
+	JOY_BUTTON_DPAD_RIGHT: "D-Pad Right",
+}
+
 @onready var player: ThirdPersonPlayer = %ThirdPersonPlayer
 @onready var pager: PagerLayer = %PagerLayer
 @onready var pause_menu: PauseMenu = %PauseMenu
@@ -11,9 +28,11 @@ extends Node3D
 @onready var tracker: EventTracker = %EventTracker
 @onready var message: MessageLayer = %MessageLayer
 @onready var alert: PanelContainer = %PagerAlertPanel
+@onready var alert_label: Label = %PagerAlertLabel
 
 var _ended := false
 var _alert_tween: Tween
+var _using_gamepad := false
 
 func _ready() -> void:
 	pager.open_changed.connect(_on_pager_open_changed)
@@ -94,6 +113,7 @@ func _display_alert(_bleep: Bleep) -> void:
 		alert.modulate.a = 0.0
 		alert.offset_transform_position.y = 0.0
 		alert.show()
+		alert_label.text = "New Bleep! (Press %s)" % _pager_binding_text()
 	_tween_alert(1.0, -100.0)
 
 
@@ -111,3 +131,29 @@ func _tween_alert(alpha: float, y: float) -> Tween:
 	_alert_tween.tween_property(alert, "offset_transform_position:y", y, 0.5)
 	return _alert_tween
 		
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventJoypadButton:
+		_using_gamepad = true
+	elif event is InputEventJoypadMotion and absf(event.axis_value) > 0.5:
+		_using_gamepad = true
+	elif event is InputEventKey or event is InputEventMouseButton:
+		_using_gamepad = false
+
+
+func _pager_binding_text() -> String:
+	var fallback := ""
+	for event in InputMap.action_get_events(&"Pager"):
+		var text := ""
+		if event is InputEventKey:
+			text = OS.get_keycode_string((event as InputEventKey).keycode)
+		elif event is InputEventJoypadButton:
+			var button := (event as InputEventJoypadButton).button_index
+			text = JOY_BUTTON_NAMES.get(button, "Button %d" % button)
+		if text.is_empty():
+			continue
+		if (event is InputEventJoypadButton) == _using_gamepad:
+			return text
+		if fallback.is_empty():
+			fallback = text
+	return fallback

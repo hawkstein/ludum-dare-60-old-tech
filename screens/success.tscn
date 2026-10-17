@@ -46,9 +46,11 @@ horizontal_alignment = 1
 [node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1630346520]
 unique_name_in_owner = true
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=223968411]
 layout_mode = 2
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="PlayAgainButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=35267962]

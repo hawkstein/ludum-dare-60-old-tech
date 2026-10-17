@@ -6,7 +6,6 @@ signal event_resolved(bleep: Bleep)
 signal event_failed(bleep: Bleep, severity: Bleep.Severity)
 
 @export var messages: MessageLayer
-@export var phone: PlayerZone
 @export var phone_speaker := "Switchboard"
 
 class ActiveEvent:
@@ -24,7 +23,7 @@ var resolved: Dictionary[int, int] = {}
 var failed: Dictionary[int, int] = {}
 
 func _ready() -> void:
-	if phone:
+	for phone:PlayerZone in get_tree().get_nodes_in_group(&"phones"):
 		phone.player_entered.connect(_on_phone_reached)
 
 

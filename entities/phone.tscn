@@ -11,7 +11,7 @@ size = Vector3(0.8, 0.8, 0.8)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jsgin"]
 albedo_color = Color(0.92941177, 0.23529412, 0.28235295, 1)
 
-[node name="Phone" type="Area3D" unique_id=1631206121]
+[node name="Phone" type="Area3D" unique_id=1631206121 groups=["phones"]]
 script = ExtResource("1_t5kw1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1420103701]
