@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://j13ynqbsm7cp" path="res://utils/ui/message_layer.gd" id="1_cqwuf"]
 [ext_resource type="AudioStream" uid="uid://6vmt1f63hpvs" path="res://utils/ui/push-to-talk.mp3" id="1_pgufn"]
+[ext_resource type="AudioStream" uid="uid://du5k8wt4wsjvk" path="res://utils/ui/Happy Chime.wav" id="2_s72a1"]
+[ext_resource type="AudioStream" uid="uid://bnmk5x04xlet0" path="res://utils/ui/Soft Failure.wav" id="3_susgo"]
 
 [node name="MessageLayer" type="CanvasLayer" unique_id=1692279544]
 layer = 5
 script = ExtResource("1_cqwuf")
+success_sound = ExtResource("2_s72a1")
+failure_sound = ExtResource("3_susgo")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2060889866]
 anchors_preset = 15

@@ -31,26 +31,26 @@ func _on_pager_open_changed(open: bool) -> void:
 func _on_event_failed(_bleep: Bleep, severity: Bleep.Severity) -> void:
 	var normal_failures: int = tracker.failed.get(Bleep.Severity.NORMAL, 0)
 	if severity == Bleep.Severity.CRITICAL:
-		_end(&"failure", "Patient lost! You didn't make it in time.")
+		_end(&"failure", "Patient lost! You didn't make it in time.", MessageLayer.Sound.FAILURE)
 	elif normal_failures >= max_normal_failures:
-		_end(&"failure", "Too many bleeps went unanswered.")
+		_end(&"failure", "Too many bleeps went unanswered.", MessageLayer.Sound.FAILURE)
 	else:
-		message.show_message("Missed a bleep! (%d/%d)" % [normal_failures, max_normal_failures], end_speaker)
+		message.show_message("Missed a bleep! (%d/%d)" % [normal_failures, max_normal_failures], end_speaker, -1.0, MessageLayer.Sound.FAILURE)
 		_check_success()
 
 
 func _on_event_resolved(_bleep: Bleep) -> void:
-	message.show_message("Well done", end_speaker)
+	message.show_message("Well done", end_speaker, -1.0, MessageLayer.Sound.SUCCESS)
 	_check_success()
 
 
 func _check_success() -> void:
 	if timeline.is_finished() and tracker.is_idle():
-		_end(&"success", "That's the end of your shift.")
+		_end(&"success", "That's the end of your shift.", MessageLayer.Sound.SUCCESS)
 
 
 ## Play the closing line, then fade to the end screen. Only the first call counts.
-func _end(screen: StringName, text := "") -> void:
+func _end(screen: StringName, text := "", sound := MessageLayer.Sound.DEFAULT) -> void:
 	if _ended:
 		return
 	_ended = true
@@ -58,7 +58,7 @@ func _end(screen: StringName, text := "") -> void:
 	_save_score()
 	if not text.is_empty():
 		message.clear()
-		message.show_message(text, end_speaker, end_message_duration)
+		message.show_message(text, end_speaker, end_message_duration, sound)
 		await message.queue_finished
 	ScreenChanger.change_to(screen)
 

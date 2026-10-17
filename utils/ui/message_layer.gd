@@ -5,8 +5,14 @@ extends CanvasLayer
 signal message_shown(text: String, speaker: String)
 signal queue_finished
 
+## Which sound a message plays as it appears.
+enum Sound { DEFAULT, SUCCESS, FAILURE, NONE }
+
 @export var default_duration := 4.0
 @export var fade_time := 0.25
+@export var default_sound: AudioStream
+@export var success_sound: AudioStream
+@export var failure_sound: AudioStream
 
 @onready var panel: Control = %Panel
 @onready var speaker_label: Label = %SpeakerLabel
@@ -24,8 +30,8 @@ func _ready() -> void:
 
 
 ## Queue a message
-func show_message(text: String, speaker := "", duration := -1.0) -> void:
-	_queue.append({text = text, speaker = speaker, duration = duration if duration >= 0.0 else default_duration})
+func show_message(text: String, speaker := "", duration := -1.0, sound := Sound.DEFAULT) -> void:
+	_queue.append({text = text, speaker = speaker, duration = duration if duration >= 0.0 else default_duration, sound = sound})
 	if not _running:
 		_run_queue()
 
@@ -48,7 +54,9 @@ func _run_queue() -> void:
 		speaker_label.visible = not message.speaker.is_empty()
 		message_label.text = message.text
 		panel.show()
-		if sfx_player.stream:
+		var stream := _stream_for(message.sound)
+		if stream:
+			sfx_player.stream = stream
 			sfx_player.play()
 		message_shown.emit(message.text, message.speaker)
 
@@ -65,6 +73,17 @@ func _run_queue() -> void:
 	panel.hide()
 	_running = false
 	queue_finished.emit()
+
+
+func _stream_for(sound: Sound) -> AudioStream:
+	match sound:
+		Sound.SUCCESS:
+			return success_sound
+		Sound.FAILURE:
+			return failure_sound
+		Sound.NONE:
+			return null
+	return default_sound
 
 
 func _fade(alpha: float) -> Tween:
