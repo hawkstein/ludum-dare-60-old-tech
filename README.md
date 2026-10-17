@@ -1,10 +1,10 @@
-# godot-3d-template
+# Ludum Dare 60 - Theme: Old Tech
 
-This is a template for quickly starting a 3D Godot project in a game jam.
-Replace this README with a description of the jam it's being used for and the game.
+## Pager Dash
 
-## Features
-- HTML5 export
-- ScreenChanger. Add scenes in the IDE to the autoload scene with a key and then use `ScreenChanger.change_to(key)`
-- JSON save data (inputs, audio & game config)
-- AudioManager with bus
+A game about being a young doctor juggling their pager bleeps, they must resolve critical and less-critical events in time to survive their shift. Fail at a critical event like a resuscitation in A&E (US translation: ER) or by missing too many tasks in the other wards.
+
+### Features
+- Top-down 3D world, 8 way character controls
+- Pager overlay with only extension + suffix per bleep, so players must learn what they mean
+- Dialogue with staff and patients for the events
