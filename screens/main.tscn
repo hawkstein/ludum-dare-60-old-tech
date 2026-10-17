@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://omkrdyrq3u73" path="res://screens/main.gd" id="1_la406"]
 [ext_resource type="PackedScene" uid="uid://icg5dtww7q44" path="res://entities/player/third_person_player.tscn" id="2_ee7ou"]
+[ext_resource type="PackedScene" uid="uid://ct1udy2spro71" path="res://entities/sign.tscn" id="2_owlgm"]
 [ext_resource type="Script" uid="uid://b7e81rn1pwe8d" path="res://utils/pager/bleep_timeline.gd" id="2_ramac"]
 [ext_resource type="Script" uid="uid://uty2uvhso70y" path="res://utils/pager/bleep_event.gd" id="3_nrb37"]
 [ext_resource type="Script" uid="uid://s7rv5glhh784" path="res://utils/pager/bleep.gd" id="4_owlgm"]
@@ -304,6 +305,10 @@ size = Vector3(36.91992, 3, 0.7)
 
 [node name="MinorInjury1" type="Node3D" parent="Level" unique_id=1789508531]
 
+[node name="Sign" parent="Level/MinorInjury1" unique_id=866085770 instance=ExtResource("2_owlgm")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.9410872, 2.1188965, -4.540161)
+text = "Minor Injury 1"
+
 [node name="Bed" parent="Level/MinorInjury1" unique_id=1517169828 instance=ExtResource("5_la406")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.127548, 1, -6.641997)
 target_id = &"minor1_bed1"
@@ -320,6 +325,12 @@ target_id = &"minor1_bed2"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.577789, 1, -0.9109609)
 target_id = &"minor1_bed3"
 
+[node name="Sign4" parent="Level/MinorInjury1" unique_id=1818753383 instance=ExtResource("2_owlgm")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -14.190584, 2.1188965, 0.206604)
+text = "4"
+board_size = Vector2(0.8, 0.8)
+font_size = 128
+
 [node name="Partition" type="CSGBox3D" parent="Level/MinorInjury1" unique_id=1082055537]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.531282, 1.5, 0.5916443)
 use_collision = true
@@ -335,76 +346,95 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.3
 use_collision = true
 size = Vector3(4.480007, 3, 0.7)
 
-[node name="NorthWard2" type="Node3D" parent="Level" unique_id=1859686947]
+[node name="MinorInjury2" type="Node3D" parent="Level" unique_id=1859686947]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.838656)
 
-[node name="Bed" parent="Level/NorthWard2" unique_id=1034129811 instance=ExtResource("5_la406")]
+[node name="Bed" parent="Level/MinorInjury2" unique_id=1034129811 instance=ExtResource("5_la406")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.127548, 1, -6.641997)
 target_id = &"minor2_bed1"
 
-[node name="Bed2" parent="Level/NorthWard2" unique_id=1950494729 instance=ExtResource("5_la406")]
+[node name="Bed2" parent="Level/MinorInjury2" unique_id=1950494729 instance=ExtResource("5_la406")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.124872, 1, -0.8506572)
 target_id = &"minor2_bed4"
 
-[node name="Bed3" parent="Level/NorthWard2" unique_id=38470701 instance=ExtResource("5_la406")]
+[node name="Bed3" parent="Level/MinorInjury2" unique_id=38470701 instance=ExtResource("5_la406")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.577789, 1, -6.641997)
 target_id = &"minor2_bed2"
 
-[node name="Bed4" parent="Level/NorthWard2" unique_id=1116705578 instance=ExtResource("5_la406")]
+[node name="Bed4" parent="Level/MinorInjury2" unique_id=1116705578 instance=ExtResource("5_la406")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.577789, 1, -0.9109609)
 target_id = &"minor2_bed3"
 
-[node name="Partition" type="CSGBox3D" parent="Level/NorthWard2" unique_id=526375188]
+[node name="Partition" type="CSGBox3D" parent="Level/MinorInjury2" unique_id=526375188]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.531282, 1.5, 0.5916443)
 use_collision = true
 size = Vector3(10.906494, 3, 0.7)
 
-[node name="Partition2" type="CSGBox3D" parent="Level/NorthWard2" unique_id=1641411171]
+[node name="Partition2" type="CSGBox3D" parent="Level/MinorInjury2" unique_id=1641411171]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.3205767, 1.5, -0.03999293)
 use_collision = true
 size = Vector3(1.9573288, 3, 0.7)
 
-[node name="Partition3" type="CSGBox3D" parent="Level/NorthWard2" unique_id=1569950723]
+[node name="Partition3" type="CSGBox3D" parent="Level/MinorInjury2" unique_id=1569950723]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.3205767, 1.5, -5.7038245)
 use_collision = true
 size = Vector3(4.480007, 3, 0.7)
 
-[node name="NorthWard3" type="Node3D" parent="Level" unique_id=122092848]
+[node name="Sign2" parent="Level/MinorInjury2" unique_id=1300450050 instance=ExtResource("2_owlgm")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.9410872, 2.1188965, -4.514682)
+text = "Minor Injury 2"
+
+[node name="Sign3" parent="Level/MinorInjury2" unique_id=512422642 instance=ExtResource("2_owlgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.536516, 2.1188965, -7.8267546)
+text = "2"
+board_size = Vector2(0.8, 0.8)
+font_size = 128
+
+[node name="MajorInjury1" type="Node3D" parent="Level" unique_id=122092848]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.602768)
 
-[node name="Bed" parent="Level/NorthWard3" unique_id=1076581996 instance=ExtResource("5_la406")]
+[node name="WardSign" parent="Level/MajorInjury1" unique_id=810370458 instance=ExtResource("2_owlgm")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.9410872, 2.1188965, -4.565048)
+text = "Major Injury 1"
+
+[node name="Bed" parent="Level/MajorInjury1" unique_id=1076581996 instance=ExtResource("5_la406")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.127548, 1, -6.641997)
 target_id = &"major1_bed1"
 
-[node name="Bed2" parent="Level/NorthWard3" unique_id=1704311982 instance=ExtResource("5_la406")]
+[node name="Bed2" parent="Level/MajorInjury1" unique_id=1704311982 instance=ExtResource("5_la406")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.124872, 1, -0.8506572)
 target_id = &"major1_bed4"
 
-[node name="Bed3" parent="Level/NorthWard3" unique_id=1529092411 instance=ExtResource("5_la406")]
+[node name="Bed3" parent="Level/MajorInjury1" unique_id=1529092411 instance=ExtResource("5_la406")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.577789, 1, -6.641997)
 target_id = &"major1_bed2"
 
-[node name="Bed4" parent="Level/NorthWard3" unique_id=635063061 instance=ExtResource("5_la406")]
+[node name="Bed4" parent="Level/MajorInjury1" unique_id=635063061 instance=ExtResource("5_la406")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.577789, 1, -0.9109609)
 target_id = &"major1_bed3"
 
-[node name="Partition" type="CSGBox3D" parent="Level/NorthWard3" unique_id=764796555]
+[node name="Partition" type="CSGBox3D" parent="Level/MajorInjury1" unique_id=764796555]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.531282, 1.5, 0.5916443)
 use_collision = true
 size = Vector3(10.906494, 3, 0.7)
 
-[node name="Partition2" type="CSGBox3D" parent="Level/NorthWard3" unique_id=698937589]
+[node name="Partition2" type="CSGBox3D" parent="Level/MajorInjury1" unique_id=698937589]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.3205767, 1.5, -0.03999293)
 use_collision = true
 size = Vector3(1.9573288, 3, 0.7)
 
-[node name="Partition3" type="CSGBox3D" parent="Level/NorthWard3" unique_id=790725077]
+[node name="Partition3" type="CSGBox3D" parent="Level/MajorInjury1" unique_id=790725077]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.3205767, 1.5, -5.7038245)
 use_collision = true
 size = Vector3(4.480007, 3, 0.7)
 
 [node name="Trauma1" type="Node3D" parent="Level" unique_id=165298376]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.526671, 0, 26.155787)
+
+[node name="WardSign2" parent="Level/Trauma1" unique_id=839176809 instance=ExtResource("2_owlgm")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.9434695, 2.1188965, -6.784876)
+text = "Trauma 1"
+board_size = Vector2(1.2, 0.8)
 
 [node name="Bed" parent="Level/Trauma1" unique_id=316551403 instance=ExtResource("5_la406")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.818375, 1, -4.392597)
@@ -447,6 +477,11 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.3
 use_collision = true
 size = Vector3(2.318668, 3, 0.7)
 
+[node name="WardSign3" parent="Level/Trauma2" unique_id=2139391709 instance=ExtResource("2_owlgm")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.9434695, 2.1188965, -6.7146378)
+text = "Trauma 2"
+board_size = Vector2(1.2, 0.8)
+
 [node name="Trauma3" type="Node3D" parent="Level" unique_id=1659534707]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.526671, 0, 39.540775)
 
@@ -468,6 +503,11 @@ size = Vector3(2.2214727, 3, 0.7)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.320577, 1.5, -7.0022964)
 use_collision = true
 size = Vector3(2.318668, 3, 0.7)
+
+[node name="WardSign4" parent="Level/Trauma3" unique_id=737612308 instance=ExtResource("2_owlgm")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.9434695, 2.1188965, -6.6604347)
+text = "Trauma 3"
+board_size = Vector2(1.2, 0.8)
 
 [node name="MajorInjury2" type="Node3D" parent="Level" unique_id=371452307]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.510832, 0, 32.232468)
@@ -502,6 +542,16 @@ size = Vector3(1.9573288, 3, 0.7)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.810414, 1.5, -5.703825)
 use_collision = true
 size = Vector3(4.480007, 3, 0.7)
+
+[node name="WardSign2" parent="Level/MajorInjury2" unique_id=1934650928 instance=ExtResource("2_owlgm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16.230057, 2.1188965, -4.5399017)
+text = "Major Injury 2"
+
+[node name="Sign4" parent="Level/MajorInjury2" unique_id=795497413 instance=ExtResource("2_owlgm")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -13.352676, 2.1188965, 0.20472717)
+text = "2"
+board_size = Vector2(0.8, 0.8)
+font_size = 128
 
 [node name="BlockedOffRoom" type="Node3D" parent="Level" unique_id=357719040]
 
@@ -570,6 +620,10 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.5
 use_collision = true
 size = Vector3(10.057334, 3, 0.7)
 
+[node name="WardSign3" parent="Level/DoctorsLounge" unique_id=735825895 instance=ExtResource("2_owlgm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.425349, 2.1188965, 20.379257)
+text = "Doctor's Lounge"
+
 [node name="NursesStation" type="Node3D" parent="Level" unique_id=622881899]
 
 [node name="NursesDesk" type="CSGBox3D" parent="Level/NursesStation" unique_id=520053847]
@@ -635,9 +689,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.572102, 1, -0.91096103)
 target_id = &"icu1_bed1"
 
 [node name="Partition" type="CSGBox3D" parent="Level/ICU1" unique_id=989218459]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.900707, 1.5, 0.5916443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.824505, 1.5, 0.5916443)
 use_collision = true
-size = Vector3(10.100708, 3, 0.7)
+size = Vector3(9.948303, 3, 0.7)
 
 [node name="Partition2" type="CSGBox3D" parent="Level/ICU1" unique_id=1071542942]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.582729, 1.5, -0.039993286)
@@ -648,6 +702,11 @@ size = Vector3(1.9573288, 3, 0.7)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.582729, 1.5, -5.703825)
 use_collision = true
 size = Vector3(4.480007, 3, 0.7)
+
+[node name="WardSign3" parent="Level/ICU1" unique_id=1534504989 instance=ExtResource("2_owlgm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.956432, 2.1188965, -4.4633546)
+text = "ICU 1"
+board_size = Vector2(1.2, 0.8)
 
 [node name="Recovery1" type="Node3D" parent="Level" unique_id=1841422959]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.134304, 0, 46.47194)
@@ -669,9 +728,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.572102, 1, -0.91096103)
 target_id = &"recovery1_bed1"
 
 [node name="Partition" type="CSGBox3D" parent="Level/Recovery1" unique_id=1782933722]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.900707, 1.5, 0.5916443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.85722, 1.5, 0.5916443)
 use_collision = true
-size = Vector3(10.100708, 3, 0.7)
+size = Vector3(10.013733, 3, 0.7)
 
 [node name="Partition2" type="CSGBox3D" parent="Level/Recovery1" unique_id=1516921617]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.582729, 1.5, 1.5532494)
@@ -688,6 +747,11 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.3
 use_collision = true
 size = Vector3(8.538832, 3, 0.7)
 
+[node name="WardSign6" parent="Level/Recovery1" unique_id=1513540853 instance=ExtResource("2_owlgm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.964062, 2.1188965, -6.067974)
+text = "Recovery"
+board_size = Vector2(1.2, 0.8)
+
 [node name="Preop1" type="Node3D" parent="Level" unique_id=1635014268]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.8010025, 0, 58.561855)
 
@@ -700,9 +764,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.572102, 1.141304, -0.91096
 target_id = &"preop1_bed1"
 
 [node name="Partition" type="CSGBox3D" parent="Level/Preop1" unique_id=1066067395]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.900707, 1.5, 0.5916443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.839397, 1.5, 0.5916443)
 use_collision = true
-size = Vector3(10.100708, 3, 0.7)
+size = Vector3(9.978088, 3, 0.7)
 
 [node name="Partition2" type="CSGBox3D" parent="Level/Preop1" unique_id=888430508]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.582729, 1.5, -0.039993286)
@@ -722,9 +786,9 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.
 target_id = &"surgery1_bed1"
 
 [node name="Partition" type="CSGBox3D" parent="Level/Surgery1" unique_id=1179853056]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.900707, 1.5, 0.5916443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.841106, 1.5, 0.59164524)
 use_collision = true
-size = Vector3(10.100708, 3, 0.7)
+size = Vector3(9.981506, 3, 0.7)
 
 [node name="Partition2" type="CSGBox3D" parent="Level/Surgery1" unique_id=229434976]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.582729, 1.5, -0.64972115)
@@ -736,6 +800,11 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.
 use_collision = true
 size = Vector3(2.5174627, 3, 0.7)
 
+[node name="WardSign4" parent="Level/Surgery1" unique_id=589894426 instance=ExtResource("2_owlgm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.956432, 2.1188965, -1.3203554)
+text = "Surgery 1"
+board_size = Vector2(1.2, 0.8)
+
 [node name="Surgery2" type="Node3D" parent="Level" unique_id=278626827]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.780067, 0, 58.561855)
 
@@ -744,14 +813,14 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.
 target_id = &"surgery2_bed1"
 
 [node name="Partition" type="CSGBox3D" parent="Level/Surgery2" unique_id=1568811991]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.900707, 1.5, 0.5916443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.827679, 1.5, 0.5916443)
 use_collision = true
-size = Vector3(10.100708, 3, 0.7)
+size = Vector3(9.954651, 3, 0.7)
 
 [node name="Partition4" type="CSGBox3D" parent="Level/Surgery2" unique_id=2012769165]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.900707, 1.5, -6.720463)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.888714, 1.5, -6.720463)
 use_collision = true
-size = Vector3(10.100708, 3, 0.7)
+size = Vector3(10.076721, 3, 0.7)
 
 [node name="Partition2" type="CSGBox3D" parent="Level/Surgery2" unique_id=1599520564]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.582729, 1.5, -0.64972115)
@@ -763,8 +832,18 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.
 use_collision = true
 size = Vector3(2.5174627, 3, 0.7)
 
+[node name="WardSign5" parent="Level/Surgery2" unique_id=303748188 instance=ExtResource("2_owlgm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.956432, 2.1188965, -1.3562984)
+text = "Surgery 2"
+board_size = Vector2(1.2, 0.8)
+
 [node name="ICU2" type="Node3D" parent="Level" unique_id=2145874028]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.933997, 0, 58.561855)
+
+[node name="WardSign2" parent="Level/ICU2" unique_id=118775277 instance=ExtResource("2_owlgm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.956432, 2.1188965, -4.4371223)
+text = "ICU 2"
+board_size = Vector2(1.2, 0.8)
 
 [node name="Bed" parent="Level/ICU2" unique_id=939978513 instance=ExtResource("5_la406")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1218605, 1, -6.6419964)
@@ -783,9 +862,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.572102, 1, -0.91096103)
 target_id = &"icu2_bed1"
 
 [node name="Partition" type="CSGBox3D" parent="Level/ICU2" unique_id=228303684]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.900707, 1.5, 0.5916443)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.848919, 1.5, 0.5916443)
 use_collision = true
-size = Vector3(10.100708, 3, 0.7)
+size = Vector3(9.997131, 3, 0.7)
 
 [node name="Partition2" type="CSGBox3D" parent="Level/ICU2" unique_id=913388302]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.582729, 1.5, -0.039993286)
@@ -830,6 +909,11 @@ size = Vector3(1.9573288, 3, 0.7)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.582729, 1.5, -5.703825)
 use_collision = true
 size = Vector3(4.480007, 3, 0.7)
+
+[node name="WardSign" parent="Level/CCU1" unique_id=96482772 instance=ExtResource("2_owlgm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.956432, 2.1188965, -4.998678)
+text = "Cardiac Care Unit"
+board_size = Vector2(1.2, 0.8)
 
 [node name="Partition4" type="CSGBox3D" parent="Level" unique_id=355109060]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24.248386, 1.5, 43.860584)

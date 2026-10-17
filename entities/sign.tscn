@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://ct1udy2spro71"]
+
+[ext_resource type="Script" uid="uid://c0hhqkj11qcdv" path="res://entities/sign.gd" id="1_1rpqm"]
+[ext_resource type="FontFile" uid="uid://br3rou4c1jn8a" path="res://assets/fonts/Lato-Bold.ttf" id="2_b621t"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cd33c"]
+resource_local_to_scene = true
+size = Vector3(1.6, 0.8, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wysbo"]
+resource_local_to_scene = true
+albedo_color = Color(0.16470589, 0.39215687, 0.21568628, 1)
+
+[node name="Sign" type="Node3D" unique_id=866085770]
+script = ExtResource("1_1rpqm")
+
+[node name="Board" type="MeshInstance3D" parent="." unique_id=1081915273]
+unique_name_in_owner = true
+mesh = SubResource("BoxMesh_cd33c")
+surface_material_override/0 = SubResource("StandardMaterial3D_wysbo")
+
+[node name="Text" type="Label3D" parent="." unique_id=256483407]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.03)
+pixel_size = 0.003
+double_sided = false
+text = "Sign"
+font = ExtResource("2_b621t")
+font_size = 64
+outline_size = 0
+autowrap_mode = 2
+width = 480.0
