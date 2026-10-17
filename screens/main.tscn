@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://vck4bl5wwflb"]
+
+[ext_resource type="Script" uid="uid://omkrdyrq3u73" path="res://screens/main.gd" id="1_la406"]
+[ext_resource type="PackedScene" uid="uid://icg5dtww7q44" path="res://entities/player/third_person_player.tscn" id="2_ee7ou"]
+[ext_resource type="PackedScene" uid="uid://cbuas17ydfjcl" path="res://utils/ui/message_layer.tscn" id="4_tci2t"]
+[ext_resource type="PackedScene" uid="uid://bkpggl0lwqmju" path="res://screens/pause_menu.tscn" id="5_ycjph"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1bvp3"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_lquwl"]
+sky_material = SubResource("ProceduralSkyMaterial_1bvp3")
+
+[sub_resource type="Environment" id="Environment_7mycd"]
+background_mode = 2
+sky = SubResource("Sky_lquwl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cd33c"]
+albedo_color = Color(0.32172796, 0.32172796, 0.32172796, 1)
+
+[node name="Main" type="Node3D" unique_id=438766484]
+script = ExtResource("1_la406")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1400865103]
+environment = SubResource("Environment_7mycd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=186871282]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Level" type="Node3D" parent="." unique_id=239694746]
+
+[node name="Floor" type="CSGBox3D" parent="Level" unique_id=1989360109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(40, 1, 40)
+material = SubResource("StandardMaterial3D_cd33c")
+metadata/_edit_lock_ = true
+
+[node name="NorthWall" type="CSGBox3D" parent="Level" unique_id=541581789]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.84765625, 1.5, -8)
+use_collision = true
+size = Vector3(36.91992, 3, 0.7)
+
+[node name="SouthWall" type="CSGBox3D" parent="Level" unique_id=1679676882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.84765625, 1.5, 19.52106)
+use_collision = true
+size = Vector3(36.91992, 3, 0.7)
+
+[node name="Partition" type="CSGBox3D" parent="Level" unique_id=1082055537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0217285, 1.5, 0.5916443)
+use_collision = true
+size = Vector3(11.181152, 3, 0.7)
+
+[node name="Partition2" type="CSGBox3D" parent="Level" unique_id=988815384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0217285, 1.5, 8.144815)
+use_collision = true
+size = Vector3(11.181152, 3, 0.7)
+
+[node name="Partition3" type="CSGBox3D" parent="Level" unique_id=61804754]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0217285, 1.5, 15.188633)
+use_collision = true
+size = Vector3(11.181152, 3, 0.7)
+
+[node name="EntranceWall" type="CSGBox3D" parent="Level" unique_id=1235799440]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.586491, 1.5, 2.3162127)
+use_collision = true
+size = Vector3(20, 3, 0.7)
+
+[node name="EastWall" type="CSGBox3D" parent="Level" unique_id=439103050]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -17.269478, 1.5, 6.144826)
+use_collision = true
+size = Vector3(27.657227, 3, 0.7)
+
+[node name="NursesDesk" type="CSGBox3D" parent="Level" unique_id=520053847]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.1656265, 0.71523476, 2.3162127)
+use_collision = true
+size = Vector3(10, 1.5, 0.4)
+
+[node name="ThirdPersonPlayer" parent="." unique_id=653190174 instance=ExtResource("2_ee7ou")]
+
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=77984751]
+bus = &"Music"
+
+[node name="MessageLayer" parent="." unique_id=1692279544 instance=ExtResource("4_tci2t")]
+
+[node name="PagerLayer" type="CanvasLayer" parent="." unique_id=984848264]
+
+[node name="PauseMenu" parent="." unique_id=1387676273 instance=ExtResource("5_ycjph")]
