@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" uid="uid://omkrdyrq3u73" path="res://screens/main.gd" id="1_la406"]
 [ext_resource type="PackedScene" uid="uid://icg5dtww7q44" path="res://entities/player/third_person_player.tscn" id="2_ee7ou"]
+[ext_resource type="Script" uid="uid://b7e81rn1pwe8d" path="res://utils/pager/bleep_timeline.gd" id="2_ramac"]
+[ext_resource type="Script" uid="uid://uty2uvhso70y" path="res://utils/pager/bleep_event.gd" id="3_nrb37"]
+[ext_resource type="Script" uid="uid://s7rv5glhh784" path="res://utils/pager/bleep.gd" id="4_owlgm"]
 [ext_resource type="PackedScene" uid="uid://cbuas17ydfjcl" path="res://utils/ui/message_layer.tscn" id="4_tci2t"]
+[ext_resource type="PackedScene" uid="uid://dplq5ksji7ncg" path="res://utils/ui/pager_layer.tscn" id="5_cbuj4"]
 [ext_resource type="PackedScene" uid="uid://mt56oyien0xm" path="res://entities/bed.tscn" id="5_la406"]
 [ext_resource type="PackedScene" uid="uid://bkpggl0lwqmju" path="res://screens/pause_menu.tscn" id="5_ycjph"]
 [ext_resource type="PackedScene" uid="uid://dggvfey44w4bn" path="res://entities/phone.tscn" id="6_ee7ou"]
@@ -18,6 +22,29 @@ sky_material = SubResource("ProceduralSkyMaterial_1bvp3")
 background_mode = 2
 sky = SubResource("Sky_lquwl")
 
+[sub_resource type="Resource" id="Resource_wysbo"]
+script = ExtResource("4_owlgm")
+extension = "3010"
+suffix = "3451"
+metadata/_custom_type_script = "uid://s7rv5glhh784"
+
+[sub_resource type="Resource" id="Resource_cd33c"]
+script = ExtResource("3_nrb37")
+bleep = SubResource("Resource_wysbo")
+metadata/_custom_type_script = "uid://uty2uvhso70y"
+
+[sub_resource type="Resource" id="Resource_qr0o4"]
+script = ExtResource("4_owlgm")
+extension = "4020"
+suffix = "2222"
+metadata/_custom_type_script = "uid://s7rv5glhh784"
+
+[sub_resource type="Resource" id="Resource_b8li8"]
+script = ExtResource("3_nrb37")
+time = 30.0
+bleep = SubResource("Resource_qr0o4")
+metadata/_custom_type_script = "uid://uty2uvhso70y"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cd33c"]
 albedo_color = Color(0.32172796, 0.32172796, 0.32172796, 1)
 
@@ -30,6 +57,12 @@ environment = SubResource("Environment_7mycd")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=186871282]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
+
+[node name="BleepTimeline" type="Node" parent="." unique_id=2140517253]
+unique_name_in_owner = true
+script = ExtResource("2_ramac")
+events = Array[ExtResource("3_nrb37")]([SubResource("Resource_cd33c"), SubResource("Resource_b8li8")])
+metadata/_custom_type_script = "uid://b7e81rn1pwe8d"
 
 [node name="Level" type="Node3D" parent="." unique_id=239694746]
 
@@ -81,6 +114,7 @@ use_collision = true
 size = Vector3(10, 1.5, 0.4)
 
 [node name="ThirdPersonPlayer" parent="." unique_id=653190174 instance=ExtResource("2_ee7ou")]
+unique_name_in_owner = true
 
 [node name="Bed" parent="." unique_id=1517169828 instance=ExtResource("5_la406")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.425, 1, 1.9398189)
@@ -93,9 +127,11 @@ bus = &"Music"
 
 [node name="MessageLayer" parent="." unique_id=1692279544 instance=ExtResource("4_tci2t")]
 
-[node name="PagerLayer" type="CanvasLayer" parent="." unique_id=984848264]
+[node name="PagerLayer" parent="." unique_id=469005054 instance=ExtResource("5_cbuj4")]
+unique_name_in_owner = true
 
 [node name="PauseMenu" parent="." unique_id=1387676273 instance=ExtResource("5_ycjph")]
+unique_name_in_owner = true
 
 [node name="Phone" parent="." unique_id=1631206121 instance=ExtResource("6_ee7ou")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1545496, 1, 0.277)
