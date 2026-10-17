@@ -10,22 +10,28 @@ extends Node3D
 @onready var timeline: BleepTimeline = %BleepTimeline
 @onready var tracker: EventTracker = %EventTracker
 @onready var message: MessageLayer = %MessageLayer
+@onready var alert: PanelContainer = %PagerAlertPanel
 
 var _ended := false
+var _alert_tween: Tween
 
 func _ready() -> void:
 	pager.open_changed.connect(_on_pager_open_changed)
 	timeline.bleep_sent.connect(pager.send_bleep)
 	timeline.bleep_sent.connect(tracker.track)
+	timeline.bleep_sent.connect(_display_alert)
 	timeline.finished.connect(_check_success)
 	tracker.event_failed.connect(_on_event_failed)
 	tracker.event_resolved.connect(_on_event_resolved)
+	alert.hide()
 	timeline.start()
 
 
 func _on_pager_open_changed(open: bool) -> void:
 	player.input_enabled = not open
 	pause_menu.resume_mouse_mode = Input.MOUSE_MODE_VISIBLE if open else Input.MOUSE_MODE_CAPTURED
+	if open:
+		_hide_alert()
 
 
 func _on_event_failed(_bleep: Bleep, severity: Bleep.Severity) -> void:
@@ -79,3 +85,29 @@ func _save_score() -> void:
 			failed = tracker.failed.get(severity, 0),
 			total = timeline.total(severity),
 		})
+
+
+func _display_alert(_bleep: Bleep) -> void:
+	if pager.is_open():
+		return
+	if not alert.visible:
+		alert.modulate.a = 0.0
+		alert.offset_transform_position.y = 0.0
+		alert.show()
+	_tween_alert(1.0, -100.0)
+
+
+func _hide_alert() -> void:
+	if not alert.visible:
+		return
+	_tween_alert(0.0, 0.0).chain().tween_callback(alert.hide)
+
+
+func _tween_alert(alpha: float, y: float) -> Tween:
+	if _alert_tween:
+		_alert_tween.kill()
+	_alert_tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN_OUT)
+	_alert_tween.tween_property(alert, "modulate:a", alpha, 0.5)
+	_alert_tween.tween_property(alert, "offset_transform_position:y", y, 0.5)
+	return _alert_tween
+		
