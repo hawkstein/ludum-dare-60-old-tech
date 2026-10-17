@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d304m7pn6lnlt"]
 
 [ext_resource type="Theme" uid="uid://bes7poiouimn8" path="res://default_theme.tres" id="1_82lyh"]
-[ext_resource type="Script" uid="uid://dsmexmwfv7rxr" path="res://utils/ui/scores_screen.gd" id="2_82lyh"]
+[ext_resource type="Script" uid="uid://dsmexmwfv7rxr" path="res://screens/scores_screen.gd" id="2_82lyh"]
 [ext_resource type="Script" uid="uid://dchp2kgb22jjp" path="res://utils/ui/fancy_button.gd" id="3_1mipn"]
 
 [node name="ScoresScreen" type="Control" unique_id=1228490364]

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cbuas17ydfjcl"]
 
 [ext_resource type="Script" uid="uid://j13ynqbsm7cp" path="res://utils/ui/message_layer.gd" id="1_cqwuf"]
-[ext_resource type="AudioStream" uid="uid://6vmt1f63hpvs" path="res://utils/ui/push-to-talk.mp3" id="1_pgufn"]
 [ext_resource type="AudioStream" uid="uid://du5k8wt4wsjvk" path="res://utils/ui/Happy Chime.wav" id="2_s72a1"]
 [ext_resource type="AudioStream" uid="uid://bnmk5x04xlet0" path="res://utils/ui/Soft Failure.wav" id="3_susgo"]
 
@@ -52,6 +51,5 @@ autowrap_mode = 2
 
 [node name="SfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1860941233]
 unique_name_in_owner = true
-stream = ExtResource("1_pgufn")
 volume_db = -0.912
 bus = &"SFX"
