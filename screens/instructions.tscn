@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://ddqjggkh44kwb"]
+
+[ext_resource type="Script" uid="uid://c4fhd5q5eeok3" path="res://screens/instructions.gd" id="1_odi70"]
+[ext_resource type="FontFile" uid="uid://br3rou4c1jn8a" path="res://assets/fonts/Lato-Bold.ttf" id="2_a3fpx"]
+[ext_resource type="Script" uid="uid://dchp2kgb22jjp" path="res://utils/ui/fancy_button.gd" id="2_pq8by"]
+
+[node name="Instructions" type="Control" unique_id=95438954]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_odi70")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1962918453]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.49224204, 0.6789834, 1, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect" unique_id=618956208]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/HBoxContainer" unique_id=1865908433]
+layout_mode = 2
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect/HBoxContainer/VBoxContainer" unique_id=72347761]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer" unique_id=348992073]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=631969714]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1840016268]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_a3fpx")
+theme_override_font_sizes/font_size = 36
+text = "Instructions"
+horizontal_alignment = 1
+
+[node name="Intructions" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=794571022]
+layout_mode = 2
+text = "You will get paged with EXTENSION + CODE
+WASD + mouse look to move around
+Check your pager with E, pause with P
+Check your messages at the red phones to explain extensions and pager codes
+Patients are in the green beds
+Look out for the hospitals signs"
+horizontal_alignment = 1
+
+[node name="FancyButton" type="Button" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1453208211]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Play game"
+script = ExtResource("2_pq8by")
+metadata/_custom_type_script = "uid://dchp2kgb22jjp"
+
+[connection signal="pressed" from="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/FancyButton" to="." method="_on_fancy_button_pressed"]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bctrkav2hq5nh"]
 
 [ext_resource type="Theme" uid="uid://bes7poiouimn8" path="res://default_theme.tres" id="1_bfjr5"]
-[ext_resource type="Script" uid="uid://cr05tahpe7gv3" path="res://utils/ui/credits_screen.gd" id="2_tvtj5"]
+[ext_resource type="Script" uid="uid://cr05tahpe7gv3" path="res://screens/credits_screen.gd" id="2_tvtj5"]
 [ext_resource type="Script" uid="uid://dchp2kgb22jjp" path="res://utils/ui/fancy_button.gd" id="3_xmy45"]
 
 [node name="CreditsScreen" type="Control" unique_id=580988539]

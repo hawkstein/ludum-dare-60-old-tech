@@ -1,18 +1,20 @@
 [gd_scene format=3 uid="uid://ccxm1lerk5vtg"]
 
 [ext_resource type="Script" uid="uid://d1kg40khug3yv" path="res://utils/screen_changer.gd" id="1_ahmay"]
-[ext_resource type="PackedScene" uid="uid://dfn6sijy2qq8n" path="res://utils/ui/main_menu.tscn" id="2_stj24"]
+[ext_resource type="PackedScene" uid="uid://dfn6sijy2qq8n" path="res://screens/main_menu.tscn" id="2_stj24"]
 [ext_resource type="PackedScene" uid="uid://vck4bl5wwflb" path="res://screens/main.tscn" id="3_0ty40"]
-[ext_resource type="PackedScene" uid="uid://bctrkav2hq5nh" path="res://utils/ui/credits_screen.tscn" id="4_p77q5"]
-[ext_resource type="PackedScene" uid="uid://d304m7pn6lnlt" path="res://utils/ui/scores_screen.tscn" id="5_yscu7"]
+[ext_resource type="PackedScene" uid="uid://bctrkav2hq5nh" path="res://screens/credits_screen.tscn" id="4_p77q5"]
+[ext_resource type="PackedScene" uid="uid://d304m7pn6lnlt" path="res://screens/scores_screen.tscn" id="5_yscu7"]
 [ext_resource type="PackedScene" uid="uid://crohtd4vptla0" path="res://screens/success.tscn" id="6_vr3sm"]
 [ext_resource type="PackedScene" uid="uid://dypp83aba6fhc" path="res://screens/failure.tscn" id="7_xmplb"]
+[ext_resource type="PackedScene" uid="uid://ddqjggkh44kwb" path="res://screens/instructions.tscn" id="8_xmplb"]
 
 [node name="ScreenChanger" type="Node" unique_id=1076999280]
 script = ExtResource("1_ahmay")
 screens = Dictionary[StringName, PackedScene]({
 &"credits": ExtResource("4_p77q5"),
 &"failure": ExtResource("7_xmplb"),
+&"instructions": ExtResource("8_xmplb"),
 &"main": ExtResource("3_0ty40"),
 &"main_menu": ExtResource("2_stj24"),
 &"scores": ExtResource("5_yscu7"),

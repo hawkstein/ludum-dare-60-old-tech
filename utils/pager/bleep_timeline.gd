@@ -12,8 +12,11 @@ var _stopped := false
 ## Start the timeline running
 func start() -> void:
 	_remaining = events.size()
+	var elapsed := 0.0
 	for event in events:
-		get_tree().create_timer(event.time, false).timeout.connect(_send.bind(event.bleep))
+		elapsed += event.time
+		get_tree().create_timer(elapsed, false).timeout.connect(_send.bind(event.bleep))
+
 
 ## Stop the timeline
 func stop() -> void:
