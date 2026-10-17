@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cbuas17ydfjcl"]
+
+[ext_resource type="Script" uid="uid://j13ynqbsm7cp" path="res://utils/ui/message_layer.gd" id="1_cqwuf"]
+[ext_resource type="AudioStream" uid="uid://6vmt1f63hpvs" path="res://utils/ui/push-to-talk.mp3" id="1_pgufn"]
+
+[node name="MessageLayer" type="CanvasLayer" unique_id=1692279544]
+layer = 5
+script = ExtResource("1_cqwuf")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2060889866]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel" type="PanelContainer" parent="MarginContainer" unique_id=273168996]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel" unique_id=534788406]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer" unique_id=1727007397]
+layout_mode = 2
+
+[node name="SpeakerLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1128709891]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MessageLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=353282879]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1860941233]
+unique_name_in_owner = true
+stream = ExtResource("1_pgufn")
+volume_db = -0.912
+bus = &"SFX"

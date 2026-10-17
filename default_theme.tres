@@ -1,0 +1,113 @@
+[gd_resource type="Theme" format=3 uid="uid://bes7poiouimn8"]
+
+[ext_resource type="FontFile" uid="uid://dxe4yscfis184" path="res://assets/fonts/Lato-Regular.ttf" id="1_e7bfs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ht4lr"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_os6be"]
+content_margin_left = 4.0
+content_margin_top = 8.0
+content_margin_right = 4.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7j863"]
+content_margin_left = 16.0
+bg_color = Color(0.26293245, 0.26293245, 0.26293245, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3taad"]
+content_margin_left = 16.0
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e7bfs"]
+content_margin_left = 16.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfpka"]
+bg_color = Color(0.40060982, 0.634433, 0.7596595, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fn0w4"]
+bg_color = Color(0.94486785, 0.24325544, 0.85611224, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ht4lr"]
+thickness = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ed8xq"]
+content_margin_left = 4.0
+content_margin_top = 8.0
+content_margin_right = 4.0
+content_margin_bottom = 8.0
+bg_color = Color(0.8211057, 0.19146413, 0.77718824, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50bnw"]
+content_margin_left = 4.0
+content_margin_top = 8.0
+content_margin_right = 4.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5764706, 0.05882353, 0.54509807, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cefca"]
+content_margin_left = 4.0
+content_margin_top = 8.0
+content_margin_right = 4.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5764706, 0.05882353, 0.54509807, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+anti_aliasing = false
+
+[resource]
+default_font = ExtResource("1_e7bfs")
+default_font_size = 22
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_ht4lr")
+Button/styles/hover = SubResource("StyleBoxFlat_ht4lr")
+Button/styles/normal = SubResource("StyleBoxFlat_os6be")
+Button/styles/pressed = SubResource("StyleBoxFlat_os6be")
+CheckBox/colors/font_color = Color(1, 1, 1, 1)
+CheckBox/colors/font_focus_color = Color(0, 0, 0, 1)
+CheckBox/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+CheckBox/colors/font_pressed_color = Color(1, 1, 1, 1)
+CheckBox/constants/h_separation = 8
+CheckBox/styles/disabled = SubResource("StyleBoxFlat_7j863")
+CheckBox/styles/focus = SubResource("StyleBoxFlat_3taad")
+CheckBox/styles/hover = SubResource("StyleBoxFlat_3taad")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxFlat_3taad")
+CheckBox/styles/normal = SubResource("StyleBoxFlat_e7bfs")
+CheckBox/styles/pressed = SubResource("StyleBoxFlat_e7bfs")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_dfpka")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_fn0w4")
+HSlider/styles/slider = SubResource("StyleBoxLine_ht4lr")
+PrimaryButton/base_type = &"Button"
+PrimaryButton/styles/focus = SubResource("StyleBoxFlat_ed8xq")
+PrimaryButton/styles/normal = SubResource("StyleBoxFlat_50bnw")
+PrimaryButton/styles/pressed = SubResource("StyleBoxFlat_cefca")
+RemapButton/base_type = &"Button"
+RemapButton/font_sizes/font_size = 18
+TitleLabel/base_type = &"Label"
+TitleLabel/font_sizes/font_size = 36

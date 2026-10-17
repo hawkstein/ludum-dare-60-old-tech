@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://dfn6sijy2qq8n"]
+
+[ext_resource type="Texture2D" uid="uid://4iakeclf4k4b" path="res://utils/ui/menu-header.png" id="1_1anft"]
+[ext_resource type="Script" uid="uid://dqn7tfj4acgyi" path="res://utils/ui/main_menu.gd" id="1_wyq4t"]
+[ext_resource type="Theme" uid="uid://bes7poiouimn8" path="res://default_theme.tres" id="1_xp5nu"]
+[ext_resource type="Script" uid="uid://dchp2kgb22jjp" path="res://utils/ui/fancy_button.gd" id="4_8naov"]
+
+[node name="MainMenu" type="Control" unique_id=1018463224]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_xp5nu")
+script = ExtResource("1_wyq4t")
+metadata/_edit_lock_ = true
+
+[node name="BackgroundColorRect" type="ColorRect" parent="." unique_id=714040273]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=631677777]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+metadata/_edit_lock_ = true
+
+[node name="StartVBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1507203138]
+layout_mode = 2
+size_flags_horizontal = 4
+offset_transform_enabled = true
+theme_override_constants/separation = 20
+
+[node name="TitleSplashTextureRect" type="TextureRect" parent="MarginContainer/StartVBoxContainer" unique_id=1137787995]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_1anft")
+stretch_mode = 3
+
+[node name="StartButton" type="Button" parent="MarginContainer/StartVBoxContainer" unique_id=251567224]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"PrimaryButton"
+text = "Start"
+script = ExtResource("4_8naov")
+metadata/_custom_type_script = "uid://dchp2kgb22jjp"
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/StartVBoxContainer" unique_id=1415545003]
+layout_mode = 2
+text = "Options"
+script = ExtResource("4_8naov")
+metadata/_custom_type_script = "uid://dchp2kgb22jjp"
+
+[node name="CreditsButton" type="Button" parent="MarginContainer/StartVBoxContainer" unique_id=1686150619]
+layout_mode = 2
+text = "Credits"
+script = ExtResource("4_8naov")
+metadata/_custom_type_script = "uid://dchp2kgb22jjp"
+
+[node name="ScoresButton" type="Button" parent="MarginContainer/StartVBoxContainer" unique_id=64530858]
+layout_mode = 2
+text = "Scores"
+script = ExtResource("4_8naov")
+metadata/_custom_type_script = "uid://dchp2kgb22jjp"
+
+[node name="OptionsVBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1277825446]
+visible = false
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_constants/separation = 20
+
+[node name="OptionsLabel" type="Label" parent="MarginContainer/OptionsVBoxContainer" unique_id=73804457]
+layout_mode = 2
+text = "Options"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/OptionsVBoxContainer" unique_id=1798287686]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/OptionsVBoxContainer" unique_id=1205344349]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="MarginContainer/OptionsVBoxContainer/CenterContainer" unique_id=1414721182]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Back to main menu"
+script = ExtResource("4_8naov")
+focus_scale = 1.0
+metadata/_custom_type_script = "uid://dchp2kgb22jjp"
+
+[connection signal="pressed" from="MarginContainer/StartVBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/StartVBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/StartVBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MarginContainer/StartVBoxContainer/ScoresButton" to="." method="_on_scores_button_pressed"]
+[connection signal="pressed" from="MarginContainer/OptionsVBoxContainer/CenterContainer/BackButton" to="." method="_on_back_button_pressed"]

@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dljnepvvb7jvm"]
+
+[ext_resource type="Theme" uid="uid://bes7poiouimn8" path="res://default_theme.tres" id="1_606pq"]
+[ext_resource type="Script" uid="uid://c0ddnb5af46gc" path="res://utils/ui/title_window.gd" id="2_5ogai"]
+[ext_resource type="Script" uid="uid://dchp2kgb22jjp" path="res://utils/ui/fancy_button.gd" id="3_e28w8"]
+
+[node name="TitleWindow" type="Control" unique_id=313680549]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_606pq")
+script = ExtResource("2_5ogai")
+
+[node name="VBox" type="VBoxContainer" parent="." unique_id=1789277523]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="PanelContainer" parent="VBox" unique_id=1883922068]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Margin" type="MarginContainer" parent="VBox/Background" unique_id=1987364079]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="VBox/Background/Margin" unique_id=430638748]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBox/Background/Margin/VBox" unique_id=1680569172]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "Title"
+horizontal_alignment = 1
+
+[node name="Content" type="Control" parent="VBox/Background/Margin/VBox" unique_id=1677952945]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CloseButton" type="Button" parent="VBox/Background/Margin/VBox" unique_id=2111444229]
+layout_mode = 2
+text = "Close"
+script = ExtResource("3_e28w8")
+focus_scale = 1.0
+metadata/_custom_type_script = "uid://dchp2kgb22jjp"
+
+[connection signal="pressed" from="VBox/Background/Margin/VBox/CloseButton" to="." method="_on_close_button_pressed"]

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://sdcharwukx81"]
+
+[ext_resource type="Script" uid="uid://d5ljj4svy6bo" path="res://examples/narrative/coin.gd" id="1_ooy5o"]
+[ext_resource type="Script" uid="uid://drhqnhc3cfhsn" path="res://utils/persistent_id.gd" id="2_uvgcy"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cd33c"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cd33c"]
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig0kr"]
+albedo_color = Color(1, 1, 0.16862746, 1)
+metallic = 1.0
+metallic_specular = 1.0
+
+[node name="Coin" type="Area3D" unique_id=1188448539]
+script = ExtResource("1_ooy5o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=429847261]
+shape = SubResource("SphereShape3D_cd33c")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1723430120]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_cd33c")
+surface_material_override/0 = SubResource("StandardMaterial3D_ig0kr")
+
+[node name="PersistentId" type="Node" parent="." unique_id=70344511]
+unique_name_in_owner = true
+script = ExtResource("2_uvgcy")
+metadata/_custom_type_script = "uid://drhqnhc3cfhsn"

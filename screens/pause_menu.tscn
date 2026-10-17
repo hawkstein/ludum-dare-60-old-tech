@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bkpggl0lwqmju"]
+
+[ext_resource type="Script" uid="uid://bou3d6ci3w0yq" path="res://screens/pause_menu.gd" id="1_hbqyx"]
+[ext_resource type="PackedScene" uid="uid://dljnepvvb7jvm" path="res://utils/ui/title_window.tscn" id="1_in564"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1387676273]
+process_mode = 3
+layer = 10
+script = ExtResource("1_hbqyx")
+
+[node name="DimOverlay" type="ColorRect" parent="." unique_id=1686416757]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3137255)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2138175403]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleWindow" parent="CenterContainer" unique_id=110673056 instance=ExtResource("1_in564")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 400)
+layout_mode = 2
+title = "Paused"

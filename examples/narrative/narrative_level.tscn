@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://b7ho3lhntkw10"]
+
+[ext_resource type="PackedScene" uid="uid://icg5dtww7q44" path="res://entities/player/third_person_player.tscn" id="1_o0cwm"]
+[ext_resource type="Script" uid="uid://ce8hwj11hcy53" path="res://examples/narrative/narrative_level.gd" id="1_sr1li"]
+[ext_resource type="PackedScene" uid="uid://sdcharwukx81" path="res://examples/narrative/coin.tscn" id="2_k5yrn"]
+[ext_resource type="Script" uid="uid://uud0d5av6ugh" path="res://examples/narrative/message_zone.gd" id="3_hf5np"]
+[ext_resource type="Script" uid="uid://g7pwriscw0lq" path="res://examples/narrative/exit_zone.gd" id="4_sr1li"]
+[ext_resource type="PackedScene" uid="uid://bj1ki5bguxjst" path="res://utils/ui/choice_screen.tscn" id="6_sr1li"]
+[ext_resource type="PackedScene" uid="uid://cbuas17ydfjcl" path="res://utils/ui/message_layer.tscn" id="7_e35jq"]
+[ext_resource type="PackedScene" uid="uid://bkpggl0lwqmju" path="res://screens/pause_menu.tscn" id="8_h7pu4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gy0ml"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_lquwl"]
+sky_material = SubResource("ProceduralSkyMaterial_gy0ml")
+
+[sub_resource type="Environment" id="Environment_o0cwm"]
+background_mode = 2
+sky = SubResource("Sky_lquwl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5yrn"]
+albedo_color = Color(0.32172796, 0.32172796, 0.32172796, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cd33c"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e31vk"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k4a7y"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cd33c"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wysbo"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.36078432)
+
+[node name="NarrativeLevel" type="Node3D" unique_id=1171028935]
+script = ExtResource("1_sr1li")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1206020618]
+environment = SubResource("Environment_o0cwm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=276868206]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=1059584664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(40, 1, 40)
+material = SubResource("StandardMaterial3D_k5yrn")
+
+[node name="ThirdPersonPlayer" parent="." unique_id=653190174 instance=ExtResource("1_o0cwm")]
+
+[node name="Coins" type="Node3D" parent="." unique_id=389119009]
+
+[node name="Coin" parent="Coins" unique_id=1188448539 instance=ExtResource("2_k5yrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.191101, 0, 0)
+
+[node name="Coin2" parent="Coins" unique_id=1722936448 instance=ExtResource("2_k5yrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.071604)
+
+[node name="Coin3" parent="Coins" unique_id=131390426 instance=ExtResource("2_k5yrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.40292, 0, 6.7519245)
+
+[node name="Coin4" parent="Coins" unique_id=1018118194 instance=ExtResource("2_k5yrn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.40292, 0, -10.891195)
+
+[node name="IntroZone" type="Area3D" parent="." unique_id=327335316 node_paths=PackedStringArray("messages")]
+script = ExtResource("3_hf5np")
+messages = NodePath("../MessageLayer")
+text = "Welcome to the start"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="IntroZone" unique_id=672802604]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("BoxShape3D_cd33c")
+
+[node name="MidZone" type="Area3D" parent="." unique_id=1529874438 node_paths=PackedStringArray("messages")]
+script = ExtResource("3_hf5np")
+messages = NodePath("../MessageLayer")
+text = "You've found the secret zone!"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MidZone" unique_id=1574434153]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7460585, 0, -10.561855)
+shape = SubResource("BoxShape3D_e31vk")
+
+[node name="ExitZone" type="Area3D" parent="." unique_id=1980395410 node_paths=PackedStringArray("choice_screen")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.713179, 0, 6.96387)
+script = ExtResource("4_sr1li")
+choice_screen = NodePath("../ChoiceScreen")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitZone" unique_id=465441402]
+shape = SubResource("BoxShape3D_k4a7y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ExitZone" unique_id=860741654]
+mesh = SubResource("BoxMesh_cd33c")
+surface_material_override/0 = SubResource("StandardMaterial3D_wysbo")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=178877876]
+
+[node name="CoinLabel" type="Label" parent="HUD" unique_id=49511350]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 27.0
+
+[node name="ChoiceScreen" parent="." unique_id=1945955566 instance=ExtResource("6_sr1li")]
+
+[node name="MessageLayer" parent="." unique_id=1692279544 instance=ExtResource("7_e35jq")]
+
+[node name="PauseMenu" parent="." unique_id=1387676273 instance=ExtResource("8_h7pu4")]

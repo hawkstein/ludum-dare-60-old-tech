@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://icg5dtww7q44"]
+
+[ext_resource type="Script" uid="uid://fa6ntb854xc4" path="res://entities/player/third_person_player.gd" id="1_x0uxw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cd33c"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cd33c"]
+albedo_color = Color(0.6985932, 0.84456706, 0.22434986, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_cd33c"]
+material = SubResource("StandardMaterial3D_cd33c")
+radius = 0.4
+height = 1.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_cd33c"]
+size = Vector3(0.2, 0.2, 0.3)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cd33c"]
+radius = 0.2
+
+[node name="ThirdPersonPlayer" type="CharacterBody3D" unique_id=653190174]
+script = ExtResource("1_x0uxw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=268721462]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_cd33c")
+
+[node name="Model" type="Node3D" parent="." unique_id=2134774204]
+unique_name_in_owner = true
+
+[node name="Body" type="MeshInstance3D" parent="Model" unique_id=1939781799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+mesh = SubResource("CapsuleMesh_cd33c")
+
+[node name="Nose" type="MeshInstance3D" parent="Model" unique_id=2041585810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.4)
+mesh = SubResource("BoxMesh_cd33c")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1107085387]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=77721028]
+unique_name_in_owner = true
+shape = SubResource("SphereShape3D_cd33c")
+spring_length = 4.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=2093415142]
+current = true

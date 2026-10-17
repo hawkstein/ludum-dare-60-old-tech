@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://vck4bl5wwflb"]
+
+[ext_resource type="Script" uid="uid://omkrdyrq3u73" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="AudioStream" uid="uid://cbbv231ayv0h" path="res://assets/music/komiku_opening.mp3" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://icg5dtww7q44" path="res://entities/player/third_person_player.tscn" id="2_lquwl"]
+[ext_resource type="PackedScene" uid="uid://bkpggl0lwqmju" path="res://screens/pause_menu.tscn" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://cbuas17ydfjcl" path="res://utils/ui/message_layer.tscn" id="5_272bh"]
+[ext_resource type="Theme" uid="uid://bes7poiouimn8" path="res://default_theme.tres" id="5_lquwl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1bvp3"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_lquwl"]
+sky_material = SubResource("ProceduralSkyMaterial_1bvp3")
+
+[sub_resource type="Environment" id="Environment_7mycd"]
+background_mode = 2
+sky = SubResource("Sky_lquwl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cd33c"]
+albedo_color = Color(0.32172796, 0.32172796, 0.32172796, 1)
+
+[node name="Main" type="Node3D" unique_id=438766484]
+script = ExtResource("1_h2yge")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1400865103]
+environment = SubResource("Environment_7mycd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=186871282]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Level" type="Node3D" parent="." unique_id=239694746]
+
+[node name="Floor" type="CSGBox3D" parent="Level" unique_id=1989360109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(40, 1, 40)
+material = SubResource("StandardMaterial3D_cd33c")
+
+[node name="Box" type="CSGBox3D" parent="Level" unique_id=783431537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -6)
+use_collision = true
+size = Vector3(2, 2, 2)
+
+[node name="Wall" type="CSGBox3D" parent="Level" unique_id=541581789]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.5, -8)
+use_collision = true
+size = Vector3(8, 3, 1)
+
+[node name="Ramp" type="CSGBox3D" parent="Level" unique_id=1783067765]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 8, 1, 4)
+use_collision = true
+size = Vector3(3, 0.4, 8)
+
+[node name="Platform" type="CSGBox3D" parent="Level" unique_id=902390942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -2)
+use_collision = true
+size = Vector3(4, 2, 4)
+
+[node name="ThirdPersonPlayer" parent="." unique_id=653190174 instance=ExtResource("2_lquwl")]
+
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=77984751]
+stream = ExtResource("2_0xm2m")
+autoplay = true
+bus = &"Music"
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=668187711]
+
+[node name="Layout" type="Control" parent="HUD" unique_id=1542017333]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("5_lquwl")
+
+[node name="ScoreMargin" type="MarginContainer" parent="HUD/Layout" unique_id=1546439775]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScoreLabel" type="Label" parent="HUD/Layout/ScoreMargin" unique_id=96147074]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.92941177, 0.9490196, 0.8862745, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.99607843)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 4
+text = "Score: 9999"
+
+[node name="MessageLayer" parent="." unique_id=1692279544 instance=ExtResource("5_272bh")]
+
+[node name="PauseMenu" parent="." unique_id=1387676273 instance=ExtResource("5_7mycd")]
