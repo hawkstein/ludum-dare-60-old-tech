@@ -71,7 +71,7 @@ func _finish_leaving(panel: Control) -> void:
 
 func _on_start_button_pressed() -> void:
 	RunState.reset()
-	ScreenChanger.change_to("main")
+	ScreenChanger.change_to("instructions")
 
 
 func _on_options_button_pressed() -> void:
