@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dplq5ksji7ncg"]
 
 [ext_resource type="Script" uid="uid://bad0t32y3mypw" path="res://utils/ui/pager_layer.gd" id="1_3j3ux"]
-[ext_resource type="AudioStream" uid="uid://6vmt1f63hpvs" path="res://utils/ui/push-to-talk.mp3" id="2_ewait"]
+[ext_resource type="AudioStream" uid="uid://0cesl6iife08" path="res://utils/pager/blipSelect.wav" id="2_ewait"]
 
 [node name="PagerLayer" type="CanvasLayer" unique_id=469005054]
 layer = 7
