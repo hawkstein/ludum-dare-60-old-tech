@@ -58,6 +58,18 @@ bg_color = Color(0.94486785, 0.24325544, 0.85611224, 1)
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_ht4lr"]
 thickness = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x62x2"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.38928655, 0.3892867, 0.38928637, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ed8xq"]
 content_margin_left = 4.0
 content_margin_top = 8.0
@@ -133,6 +145,8 @@ CheckBox/styles/pressed = SubResource("StyleBoxFlat_e7bfs")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_dfpka")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_fn0w4")
 HSlider/styles/slider = SubResource("StyleBoxLine_ht4lr")
+PagerButton/base_type = &"Button"
+PagerButton/styles/disabled = SubResource("StyleBoxFlat_x62x2")
 PrimaryButton/base_type = &"Button"
 PrimaryButton/colors/font_color = Color(0.6666667, 0.9372549, 0.8352941, 1)
 PrimaryButton/colors/font_focus_color = Color(0, 0, 0, 1)
