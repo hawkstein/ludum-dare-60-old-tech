@@ -1,5 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://bes7poiouimn8"]
 
+[ext_resource type="FontFile" uid="uid://csxckmycfxfwy" path="res://assets/fonts/RussoOne-Regular.ttf" id="1_3taad"]
 [ext_resource type="FontFile" uid="uid://dxe4yscfis184" path="res://assets/fonts/Lato-Regular.ttf" id="1_e7bfs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ht4lr"]
@@ -111,3 +112,4 @@ RemapButton/base_type = &"Button"
 RemapButton/font_sizes/font_size = 18
 TitleLabel/base_type = &"Label"
 TitleLabel/font_sizes/font_size = 36
+TitleLabel/fonts/font = ExtResource("1_3taad")
