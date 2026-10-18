@@ -6,7 +6,6 @@ const MOUSE_SCALE := 0.01
 @export var speed := 6.0
 @export var acceleration := 12.0
 @export var turn_speed := 12.0
-@export var jump_velocity := 4.5
 ## Radians per second at full stick.
 @export var pad_look_speed := 3.0
 ## Camera pitch range in degrees (down, up).
@@ -40,8 +39,6 @@ func _physics_process(delta: float) -> void:
 
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	elif input_enabled and Input.is_action_just_pressed(&"Jump"):
-		velocity.y = jump_velocity
 
 	var input := Input.get_vector(&"Left", &"Right", &"Up", &"Down") if input_enabled else Vector2.ZERO
 	var direction := Basis(Vector3.UP, camera_pivot.global_rotation.y) * Vector3(input.x, 0, input.y)
