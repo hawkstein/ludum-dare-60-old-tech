@@ -31,9 +31,14 @@ func _ready() -> void:
 
 ## Queue a message
 func show_message(text: String, speaker := "", duration := -1.0, sound := Sound.DEFAULT) -> void:
-	_queue.append({text = text, speaker = speaker, duration = duration if duration >= 0.0 else default_duration, sound = sound})
+	_queue.append(entry(text, speaker, duration, sound))
 	if not _running:
 		_run_queue()
+
+
+## Build a queue entry
+func entry(text: String, speaker := "", duration := -1.0, sound := Sound.DEFAULT) -> Dictionary:
+	return {text = text, speaker = speaker, duration = duration if duration >= 0.0 else default_duration, sound = sound}
 
 
 ## Drop all queued messages and fade out the current one

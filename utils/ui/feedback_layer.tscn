@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d3tm4rtkkgk0s"]
+
+[ext_resource type="PackedScene" uid="uid://cbuas17ydfjcl" path="res://utils/ui/message_layer.tscn" id="1_xx773"]
+[ext_resource type="Script" uid="uid://dgw8guliqbhwg" path="res://utils/ui/feedback_layer.gd" id="2_ljgee"]
+
+[node name="FeedbackLayer" unique_id=1692279544 instance=ExtResource("1_xx773")]
+script = ExtResource("2_ljgee")
+
+[node name="Panel" parent="MarginContainer" parent_id_path=PackedInt32Array(2060889866) index="0" unique_id=273168996]
+size_flags_horizontal = 8
+
+[node name="MessageLabel" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" parent_id_path=PackedInt32Array(1727007397) index="1" unique_id=353282879]
+custom_minimum_size = Vector2(200, 0)

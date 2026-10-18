@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bkpggl0lwqmju" path="res://screens/pause_menu.tscn" id="5_ycjph"]
 [ext_resource type="PackedScene" uid="uid://dggvfey44w4bn" path="res://entities/phone.tscn" id="6_ee7ou"]
 [ext_resource type="AudioStream" uid="uid://bvd666rf2ryx5" path="res://assets/music/pager-panic-music.ogg" id="6_xd12c"]
+[ext_resource type="PackedScene" uid="uid://d3tm4rtkkgk0s" path="res://utils/ui/feedback_layer.tscn" id="12_era8c"]
 [ext_resource type="Script" uid="uid://bdro23r2xo7a1" path="res://utils/pager/event_tracker.gd" id="12_owlgm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1bvp3"]
@@ -960,6 +961,10 @@ messages = NodePath("../MessageLayer")
 
 [node name="MessageLayer" parent="." unique_id=1692279544 instance=ExtResource("4_tci2t")]
 unique_name_in_owner = true
+
+[node name="FeedbackLayer" parent="." unique_id=200225233 instance=ExtResource("12_era8c")]
+unique_name_in_owner = true
+layer = 6
 
 [node name="PagerLayer" parent="." unique_id=469005054 instance=ExtResource("5_cbuj4")]
 unique_name_in_owner = true
