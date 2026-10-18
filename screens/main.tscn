@@ -513,6 +513,12 @@ text = "2"
 board_size = Vector2(0.8, 0.8)
 font_size = 128
 
+[node name="Sign5" parent="Level/MajorInjury2" unique_id=1144171365 instance=ExtResource("2_owlgm")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -33.498703, 2.1188965, 17.790665)
+text = "1"
+board_size = Vector2(0.8, 0.8)
+font_size = 128
+
 [node name="BlockedOffRoom" type="Node3D" parent="Level" unique_id=357719040]
 
 [node name="WaitingRoomSouthWall" type="CSGBox3D" parent="Level/BlockedOffRoom" unique_id=876880122]
