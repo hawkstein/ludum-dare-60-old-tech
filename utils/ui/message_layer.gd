@@ -36,6 +36,16 @@ func show_message(text: String, speaker := "", duration := -1.0, sound := Sound.
 		_run_queue()
 
 
+## Queue a message ahead of normal ones, behind any earlier show_next messages
+func show_next(text: String, speaker := "", duration := -1.0, sound := Sound.DEFAULT) -> void:
+	var message := entry(text, speaker, duration, sound)
+	message.urgent = true
+	var index := _queue.find_custom(func(queued: Dictionary): return not queued.get("urgent", false))
+	_queue.insert(index if index != -1 else _queue.size(), message)
+	if not _running:
+		_run_queue()
+
+
 ## Build a queue entry
 func entry(text: String, speaker := "", duration := -1.0, sound := Sound.DEFAULT) -> Dictionary:
 	return {text = text, speaker = speaker, duration = duration if duration >= 0.0 else default_duration, sound = sound}
