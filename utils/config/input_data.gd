@@ -14,8 +14,6 @@ const JOY_DEFAULTS := {
 	&"Left": [[JOY_AXIS_LEFT_X, -1.0], JOY_BUTTON_DPAD_LEFT],
 	&"Right": [[JOY_AXIS_LEFT_X, 1.0], JOY_BUTTON_DPAD_RIGHT],
 	&"Pause": [JOY_BUTTON_START],
-	&"LookUp": [[JOY_AXIS_RIGHT_Y, -1.0]],
-	&"LookDown": [[JOY_AXIS_RIGHT_Y, 1.0]],
 	&"LookLeft": [[JOY_AXIS_RIGHT_X, -1.0]],
 	&"LookRight": [[JOY_AXIS_RIGHT_X, 1.0]],
 	&"Pager": [JOY_BUTTON_A],

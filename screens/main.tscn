@@ -33,7 +33,7 @@ extension = "2020"
 suffix = "3451"
 message = "Patient needs sutures in Minor Injury 2, Bed 2"
 target_id = &"minor2_bed2"
-time_limit = 30.0
+time_limit = 40.0
 metadata/_custom_type_script = "uid://s7rv5glhh784"
 
 [sub_resource type="Resource" id="Resource_cd33c"]
@@ -48,12 +48,12 @@ extension = "1030"
 suffix = "3451"
 message = "2nd opinion needed in Minor Injury 1, Bed 3 please"
 target_id = &"minor1_bed3"
-time_limit = 30.0
+time_limit = 40.0
 metadata/_custom_type_script = "uid://s7rv5glhh784"
 
 [sub_resource type="Resource" id="Resource_nrb37"]
 script = ExtResource("3_nrb37")
-time = 10.0
+time = 12.0
 bleep = SubResource("Resource_rjxh7")
 metadata/_custom_type_script = "uid://uty2uvhso70y"
 
@@ -63,12 +63,13 @@ extension = "5010"
 suffix = "2222"
 message = "Patient is crashing! Get to Trauma 1 NOW!"
 target_id = &"trauma1_bed1"
+time_limit = 25.0
 severity = 1
 metadata/_custom_type_script = "uid://s7rv5glhh784"
 
 [sub_resource type="Resource" id="Resource_b8li8"]
 script = ExtResource("3_nrb37")
-time = 12.0
+time = 15.0
 bleep = SubResource("Resource_qr0o4")
 metadata/_custom_type_script = "uid://uty2uvhso70y"
 
@@ -189,7 +190,7 @@ metadata/_custom_type_script = "uid://s7rv5glhh784"
 
 [sub_resource type="Resource" id="Resource_2ta00"]
 script = ExtResource("3_nrb37")
-time = 15.0
+time = 10.0
 bleep = SubResource("Resource_yxj50")
 metadata/_custom_type_script = "uid://uty2uvhso70y"
 
@@ -257,8 +258,8 @@ metadata/_custom_type_script = "uid://uty2uvhso70y"
 script = ExtResource("4_owlgm")
 extension = "5010"
 suffix = "999"
-message = "Patient emergency, drop everything and get to Trauma 1 now!"
-target_id = &"trauma1_bed1"
+message = "Patient emergency, drop everything and get to Trauma 3 now!"
+target_id = &"trauma3_bed1"
 time_limit = 15.0
 severity = 1
 metadata/_custom_type_script = "uid://s7rv5glhh784"
@@ -274,7 +275,7 @@ script = ExtResource("4_owlgm")
 extension = "7504"
 suffix = "4995"
 message = "Feels like this shift will never end, help out with Recovery Bed 4 one last time?"
-target_id = &"reovery1_bed4"
+target_id = &"recovery1_bed4"
 metadata/_custom_type_script = "uid://s7rv5glhh784"
 
 [sub_resource type="Resource" id="Resource_ih88u"]
