@@ -6,7 +6,6 @@ signal event_resolved(bleep: Bleep)
 signal event_failed(bleep: Bleep, severity: Bleep.Severity)
 
 @export var messages: MessageLayer
-@export var phone_speaker := "Switchboard"
 
 class ActiveEvent:
 	var bleep: Bleep
@@ -67,7 +66,7 @@ func _on_phone_reached() -> void:
 			continue
 		event.heard = true
 		if not event.bleep.message.is_empty():
-			messages.show_message(event.bleep.message, phone_speaker)
+			messages.show_message(event.bleep.message, event.bleep.label())
 
 
 func _get_target(target_id: StringName) -> EventTarget:

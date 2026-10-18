@@ -3,14 +3,13 @@ extends CharacterBody3D
 
 const MOUSE_SCALE := 0.01
 
-@export var speed := 6.0
+@export var speed := 8.0
 @export var acceleration := 12.0
 @export var turn_speed := 12.0
-@export var jump_velocity := 4.5
 ## Radians per second at full stick.
 @export var pad_look_speed := 3.0
-## Camera pitch range in degrees (down, up).
-@export var pitch_limits := Vector2(-70, 30)
+## Fixed camera pitch in degrees, looking down over the shoulder.
+@export var pitch := -30.0
 
 @onready var model: Node3D = %Model
 @onready var camera_pivot: Node3D = %CameraPivot
@@ -21,6 +20,7 @@ var input_enabled := true
 
 func _ready() -> void:
 	spring_arm.add_excluded_object(get_rid())
+	camera_pivot.rotation.x = deg_to_rad(pitch)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
@@ -30,18 +30,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		get_viewport().set_input_as_handled()
 	elif event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		_look(event.relative * gameplay.mouse_sensitivity * MOUSE_SCALE)
+		_look(event.relative.x * gameplay.mouse_sensitivity * MOUSE_SCALE)
 
 
 func _physics_process(delta: float) -> void:
-	var stick := Input.get_vector(&"LookLeft", &"LookRight", &"LookUp", &"LookDown") if input_enabled else Vector2.ZERO
+	var stick := Input.get_axis(&"LookLeft", &"LookRight") if input_enabled else 0.0
 	if stick:
 		_look(stick * pad_look_speed * delta)
 
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	elif input_enabled and Input.is_action_just_pressed(&"Jump"):
-		velocity.y = jump_velocity
 
 	var input := Input.get_vector(&"Left", &"Right", &"Up", &"Down") if input_enabled else Vector2.ZERO
 	var direction := Basis(Vector3.UP, camera_pivot.global_rotation.y) * Vector3(input.x, 0, input.y)
@@ -56,8 +54,5 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _look(amount: Vector2) -> void:
-	if gameplay.invert_y:
-		amount.y = -amount.y
-	camera_pivot.rotation.y -= amount.x
-	camera_pivot.rotation.x = clampf(camera_pivot.rotation.x - amount.y, deg_to_rad(pitch_limits.x), deg_to_rad(pitch_limits.y))
+func _look(amount: float) -> void:
+	camera_pivot.rotation.y -= amount

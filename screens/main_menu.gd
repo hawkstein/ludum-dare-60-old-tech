@@ -8,6 +8,7 @@ const SLIDE_DISTANCE := 300.0
 @onready var options_v_box_container: VBoxContainer = $MarginContainer/OptionsVBoxContainer
 @onready var start_button: Button = %StartButton
 @onready var back_button: Button = %BackButton
+@onready var menu: Container = %Menu
 
 var _transition_tween: Tween
 var _current: Control
@@ -23,6 +24,10 @@ func _ready() -> void:
 	options_container.add_child(gameplay_section)
 	var input_section = builder.build_section_from_model(DataStore.get_model("Input"))
 	options_container.add_child(input_section)
+	
+	menu.modulate.a = 0.0
+	var menu_tween = create_tween()
+	menu_tween.tween_property(menu, "modulate:a", 1.0, 0.6).set_delay(0.9)
 
 	start_container.show()
 	options_v_box_container.hide()
@@ -71,7 +76,7 @@ func _finish_leaving(panel: Control) -> void:
 
 func _on_start_button_pressed() -> void:
 	RunState.reset()
-	ScreenChanger.change_to("instructions")
+	ScreenChanger.change_to(&"instructions")
 
 
 func _on_options_button_pressed() -> void:
@@ -83,8 +88,4 @@ func _on_back_button_pressed() -> void:
 
 
 func _on_credits_button_pressed() -> void:
-	ScreenChanger.change_to("credits")
-
-
-func _on_scores_button_pressed() -> void:
-	ScreenChanger.change_to("scores")
+	ScreenChanger.change_to(&"instructions")

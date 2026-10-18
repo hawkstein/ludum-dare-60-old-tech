@@ -5,22 +5,18 @@ var up_events:Array[String] = ["W", "UP"]
 var down_events:Array[String] = ["S", "DOWN"]
 var left_events:Array[String] = ["A", "LEFT"]
 var right_events:Array[String] = ["D", "RIGHT"]
-var jump_events:Array[String] = ["SPACE"]
 var pause_events:Array[String] = ["P"]
-var pager_events:Array[String] = ["E"]
+var pager_events:Array[String] = ["SPACE"]
 
 const JOY_DEFAULTS := {
 	&"Up": [[JOY_AXIS_LEFT_Y, -1.0], JOY_BUTTON_DPAD_UP],
 	&"Down": [[JOY_AXIS_LEFT_Y, 1.0], JOY_BUTTON_DPAD_DOWN],
 	&"Left": [[JOY_AXIS_LEFT_X, -1.0], JOY_BUTTON_DPAD_LEFT],
 	&"Right": [[JOY_AXIS_LEFT_X, 1.0], JOY_BUTTON_DPAD_RIGHT],
-	&"Jump": [JOY_BUTTON_A],
 	&"Pause": [JOY_BUTTON_START],
-	&"LookUp": [[JOY_AXIS_RIGHT_Y, -1.0]],
-	&"LookDown": [[JOY_AXIS_RIGHT_Y, 1.0]],
 	&"LookLeft": [[JOY_AXIS_RIGHT_X, -1.0]],
 	&"LookRight": [[JOY_AXIS_RIGHT_X, 1.0]],
-	&"Pager": [JOY_BUTTON_Y],
+	&"Pager": [JOY_BUTTON_A],
 }
 
 func _init() -> void:
@@ -29,7 +25,6 @@ func _init() -> void:
 	set_meta("down_events", PropertyMeta.new("Down"))
 	set_meta("left_events", PropertyMeta.new("Left"))
 	set_meta("right_events", PropertyMeta.new("Right"))
-	set_meta("jump_events", PropertyMeta.new("Jump"))
 	set_meta("pause_events", PropertyMeta.new("Pause"))
 	set_meta("pager_events", PropertyMeta.new("Pager"))
 
