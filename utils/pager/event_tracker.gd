@@ -42,8 +42,10 @@ func track(bleep: Bleep) -> void:
 		push_error("No EventTarget with target_id '%s' for bleep %s" % [bleep.target_id, bleep.label()])
 		return
 	_active.append(ActiveEvent.new(bleep))
-	# handle player standing in the area already
-	if target.get_overlapping_bodies().any(func(body: Node3D): return body is ThirdPersonPlayer):
+	# handle player standing at a phone or the target already
+	if get_tree().get_nodes_in_group(&"phones").any(func(phone: PlayerZone): return phone.has_player()):
+		_on_phone_reached()
+	if target.has_player():
 		_on_target_reached(bleep.target_id)
 
 

@@ -9,3 +9,7 @@ func _ready() -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if body is ThirdPersonPlayer:
 		player_entered.emit()
+
+## Is the player currently inside this zone?
+func has_player() -> bool:
+	return get_overlapping_bodies().any(func(body: Node3D): return body is ThirdPersonPlayer)
