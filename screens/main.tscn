@@ -88,21 +88,6 @@ time = 10.0
 bleep = SubResource("Resource_owlgm")
 metadata/_custom_type_script = "uid://uty2uvhso70y"
 
-[sub_resource type="Resource" id="Resource_era8c"]
-script = ExtResource("4_owlgm")
-extension = "3040"
-suffix = "1"
-message = "No rush, check if this patient  in Majory Injury 1, Bed 4 can be discharged tomorrow"
-target_id = &"major1_bed4"
-time_limit = 40.0
-metadata/_custom_type_script = "uid://s7rv5glhh784"
-
-[sub_resource type="Resource" id="Resource_xd12c"]
-script = ExtResource("3_nrb37")
-time = 10.0
-bleep = SubResource("Resource_era8c")
-metadata/_custom_type_script = "uid://uty2uvhso70y"
-
 [sub_resource type="Resource" id="Resource_lwayx"]
 script = ExtResource("4_owlgm")
 extension = "6020"
@@ -138,7 +123,7 @@ metadata/_custom_type_script = "uid://uty2uvhso70y"
 script = ExtResource("4_owlgm")
 extension = "7401"
 suffix = "999"
-message = "Urgent reqeust for patient's previous doctor in Surgery 2!"
+message = "Urgent request for patient's previous doctor in Surgery 2!"
 target_id = &"surgery2_bed1"
 severity = 1
 metadata/_custom_type_script = "uid://s7rv5glhh784"
@@ -162,21 +147,6 @@ metadata/_custom_type_script = "uid://s7rv5glhh784"
 script = ExtResource("3_nrb37")
 time = 5.0
 bleep = SubResource("Resource_n85nt")
-metadata/_custom_type_script = "uid://uty2uvhso70y"
-
-[sub_resource type="Resource" id="Resource_txw8p"]
-script = ExtResource("4_owlgm")
-extension = "3010"
-suffix = "1"
-message = "You owe me one so this difficult patient in Major Injury 1 Bed 1 is all yours"
-target_id = &"major1_bed1"
-time_limit = 40.0
-metadata/_custom_type_script = "uid://s7rv5glhh784"
-
-[sub_resource type="Resource" id="Resource_1dcbi"]
-script = ExtResource("3_nrb37")
-time = 5.0
-bleep = SubResource("Resource_txw8p")
 metadata/_custom_type_script = "uid://uty2uvhso70y"
 
 [sub_resource type="Resource" id="Resource_yxj50"]
@@ -224,21 +194,6 @@ time = 10.0
 bleep = SubResource("Resource_ivls5")
 metadata/_custom_type_script = "uid://uty2uvhso70y"
 
-[sub_resource type="Resource" id="Resource_ubl6d"]
-script = ExtResource("4_owlgm")
-extension = "7201"
-suffix = "3451"
-message = "Easy peasy when you have a mo in ICU 2 Bed 1"
-target_id = &"icu2_bed1"
-time_limit = 30.0
-metadata/_custom_type_script = "uid://s7rv5glhh784"
-
-[sub_resource type="Resource" id="Resource_46mcu"]
-script = ExtResource("3_nrb37")
-time = 3.0
-bleep = SubResource("Resource_ubl6d")
-metadata/_custom_type_script = "uid://uty2uvhso70y"
-
 [sub_resource type="Resource" id="Resource_a42hq"]
 script = ExtResource("4_owlgm")
 extension = "7301"
@@ -252,6 +207,20 @@ metadata/_custom_type_script = "uid://s7rv5glhh784"
 script = ExtResource("3_nrb37")
 time = 3.0
 bleep = SubResource("Resource_a42hq")
+metadata/_custom_type_script = "uid://uty2uvhso70y"
+
+[sub_resource type="Resource" id="Resource_rv5xl"]
+script = ExtResource("4_owlgm")
+extension = "7504"
+suffix = "4995"
+message = "Feels like this shift will never end, help out with Recovery Bed 4 please"
+target_id = &"recovery1_bed4"
+metadata/_custom_type_script = "uid://s7rv5glhh784"
+
+[sub_resource type="Resource" id="Resource_ih88u"]
+script = ExtResource("3_nrb37")
+time = 10.0
+bleep = SubResource("Resource_rv5xl")
 metadata/_custom_type_script = "uid://uty2uvhso70y"
 
 [sub_resource type="Resource" id="Resource_rmwy0"]
@@ -268,20 +237,6 @@ metadata/_custom_type_script = "uid://s7rv5glhh784"
 script = ExtResource("3_nrb37")
 time = 3.0
 bleep = SubResource("Resource_rmwy0")
-metadata/_custom_type_script = "uid://uty2uvhso70y"
-
-[sub_resource type="Resource" id="Resource_rv5xl"]
-script = ExtResource("4_owlgm")
-extension = "7504"
-suffix = "4995"
-message = "Feels like this shift will never end, help out with Recovery Bed 4 one last time?"
-target_id = &"recovery1_bed4"
-metadata/_custom_type_script = "uid://s7rv5glhh784"
-
-[sub_resource type="Resource" id="Resource_ih88u"]
-script = ExtResource("3_nrb37")
-time = 10.0
-bleep = SubResource("Resource_rv5xl")
 metadata/_custom_type_script = "uid://uty2uvhso70y"
 
 [node name="Main" type="Node3D" unique_id=438766484]
@@ -986,7 +941,7 @@ bus = &"Music"
 [node name="BleepTimeline" type="Node" parent="." unique_id=2140517253]
 unique_name_in_owner = true
 script = ExtResource("2_ramac")
-events = Array[ExtResource("3_nrb37")]([SubResource("Resource_cd33c"), SubResource("Resource_nrb37"), SubResource("Resource_b8li8"), SubResource("Resource_iwpbl"), SubResource("Resource_xd12c"), SubResource("Resource_1s7cm"), SubResource("Resource_o25a7"), SubResource("Resource_g5qc2"), SubResource("Resource_ft7qg"), SubResource("Resource_1dcbi"), SubResource("Resource_2ta00"), SubResource("Resource_mupnj"), SubResource("Resource_jfmve"), SubResource("Resource_46mcu"), SubResource("Resource_bi2gy"), SubResource("Resource_7v20j"), SubResource("Resource_ih88u")])
+events = Array[ExtResource("3_nrb37")]([SubResource("Resource_cd33c"), SubResource("Resource_nrb37"), SubResource("Resource_b8li8"), SubResource("Resource_iwpbl"), SubResource("Resource_1s7cm"), SubResource("Resource_o25a7"), SubResource("Resource_g5qc2"), SubResource("Resource_ft7qg"), SubResource("Resource_2ta00"), SubResource("Resource_mupnj"), SubResource("Resource_jfmve"), SubResource("Resource_bi2gy"), SubResource("Resource_ih88u"), SubResource("Resource_7v20j")])
 metadata/_custom_type_script = "uid://b7e81rn1pwe8d"
 
 [node name="EventTracker" type="Node" parent="." unique_id=340607232 node_paths=PackedStringArray("messages")]
