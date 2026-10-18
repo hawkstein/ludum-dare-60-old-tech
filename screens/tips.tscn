@@ -102,6 +102,14 @@ text = "You can fail other codes up to 5 times"
 layout_mode = 2
 text = "You can cycle your current bleeps with SPACE"
 
+[node name="PanelContainer3" type="PanelContainer" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=177713622]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cd33c")
+
+[node name="Instructions4" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/PanelContainer3" unique_id=1557899894]
+layout_mode = 2
+text = "You don't have to do the pager bleeps in order"
+
 [node name="PlayButton" type="Button" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1453208211]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
