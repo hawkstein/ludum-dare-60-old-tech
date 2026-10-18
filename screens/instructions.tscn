@@ -1,8 +1,22 @@
 [gd_scene format=3 uid="uid://ddqjggkh44kwb"]
 
 [ext_resource type="Script" uid="uid://c4fhd5q5eeok3" path="res://screens/instructions.gd" id="1_odi70"]
-[ext_resource type="FontFile" uid="uid://br3rou4c1jn8a" path="res://assets/fonts/Lato-Bold.ttf" id="2_a3fpx"]
+[ext_resource type="FontFile" uid="uid://csxckmycfxfwy" path="res://assets/fonts/RussoOne-Regular.ttf" id="2_a3fpx"]
 [ext_resource type="Script" uid="uid://dchp2kgb22jjp" path="res://utils/ui/fancy_button.gd" id="2_pq8by"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cd33c"]
+bg_color = Color(0.4627451, 0.58431375, 0.91764706, 0.4862745)
+
+[sub_resource type="Gradient" id="Gradient_5mnfb"]
+offsets = PackedFloat32Array(0.3592233, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.5019608)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a3fpx"]
+gradient = SubResource("Gradient_5mnfb")
+width = 1024
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Instructions" type="Control" unique_id=95438954]
 layout_mode = 3
@@ -40,9 +54,9 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer" unique_id=348992073]
 layout_mode = 2
-theme_override_constants/margin_left = 20
+theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
+theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=631969714]
@@ -57,17 +71,46 @@ theme_override_font_sizes/font_size = 36
 text = "Instructions"
 horizontal_alignment = 1
 
-[node name="Intructions" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=794571022]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2060245882]
 layout_mode = 2
-text = "You will get paged with EXTENSION + CODE
-WASD + mouse look to move around
-Check your pager with SPACE, pause with P
-Check your messages at the red phones to explain extensions and pager codes
-Patients are in the green beds
-Look out for the hospitals signs"
-horizontal_alignment = 1
 
-[node name="FancyButton" type="Button" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1453208211]
+[node name="Instructions1" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=794571022]
+layout_mode = 2
+text = "WASD / ARROWS + MOUSE to move around"
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=212499072]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cd33c")
+
+[node name="Instructions2" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/PanelContainer" unique_id=1962549307]
+layout_mode = 2
+text = "You will get bleeped with EXTENSION + CODE"
+
+[node name="Instructions3" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=651876481]
+layout_mode = 2
+text = "Check your pager at any time with SPACE"
+
+[node name="PanelContainer2" type="PanelContainer" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1659033998]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cd33c")
+
+[node name="Instructions4" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/PanelContainer2" unique_id=1302347533]
+layout_mode = 2
+text = "Check your messages at the red phones"
+
+[node name="Instructions5" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=226693713]
+layout_mode = 2
+text = "Patients are in the green beds"
+
+[node name="PanelContainer3" type="PanelContainer" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1188989934]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cd33c")
+
+[node name="Instructions6" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/PanelContainer3" unique_id=977087643]
+layout_mode = 2
+text = "Miss too many normal or any critical bleeps and lose!"
+
+[node name="PlayButton" type="Button" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1453208211]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -76,4 +119,24 @@ text = "Play game"
 script = ExtResource("2_pq8by")
 metadata/_custom_type_script = "uid://dchp2kgb22jjp"
 
-[connection signal="pressed" from="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/FancyButton" to="." method="_on_fancy_button_pressed"]
+[node name="MenuButton" type="Button" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=451032811]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Main menu"
+script = ExtResource("2_pq8by")
+metadata/_custom_type_script = "uid://dchp2kgb22jjp"
+
+[node name="FadeTextureRect" type="TextureRect" parent="." unique_id=708250324]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_a3fpx")
+
+[connection signal="pressed" from="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_fancy_button_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

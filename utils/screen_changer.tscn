@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://crohtd4vptla0" path="res://screens/success.tscn" id="6_vr3sm"]
 [ext_resource type="PackedScene" uid="uid://dypp83aba6fhc" path="res://screens/failure.tscn" id="7_xmplb"]
 [ext_resource type="PackedScene" uid="uid://ddqjggkh44kwb" path="res://screens/instructions.tscn" id="8_xmplb"]
+[ext_resource type="PackedScene" uid="uid://cna7rpp3olasf" path="res://screens/tips.tscn" id="9_3f0hh"]
 
 [node name="ScreenChanger" type="Node" unique_id=1076999280]
 script = ExtResource("1_ahmay")
@@ -18,5 +19,6 @@ screens = Dictionary[StringName, PackedScene]({
 &"main": ExtResource("3_0ty40"),
 &"main_menu": ExtResource("2_stj24"),
 &"scores": ExtResource("5_yscu7"),
-&"success": ExtResource("6_vr3sm")
+&"success": ExtResource("6_vr3sm"),
+&"tips": ExtResource("9_3f0hh")
 })

@@ -70,6 +70,14 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htt0m"]
+bg_color = Color(0, 0, 0, 0.54901963)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ed8xq"]
 content_margin_left = 4.0
 content_margin_top = 8.0
@@ -147,6 +155,7 @@ HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_fn0w4")
 HSlider/styles/slider = SubResource("StyleBoxLine_ht4lr")
 PagerButton/base_type = &"Button"
 PagerButton/styles/disabled = SubResource("StyleBoxFlat_x62x2")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_htt0m")
 PrimaryButton/base_type = &"Button"
 PrimaryButton/colors/font_color = Color(0.6666667, 0.9372549, 0.8352941, 1)
 PrimaryButton/colors/font_focus_color = Color(0, 0, 0, 1)

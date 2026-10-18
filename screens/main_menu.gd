@@ -76,7 +76,8 @@ func _finish_leaving(panel: Control) -> void:
 
 func _on_start_button_pressed() -> void:
 	RunState.reset()
-	ScreenChanger.change_to(&"instructions")
+	var gameplay := DataStore.get_model("Gameplay") as GameplayData
+	ScreenChanger.change_to(&"instructions" if gameplay.show_instructions else &"main")
 
 
 func _on_options_button_pressed() -> void:
@@ -87,5 +88,9 @@ func _on_back_button_pressed() -> void:
 	_switch_panels(options_v_box_container, start_container, -1.0, start_button)
 
 
-func _on_credits_button_pressed() -> void:
+func _on_instructions_button_pressed() -> void:
 	ScreenChanger.change_to(&"instructions")
+
+
+func _on_tips_button_pressed() -> void:
+	ScreenChanger.change_to(&"tips")
