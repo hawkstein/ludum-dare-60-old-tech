@@ -256,7 +256,7 @@ metadata/_custom_type_script = "uid://uty2uvhso70y"
 
 [sub_resource type="Resource" id="Resource_rmwy0"]
 script = ExtResource("4_owlgm")
-extension = "5010"
+extension = "5030"
 suffix = "999"
 message = "Patient emergency, drop everything and get to Trauma 3 now!"
 target_id = &"trauma3_bed1"
