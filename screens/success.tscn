@@ -2,6 +2,19 @@
 
 [ext_resource type="Script" uid="uid://imgj0bihhrs8" path="res://screens/shift_end_screen.gd" id="1_ia0u4"]
 [ext_resource type="Script" uid="uid://dchp2kgb22jjp" path="res://utils/ui/fancy_button.gd" id="2_bknfs"]
+[ext_resource type="PackedScene" uid="uid://5rmr42bul24a" path="res://utils/ui/title.tscn" id="2_rjxh7"]
+[ext_resource type="FontFile" uid="uid://br3rou4c1jn8a" path="res://assets/fonts/Lato-Bold.ttf" id="3_fs17n"]
+
+[sub_resource type="Gradient" id="Gradient_5mnfb"]
+offsets = PackedFloat32Array(0.3592233, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.5019608)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fs17n"]
+gradient = SubResource("Gradient_5mnfb")
+width = 1024
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Success" type="Control" unique_id=212455753]
 layout_mode = 3
@@ -19,7 +32,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.09247766, 0.3211735, 0.2726041, 1)
+color = Color(0.08627451, 0.30588236, 0.2784314, 1)
+
+[node name="FadeTextureRect" type="TextureRect" parent="." unique_id=1928818295]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_fs17n")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1557061100]
 layout_mode = 1
@@ -35,11 +58,19 @@ theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1372817727]
 layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 10
 alignment = 1
+
+[node name="PagerPanicTitle" parent="MarginContainer/VBoxContainer" unique_id=328497122 instance=ExtResource("2_rjxh7")]
+layout_mode = 2
+text = "Pager Panic"
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=685301937]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
+theme_override_fonts/font = ExtResource("3_fs17n")
+theme_override_font_sizes/font_size = 36
 text = "Well done! You survived your shift!"
 horizontal_alignment = 1
 
@@ -48,21 +79,22 @@ unique_name_in_owner = true
 layout_mode = 2
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=223968411]
-layout_mode = 2
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="PlayAgainButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=35267962]
+[node name="PlayAgainButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=35267962]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Play Again"
 script = ExtResource("2_bknfs")
 metadata/_custom_type_script = "uid://dchp2kgb22jjp"
 
-[node name="MainMenuButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1949263967]
+[node name="MainMenuButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1949263967]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Main Menu"
 script = ExtResource("2_bknfs")
 metadata/_custom_type_script = "uid://dchp2kgb22jjp"
