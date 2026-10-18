@@ -7,12 +7,14 @@ extends Control
 @onready var score_label: Label = %ScoreLabel
 @onready var play_again_button: Button = %PlayAgainButton
 @onready var main_menu_button: Button = %MainMenuButton
+@onready var tips_button: Button = %TipsButton
 
 func _ready() -> void:
 	# Arriving from gameplay, where the mouse is captured.
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	play_again_button.pressed.connect(_on_play_again_pressed)
 	main_menu_button.pressed.connect(_on_main_menu_pressed)
+	tips_button.pressed.connect(_on_tips_pressed)
 	score_label.text = _build_score_text()
 	play_again_button.grab_focus()
 
@@ -44,3 +46,7 @@ func _on_play_again_pressed() -> void:
 
 func _on_main_menu_pressed() -> void:
 	ScreenChanger.change_to(&"main_menu")
+	
+
+func _on_tips_pressed() -> void:
+	ScreenChanger.change_to(&"tips")

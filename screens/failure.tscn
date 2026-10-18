@@ -59,6 +59,7 @@ theme_override_constants/margin_bottom = 20
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1372817727]
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="PagerPanicTitle" parent="MarginContainer/VBoxContainer" unique_id=328497122 instance=ExtResource("2_wm1qk")]
@@ -85,6 +86,16 @@ custom_maximum_size = Vector2(200, -1)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Play Again"
+script = ExtResource("2_48jhs")
+metadata/_custom_type_script = "uid://dchp2kgb22jjp"
+
+[node name="TipsButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=255391918]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Tips"
 script = ExtResource("2_48jhs")
 metadata/_custom_type_script = "uid://dchp2kgb22jjp"
 
