@@ -17,9 +17,9 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="pager-panic"
 run/main_scene="uid://dfn6sijy2qq8n"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/bg_color=Color(0.08627451, 0.30588236, 0.2784314, 1)
 boot_splash/stretch_mode=0
-boot_splash/image="uid://4iakeclf4k4b"
+boot_splash/image="uid://cmmu8iuob5yom"
 
 [autoload]
 
