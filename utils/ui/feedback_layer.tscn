@@ -65,7 +65,9 @@ clip_contents = true
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_left = -100.0
 offset_top = -150.0
+offset_right = 100.0
 offset_bottom = 8.0
 grow_horizontal = 2
 mouse_filter = 2
@@ -73,31 +75,32 @@ mouse_filter = 2
 [node name="Director" type="SubViewportContainer" parent="MarginContainer/Panel/DirectorArea/DirectorClip" unique_id=1430113197]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 22.0
-offset_top = -93.0
-offset_right = 224.0
+offset_left = -15.0
+offset_top = -133.0
+offset_right = 461.0
 offset_bottom = 175.0
 rotation = -0.08726646
 scale = Vector2(0.5, 0.5)
-pivot_offset = Vector2(101, 268)
+pivot_offset = Vector2(238, 308)
 mouse_filter = 2
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/Panel/DirectorArea/DirectorClip/Director" unique_id=2111539152]
 own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(202, 268)
+size = Vector2i(476, 308)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="MarginContainer/Panel/DirectorArea/DirectorClip/Director/SubViewport" unique_id=240347282]
-transform = Transform3D(0.9961947, 0, 0.08715574, 0, 1, 0, -0.08715574, 0, 0.9961947, 0.17431149, 1.4, 1.9923894)
+transform = Transform3D(0.9961947, 0, 0.08715574, 0, 1, 0, -0.08715574, 0, 0.9961947, 0.17431149, 1.485, 1.9923894)
 environment = SubResource("Environment_dirct")
-fov = 30.0
+fov = 34.19
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="MarginContainer/Panel/DirectorArea/DirectorClip/Director/SubViewport" unique_id=1372487557]
 transform = Transform3D(0.8660254, -0.35355338, 0.35355338, 0, 0.70710677, 0.70710677, -0.5, -0.6123724, 0.6123724, 0, 3, 0)
 
 [node name="MedicalDirector" parent="MarginContainer/Panel/DirectorArea/DirectorClip/Director/SubViewport" unique_id=125088304 instance=ExtResource("5_dirct")]
+unique_name_in_owner = true
 
 [node name="SuccessBackground" type="Control" parent="MarginContainer/Panel" unique_id=1275131231]
 unique_name_in_owner = true

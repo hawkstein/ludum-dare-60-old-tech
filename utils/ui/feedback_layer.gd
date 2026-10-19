@@ -20,6 +20,8 @@ enum Corner { TOP_LEFT, TOP_RIGHT, BOTTOM_RIGHT }
 @export var corners: Array[Corner] = [Corner.BOTTOM_RIGHT as Corner]
 @export var success_sound: AudioStream
 @export var failure_sound: AudioStream
+@export var success_animation := &"success"
+@export var failure_animation := &"idle"
 
 @onready var panel: Control = %Panel
 @onready var success_background: Control = %SuccessBackground
@@ -27,6 +29,7 @@ enum Corner { TOP_LEFT, TOP_RIGHT, BOTTOM_RIGHT }
 @onready var message_label: Label = %MessageLabel
 @onready var sfx_player: AudioStreamPlayer = %SfxPlayer
 @onready var director: Control = %Director
+@onready var director_animation: AnimationPlayer = %MedicalDirector.get_node(^"AnimationPlayer")
 
 var _queue: Array[Dictionary] = []
 var _running := false
@@ -82,6 +85,7 @@ func _run_queue() -> void:
 		panel.show()
 		sfx_player.stream = success_sound if message.kind == Kind.SUCCESS else failure_sound
 		sfx_player.play()
+		_play_director(success_animation if message.kind == Kind.SUCCESS else failure_animation)
 
 		
 		offset.x = side * slide_distance
@@ -109,6 +113,13 @@ func _place(corner: Corner) -> float:
 	panel.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN if left else Control.SIZE_SHRINK_END
 	panel.size_flags_vertical = Control.SIZE_SHRINK_BEGIN if top else Control.SIZE_SHRINK_END
 	return -1.0 if left else 1.0
+
+
+func _play_director(animation: StringName) -> void:
+	# Back to the rest pose first, or tracks the new animation doesn't key stay where the last one left them.
+	director_animation.play(&"RESET")
+	director_animation.advance(0.0)
+	director_animation.play(animation)
 
 
 func _animate(x: float, alpha: float, easing: Tween.EaseType) -> Tween:
