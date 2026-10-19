@@ -28,7 +28,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wysbo"]
-bg_color = Color(0.954544, 0.94581693, 0.88759774, 1)
+bg_color = Color(0.9529412, 0.94509804, 0.8862745, 1)
 
 [node name="FeedbackLayer" type="CanvasLayer" unique_id=1192874837]
 layer = 5

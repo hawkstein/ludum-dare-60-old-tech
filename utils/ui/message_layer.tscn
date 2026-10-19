@@ -1,6 +1,21 @@
 [gd_scene format=3 uid="uid://cbuas17ydfjcl"]
 
 [ext_resource type="Script" uid="uid://j13ynqbsm7cp" path="res://utils/ui/message_layer.gd" id="1_cqwuf"]
+[ext_resource type="FontFile" uid="uid://br3rou4c1jn8a" path="res://assets/fonts/Lato-Bold.ttf" id="2_cqwuf"]
+[ext_resource type="FontFile" uid="uid://m82m1rgoxo78" path="res://assets/fonts/dseg7-classic-latin-700-normal.ttf" id="2_tv6yh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mnfb"]
+bg_color = Color(0.043137256, 0.050980393, 0.105882354, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.25490198)
+shadow_size = 2
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pgufn"]
+bg_color = Color(0.9529412, 0.94509804, 0.8862745, 1)
 
 [node name="MessageLayer" type="CanvasLayer" unique_id=1692279544]
 layer = 5
@@ -23,7 +38,9 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+offset_transform_enabled = true
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5mnfb")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel" unique_id=534788406]
 layout_mode = 2
@@ -32,17 +49,40 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer" unique_id=1727007397]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Panel/MarginContainer" unique_id=1944239910]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pgufn")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/PanelContainer" unique_id=699800289]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/PanelContainer/MarginContainer" unique_id=1727007397]
 layout_mode = 2
 
-[node name="SpeakerLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1128709891]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1323768900]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1927098234]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12941177, 0.14117648, 0.24313726, 1)
+text = "Pager message: "
+
+[node name="SpeakerLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1128709891]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0.12941177, 0.14117648, 0.24313726, 1)
+theme_override_fonts/font = ExtResource("2_tv6yh")
 
-[node name="MessageLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=353282879]
+[node name="MessageLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=353282879]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.043137256, 0.050980393, 0.105882354, 1)
+theme_override_fonts/font = ExtResource("2_cqwuf")
 autowrap_mode = 2
 
 [node name="SfxPlayer" type="AudioStreamPlayer" parent="." unique_id=1860941233]

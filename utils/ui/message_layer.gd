@@ -18,10 +18,12 @@ var _queue: Array[Dictionary] = []
 var _running := false
 var _run_id := 0
 var _tween: Tween
+var slide_distance := 300.0
 
 func _ready() -> void:
 	panel.modulate.a = 0.0
 	panel.hide()
+	panel.offset_transform_position.y = slide_distance
 
 
 ## Queue a message
@@ -51,7 +53,7 @@ func clear() -> void:
 	_queue.clear()
 	_run_id += 1
 	_running = false
-	_fade(0.0).tween_callback(panel.hide)
+	_fade(0.0, slide_distance, Tween.EASE_IN).tween_callback(panel.hide)
 
 
 func _run_queue() -> void:
@@ -69,13 +71,13 @@ func _run_queue() -> void:
 			sfx_player.play()
 		message_shown.emit(message.text, message.speaker)
 
-		await _fade(1.0).finished
+		await _fade(1.0, 0.0, Tween.EASE_OUT).finished
 		if run != _run_id:
 			return
 		await get_tree().create_timer(message.duration, false).timeout
 		if run != _run_id:
 			return
-		await _fade(0.0).finished
+		await _fade(0.0, slide_distance, Tween.EASE_IN).finished
 		if run != _run_id:
 			return
 
@@ -84,9 +86,10 @@ func _run_queue() -> void:
 	queue_finished.emit()
 
 
-func _fade(alpha: float) -> Tween:
+func _fade(alpha: float, y:float, easing:Tween.EaseType) -> Tween:
 	if _tween:
 		_tween.kill()
-	_tween = create_tween()
+	_tween = create_tween().set_parallel()
+	_tween.tween_property(panel, "offset_transform_position:y", y, fade_time).set_trans(Tween.TRANS_BACK).set_ease(easing)
 	_tween.tween_property(panel, "modulate:a", alpha, fade_time)
 	return _tween
