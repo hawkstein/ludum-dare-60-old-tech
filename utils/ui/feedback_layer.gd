@@ -15,7 +15,7 @@ enum Corner { TOP_LEFT, TOP_RIGHT, BOTTOM_RIGHT }
 @export var director_pop_time := 0.35
 @export var director_pop_delay := 0.3
 ## How far below the authored rest position the director hides.
-@export var director_drop := 120.0
+@export var director_drop := 170.0
 # Cast prevents Godot parse error on enum-typed array literals - investigate more at some point
 @export var corners: Array[Corner] = [Corner.BOTTOM_RIGHT as Corner]
 @export var success_sound: AudioStream

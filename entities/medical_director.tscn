@@ -1,15 +1,147 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://b66kkg2rf5acq"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_coat"]
-albedo_color = Color(0.954544, 0.94581693, 0.88759774, 1)
+[sub_resource type="BoxMesh" id="BoxMesh_kfbx8"]
+size = Vector3(0.17927246, 0.2, 0.2)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_body"]
-material = SubResource("StandardMaterial3D_coat")
-radius = 0.3
-height = 1.8
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_syuia"]
+albedo_color = Color(0.81991524, 0.4944027, 0.2844321, 1)
 
-[node name="MedicalDirector" type="Node3D"]
+[sub_resource type="BoxMesh" id="BoxMesh_fkif2"]
+size = Vector3(0.21678208, 0.1, 0.16761719)
 
-[node name="Placeholder" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-mesh = SubResource("CapsuleMesh_body")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bgvu6"]
+albedo_color = Color(0.46618086, 0.4661808, 0.4661808, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dao67"]
+size = Vector3(0.4, 0.8120117, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lkf2a"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fbdsp"]
+size = Vector3(0.1, 0.3, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kgtpm"]
+size = Vector3(0.20195313, 0.3371277, 0.25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0wek2"]
+size = Vector3(0.11728516, 0.3892334, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mwea4"]
+albedo_color = Color(0.57700837, 0.5770084, 0.57700837, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pitof"]
+size = Vector3(0.11728516, 0.3892334, 0.1)
+
+[node name="MedicalDirector" type="Node3D" unique_id=1984059814]
+
+[node name="Model" type="Node3D" parent="." unique_id=1249215515]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Rig" type="Node3D" parent="Model" unique_id=411007448]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6867914, 0)
+
+[node name="Neck" type="Node3D" parent="Model/Rig" unique_id=149021883]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.7555969, 0)
+
+[node name="Head" type="MeshInstance3D" parent="Model/Rig/Neck" unique_id=1825283220]
+transform = Transform3D(1, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999984, 0.002722174, 0.10458815, 0)
+mesh = SubResource("BoxMesh_kfbx8")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_syuia")
+
+[node name="Hair" type="MeshInstance3D" parent="Model/Rig/Neck" unique_id=782137837]
+transform = Transform3D(1, 0, 0, 0, 0.9999924, 0, 0, 0, 0.9999924, 0.0008101538, 0.12711978, 0.027242307)
+mesh = SubResource("BoxMesh_fkif2")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_bgvu6")
+
+[node name="Chest" type="MeshInstance3D" parent="Model/Rig" unique_id=1046996236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35941124, 0)
+mesh = SubResource("BoxMesh_dao67")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_lkf2a")
+
+[node name="LeftShoulder" type="Node3D" parent="Model/Rig" unique_id=184290774]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24665537, 0.6524652, -7.450581e-09)
+
+[node name="LeftArm" type="MeshInstance3D" parent="Model/Rig/LeftShoulder" unique_id=844483699]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002, -0.15, 0)
+mesh = SubResource("BoxMesh_fbdsp")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_lkf2a")
+
+[node name="LeftElbow" type="Node3D" parent="Model/Rig/LeftShoulder/LeftArm" unique_id=1479292388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002000004, -0.14999998, 1.1920929e-07)
+
+[node name="LeftForearm" type="MeshInstance3D" parent="Model/Rig/LeftShoulder/LeftArm/LeftElbow" unique_id=920202790]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002000004, -0.14999998, 0)
+mesh = SubResource("BoxMesh_fbdsp")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_lkf2a")
+
+[node name="RightShoulder" type="Node3D" parent="Model/Rig" unique_id=672572295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25928745, 0.65246534, 0)
+
+[node name="RightArm" type="MeshInstance3D" parent="Model/Rig/RightShoulder" unique_id=599493369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011260241, -0.14999998, 0)
+mesh = SubResource("BoxMesh_fbdsp")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_lkf2a")
+
+[node name="RightElbow" type="Node3D" parent="Model/Rig/RightShoulder/RightArm" unique_id=932573398]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002000004, -0.15000005, 0)
+
+[node name="RightForearm" type="MeshInstance3D" parent="Model/Rig/RightShoulder/RightArm/RightElbow" unique_id=1138148233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002000004, -0.14999998, 0)
+mesh = SubResource("BoxMesh_fbdsp")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_lkf2a")
+
+[node name="LeftHip" type="Node3D" parent="Model/Rig" unique_id=494898058]
+transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000002, -0.074968636, -0.03605628, 1.4901161e-08)
+
+[node name="LeftThigh" type="MeshInstance3D" parent="Model/Rig/LeftHip" unique_id=1347181649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024054803, -0.045740247, 0)
+mesh = SubResource("BoxMesh_kgtpm")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_lkf2a")
+
+[node name="LeftLeg" type="MeshInstance3D" parent="Model/Rig/LeftHip" unique_id=229264444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016388789, -0.18376428, 0)
+mesh = SubResource("BoxMesh_0wek2")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_mwea4")
+
+[node name="LeftKnee" type="Node3D" parent="Model/Rig/LeftHip" unique_id=1777014077]
+transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000002, 0, -0.3290884, 0)
+
+[node name="LeftShin" type="MeshInstance3D" parent="Model/Rig/LeftHip/LeftKnee" unique_id=649838280]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016388789, -0.22873308, 0)
+mesh = SubResource("BoxMesh_pitof")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_mwea4")
+
+[node name="RightHip" type="Node3D" parent="Model/Rig" unique_id=650659992]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13413009, -0.03605622, 0)
+
+[node name="RightThigh" type="MeshInstance3D" parent="Model/Rig/RightHip" unique_id=193531774]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03412149, -0.045740247, 0)
+mesh = SubResource("BoxMesh_kgtpm")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_lkf2a")
+
+[node name="RightLeg" type="MeshInstance3D" parent="Model/Rig/RightHip" unique_id=537636213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016388789, -0.18376428, 0)
+mesh = SubResource("BoxMesh_0wek2")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_mwea4")
+
+[node name="RightKnee" type="Node3D" parent="Model/Rig/RightHip" unique_id=1801123535]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32908842, 1.1920929e-07)
+
+[node name="RightShin" type="MeshInstance3D" parent="Model/Rig/RightHip/RightKnee" unique_id=179550628]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016388789, -0.22873308, 0)
+mesh = SubResource("BoxMesh_pitof")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_mwea4")
