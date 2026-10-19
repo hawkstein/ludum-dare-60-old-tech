@@ -14,7 +14,8 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	play_again_button.pressed.connect(_on_play_again_pressed)
 	main_menu_button.pressed.connect(_on_main_menu_pressed)
-	tips_button.pressed.connect(_on_tips_pressed)
+	if tips_button:
+		tips_button.pressed.connect(_on_tips_pressed)
 	score_label.text = _build_score_text()
 	play_again_button.grab_focus()
 

@@ -7,6 +7,8 @@ signal event_failed(bleep: Bleep, severity: Bleep.Severity)
 
 @export var messages: MessageLayer
 
+var gameplay := DataStore.get_model(&"Gameplay") as GameplayData
+
 class ActiveEvent:
 	var bleep: Bleep
 	var time_left: float
@@ -67,8 +69,14 @@ func _on_phone_reached() -> void:
 		if event.heard:
 			continue
 		event.heard = true
-		if not event.bleep.message.is_empty():
-			messages.show_message(event.bleep.message, event.bleep.label())
+		if event.bleep.message.is_empty():
+			continue
+		# criticals jump ahead of normal messages
+		var duration := gameplay.message_duration
+		if event.bleep.severity == Bleep.Severity.CRITICAL:
+			messages.show_next(event.bleep.message, event.bleep.label(), duration)
+		else:
+			messages.show_message(event.bleep.message, event.bleep.label(), duration)
 
 
 func _get_target(target_id: StringName) -> EventTarget:
