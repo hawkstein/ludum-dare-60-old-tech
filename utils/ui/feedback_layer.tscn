@@ -3,8 +3,26 @@
 [ext_resource type="Script" uid="uid://dgw8guliqbhwg" path="res://utils/ui/feedback_layer.gd" id="1_ljgee"]
 [ext_resource type="AudioStream" uid="uid://du5k8wt4wsjvk" path="res://utils/ui/Happy Chime.wav" id="2_s72a1"]
 [ext_resource type="AudioStream" uid="uid://bnmk5x04xlet0" path="res://utils/ui/Soft Failure.wav" id="3_susgo"]
+[ext_resource type="FontFile" uid="uid://br3rou4c1jn8a" path="res://assets/fonts/Lato-Bold.ttf" id="4_2s6hm"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fb001"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cd33c"]
+bg_color = Color(0.08627451, 0.30588236, 0.2784314, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8li8"]
+bg_color = Color(0.5019608, 0.10980392, 0.11764706, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wysbo"]
+bg_color = Color(0.954544, 0.94581693, 0.88759774, 1)
 
 [node name="FeedbackLayer" type="CanvasLayer" unique_id=1192874837]
 layer = 5
@@ -32,16 +50,34 @@ size_flags_vertical = 8
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_fb001")
 
-[node name="SuccessBackground" type="Panel" parent="MarginContainer/Panel" unique_id=1877518149]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-
-[node name="FailureBackground" type="Panel" parent="MarginContainer/Panel" unique_id=635788072]
+[node name="SuccessBackground" type="Control" parent="MarginContainer/Panel" unique_id=1275131231]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+
+[node name="SuccessBackgroundPanel" type="Panel" parent="MarginContainer/Panel/SuccessBackground" unique_id=1877518149]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cd33c")
+
+[node name="FailureBackground" type="Control" parent="MarginContainer/Panel" unique_id=2111255617]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FailureBackgroundPanel" type="Panel" parent="MarginContainer/Panel/FailureBackground" unique_id=635788072]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b8li8")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel" unique_id=107644789]
 layout_mode = 2
@@ -50,17 +86,32 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer" unique_id=1689530204]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Panel/MarginContainer" unique_id=392925313]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wysbo")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/PanelContainer" unique_id=1120840670]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/PanelContainer/MarginContainer" unique_id=1689530204]
 layout_mode = 2
 
-[node name="SpeakerLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1265930427]
+[node name="SpeakerLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1265930427]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "From: Medical Director"
 
-[node name="MessageLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1416182523]
+[node name="MessageLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1416182523]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_2s6hm")
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="SfxPlayer" type="AudioStreamPlayer" parent="." unique_id=358990222]
