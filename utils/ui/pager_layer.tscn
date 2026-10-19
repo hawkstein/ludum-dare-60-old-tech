@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dplq5ksji7ncg"]
 
 [ext_resource type="Script" uid="uid://bad0t32y3mypw" path="res://utils/ui/pager_layer.gd" id="1_3j3ux"]
-[ext_resource type="AudioStream" uid="uid://0cesl6iife08" path="res://utils/pager/blipSelect.wav" id="2_ewait"]
+[ext_resource type="AudioStream" uid="uid://cetlne6qrixyk" path="res://utils/pager/pager-tone.wav" id="2_m5i4u"]
 [ext_resource type="FontFile" uid="uid://m82m1rgoxo78" path="res://assets/fonts/dseg7-classic-latin-700-normal.ttf" id="3_5k2a8"]
 [ext_resource type="FontFile" uid="uid://csxckmycfxfwy" path="res://assets/fonts/RussoOne-Regular.ttf" id="3_m5i4u"]
 
@@ -25,7 +25,7 @@ script = ExtResource("1_3j3ux")
 
 [node name="SfxPlayer" type="AudioStreamPlayer" parent="." unique_id=757089520]
 unique_name_in_owner = true
-stream = ExtResource("2_ewait")
+stream = ExtResource("2_m5i4u")
 bus = &"SFX"
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=395234922]
