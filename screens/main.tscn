@@ -289,7 +289,6 @@ material = SubResource("StandardMaterial3D_era8c")
 [node name="Sign" parent="Level/MinorInjury1" unique_id=866085770 instance=ExtResource("2_owlgm")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.9410872, 2.1188965, -4.540161)
 text = "Minor Injury 1"
-arrow_direction = 0
 
 [node name="Bed" parent="Level/MinorInjury1" unique_id=1517169828 instance=ExtResource("5_la406")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.127548, 1, -6.641997)
@@ -312,7 +311,6 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -14.
 text = "4"
 board_size = Vector2(0.8, 0.8)
 font_size = 128
-arrow_direction = 0
 
 [node name="Partition" type="CSGBox3D" parent="Level/MinorInjury1" unique_id=1082055537]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.531282, 1.5, 0.5916443)
@@ -372,14 +370,12 @@ material = SubResource("StandardMaterial3D_era8c")
 [node name="Sign2" parent="Level/MinorInjury2" unique_id=1300450050 instance=ExtResource("2_owlgm")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.9410872, 2.1188965, -4.514682)
 text = "Minor Injury 2"
-arrow_direction = 0
 
 [node name="Sign3" parent="Level/MinorInjury2" unique_id=512422642 instance=ExtResource("2_owlgm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.536516, 2.1188965, -7.8267546)
 text = "2"
 board_size = Vector2(0.8, 0.8)
 font_size = 128
-arrow_direction = 0
 
 [node name="MajorInjury1" type="Node3D" parent="Level" unique_id=122092848]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.602768)
@@ -387,7 +383,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.602768)
 [node name="WardSign" parent="Level/MajorInjury1" unique_id=810370458 instance=ExtResource("2_owlgm")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.9410872, 2.1188965, -4.565048)
 text = "Major Injury 1"
-arrow_direction = 0
 
 [node name="TraumaGuide" parent="Level/MajorInjury1" unique_id=684461077 instance=ExtResource("2_owlgm")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.9410872, 1.1240234, -4.565048)
@@ -440,7 +435,6 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.1
 text = "3"
 board_size = Vector2(0.8, 0.8)
 font_size = 128
-arrow_direction = 0
 
 [node name="Trauma1" type="Node3D" parent="Level" unique_id=165298376]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.526671, 0, 26.155787)
@@ -449,7 +443,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.526671, 0, 26.155787)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.9434695, 2.1188965, -6.784876)
 text = "Trauma 1"
 board_size = Vector2(1.2, 0.8)
-arrow_direction = 0
 
 [node name="Bed" parent="Level/Trauma1" unique_id=316551403 instance=ExtResource("5_la406")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.818375, 1, -4.392597)
@@ -502,7 +495,6 @@ material = SubResource("StandardMaterial3D_era8c")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.9434695, 2.1188965, -6.7146378)
 text = "Trauma 2"
 board_size = Vector2(1.2, 0.8)
-arrow_direction = 0
 
 [node name="Trauma3" type="Node3D" parent="Level" unique_id=1659534707]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.526671, 0, 39.540775)
@@ -533,7 +525,6 @@ material = SubResource("StandardMaterial3D_era8c")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.9434695, 2.1188965, -6.7764015)
 text = "Trauma 3"
 board_size = Vector2(1.4, 0.8)
-arrow_direction = 0
 
 [node name="WardSign5" parent="Level/Trauma3" unique_id=769387269 instance=ExtResource("2_owlgm")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.9434695, 1.2269897, -6.7764015)
@@ -582,28 +573,24 @@ material = SubResource("StandardMaterial3D_era8c")
 [node name="WardSign2" parent="Level/MajorInjury2" unique_id=1934650928 instance=ExtResource("2_owlgm")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16.230057, 2.1188965, -4.5399017)
 text = "Major Injury 2"
-arrow_direction = 0
 
 [node name="Sign4" parent="Level/MajorInjury2" unique_id=795497413 instance=ExtResource("2_owlgm")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -13.352676, 2.1188965, 0.20472717)
 text = "2"
 board_size = Vector2(0.8, 0.8)
 font_size = 128
-arrow_direction = 0
 
 [node name="Sign5" parent="Level/MajorInjury2" unique_id=1144171365 instance=ExtResource("2_owlgm")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -33.498703, 2.1188965, 17.790665)
 text = "1"
 board_size = Vector2(0.8, 0.8)
 font_size = 128
-arrow_direction = 0
 
 [node name="Sign6" parent="Level/MajorInjury2" unique_id=1197551864 instance=ExtResource("2_owlgm")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16.598976, 2.1188965, 17.790665)
 text = "4"
 board_size = Vector2(0.8, 0.8)
 font_size = 128
-arrow_direction = 0
 
 [node name="BlockedOffRoom" type="Node3D" parent="Level" unique_id=357719040]
 
@@ -660,6 +647,27 @@ material = SubResource("StandardMaterial3D_era8c")
 [node name="DoctorsLounge" type="Node3D" parent="Level" unique_id=1250010909]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.144574, 0, 0)
 
+[node name="SecretSign1" parent="Level/DoctorsLounge" unique_id=954337008 instance=ExtResource("2_owlgm")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.953518, 2.0562134, 20.99356)
+text = "When is S3 of The Pitt?!"
+board_size = Vector2(1.8, 1)
+font_size = 72
+board_color = Color(0.68499047, 0.08538566, 0.1533755, 1)
+
+[node name="SecretSign2" parent="Level/DoctorsLounge" unique_id=1909835630 instance=ExtResource("2_owlgm")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 15.33334, 1.7125244, 23.753998)
+text = "Ever seen Dr Carter and Dr Robby in the same room?"
+board_size = Vector2(2.2, 1.2)
+font_size = 72
+board_color = Color(0.68499047, 0.08538566, 0.1533755, 1)
+
+[node name="SecretSign3" parent="Level/DoctorsLounge" unique_id=422547423 instance=ExtResource("2_owlgm")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 17.942205, 2.020813, 20.848755)
+text = "Dr. Benton is the worst!"
+board_size = Vector2(1.8, 1)
+font_size = 72
+board_color = Color(0.68499047, 0.08538566, 0.1533755, 1)
+
 [node name="WaitingRoomSouthWall" type="CSGBox3D" parent="Level/DoctorsLounge" unique_id=1139897907]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5812, 1.5, 11.997814)
 use_collision = true
@@ -687,7 +695,6 @@ material = SubResource("StandardMaterial3D_era8c")
 [node name="WardSign3" parent="Level/DoctorsLounge" unique_id=735825895 instance=ExtResource("2_owlgm")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.425349, 2.1188965, 20.379257)
 text = "Doctor's Lounge"
-arrow_direction = 0
 
 [node name="WardSign4" parent="Level/DoctorsLounge" unique_id=878743685 instance=ExtResource("2_owlgm")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.425349, 1.0938721, 20.379257)
@@ -789,13 +796,11 @@ material = SubResource("StandardMaterial3D_era8c")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.956432, 2.1188965, -4.4633546)
 text = "ICU 1"
 board_size = Vector2(1.2, 0.8)
-arrow_direction = 0
 
 [node name="WardSign5" parent="Level/ICU1" unique_id=682785624 instance=ExtResource("2_owlgm")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.956432, 2.1188965, -9.10404)
 text = "Pre-op"
 board_size = Vector2(1.2, 0.8)
-arrow_direction = 0
 
 [node name="WardSign4" parent="Level/ICU1" unique_id=326218405 instance=ExtResource("2_owlgm")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.956432, 1.1710205, -4.463354)
@@ -809,7 +814,6 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8.5
 text = "1"
 board_size = Vector2(0.8, 0.8)
 font_size = 128
-arrow_direction = 0
 
 [node name="Recovery1" type="Node3D" parent="Level" unique_id=1841422959]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.134304, 0, 46.47194)
@@ -858,14 +862,12 @@ material = SubResource("StandardMaterial3D_era8c")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.964062, 2.1188965, -6.067974)
 text = "Recovery"
 board_size = Vector2(1.2, 0.8)
-arrow_direction = 0
 
 [node name="Sign9" parent="Level/Recovery1" unique_id=465855591 instance=ExtResource("2_owlgm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.579773, 2.1188965, -7.7241135)
 text = "4"
 board_size = Vector2(0.8, 0.8)
 font_size = 128
-arrow_direction = 0
 
 [node name="Preop1" type="Node3D" parent="Level" unique_id=1635014268]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.8010025, 0, 58.561855)
@@ -901,7 +903,6 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8.5
 text = "1"
 board_size = Vector2(0.8, 0.8)
 font_size = 128
-arrow_direction = 0
 
 [node name="Surgery1" type="Node3D" parent="Level" unique_id=2041538629]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.822571, 0, 58.561855)
@@ -932,7 +933,6 @@ material = SubResource("StandardMaterial3D_era8c")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.956432, 2.1188965, -1.3203554)
 text = "Surgery 1"
 board_size = Vector2(1.2, 0.8)
-arrow_direction = 0
 
 [node name="Surgery2" type="Node3D" parent="Level" unique_id=278626827]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.780067, 0, 58.561855)
@@ -969,7 +969,6 @@ material = SubResource("StandardMaterial3D_era8c")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.956432, 2.1188965, -1.3562984)
 text = "Surgery 2"
 board_size = Vector2(1.4, 0.8)
-arrow_direction = 0
 
 [node name="WardSign6" parent="Level/Surgery2" unique_id=1395455529 instance=ExtResource("2_owlgm")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.956432, 1.2178345, -1.3562984)
@@ -985,7 +984,6 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.956432, 2.1188965, -4.4371223)
 text = "ICU 2"
 board_size = Vector2(1.2, 0.8)
-arrow_direction = 0
 
 [node name="WardSign3" parent="Level/ICU2" unique_id=1483760384 instance=ExtResource("2_owlgm")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.956432, 1.1599731, -4.437122)
@@ -1069,7 +1067,6 @@ material = SubResource("StandardMaterial3D_era8c")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.956432, 2.1188965, -4.998678)
 text = "Cardiac Care Unit"
 board_size = Vector2(1.2, 0.8)
-arrow_direction = 0
 
 [node name="WardSign2" parent="Level/CCU1" unique_id=1923481620 instance=ExtResource("2_owlgm")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.956432, 2.1188965, 0.0030918121)
