@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var max_normal_failures := 6
+@export var max_normal_failures := 4
 @export var end_message_duration := 2.5
 @export var end_lead_in_duration := 1.0
 

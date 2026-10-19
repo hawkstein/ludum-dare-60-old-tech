@@ -96,7 +96,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_cd33c")
 
 [node name="Instructions4" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/PanelContainer2" unique_id=1302347533]
 layout_mode = 2
-text = "You can fail other codes up to 5 times"
+text = "You can fail other codes 3 times then it's over"
 
 [node name="Instructions5" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=226693713]
 layout_mode = 2
