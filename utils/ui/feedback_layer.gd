@@ -13,7 +13,7 @@ enum Corner { TOP_LEFT, TOP_RIGHT, BOTTOM_RIGHT }
 @export var slide_distance := 300.0
 @export var slide_trans: Tween.TransitionType = Tween.TRANS_BACK
 # Cast prevents Godot parse error on enum-typed array literals - investigate more at some point
-@export var corners: Array[Corner] = [Corner.TOP_LEFT as Corner, Corner.TOP_RIGHT as Corner, Corner.BOTTOM_RIGHT as Corner]
+@export var corners: Array[Corner] = [Corner.BOTTOM_RIGHT as Corner]
 @export var success_sound: AudioStream
 @export var failure_sound: AudioStream
 
