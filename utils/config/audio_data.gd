@@ -6,7 +6,7 @@ var master_volume := 0.8:
 		master_volume = volume
 		AudioManager.set_master_volume(volume)
 
-var sfx_volume := 1.0:
+var sfx_volume := 0.7:
 	set(volume):
 		sfx_volume = volume
 		AudioManager.set_sfx_volume(volume)

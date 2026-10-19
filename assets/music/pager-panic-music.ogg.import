@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/pager-panic-music.ogg-9a02de9ed8701ad71bd181b
 
 [params]
 
-loop=false
-loop_offset=0
+loop=true
+loop_offset=148.71
 bpm=0
 beat_count=0
 bar_beats=4
