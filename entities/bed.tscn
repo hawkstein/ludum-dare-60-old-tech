@@ -6,13 +6,31 @@
 size = Vector3(2, 1, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_cd33c"]
-size = Vector3(0.7, 0.2, 1.8)
+size = Vector3(1, 0.2, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cbuj4"]
 albedo_color = Color(0.101960786, 0.28627452, 0.078431375, 1)
 
+[sub_resource type="BoxMesh" id="BoxMesh_snt4t"]
+size = Vector3(0.8, 1, 1.627)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjy18"]
+albedo_color = Color(0.05295492, 0.26583818, 0.33006114, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bjklw"]
+size = Vector3(0.63084716, 0.2, 1.4526352)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fjy18"]
+size = Vector3(0.63084716, 0.2, 0.26440352)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tycb4"]
+size = Vector3(0.25, 0.2, 0.25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_snt4t"]
+albedo_color = Color(0.98039216, 0.6784314, 0.5686275, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_wysbo"]
-size = Vector3(0.7, 0.2, 1.8)
+size = Vector3(1, 0.2, 2)
 
 [node name="Bed" type="Area3D" unique_id=1517169828]
 script = ExtResource("1_snt4t")
@@ -20,9 +38,34 @@ script = ExtResource("1_snt4t")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=508424934]
 shape = SubResource("BoxShape3D_cd33c")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1159242977]
+[node name="Bed" type="MeshInstance3D" parent="." unique_id=1159242977]
 mesh = SubResource("BoxMesh_cd33c")
 surface_material_override/0 = SubResource("StandardMaterial3D_cbuj4")
+
+[node name="Base" type="MeshInstance3D" parent="." unique_id=341353644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007918179, -0.5361334, -0.034326196)
+mesh = SubResource("BoxMesh_snt4t")
+surface_material_override/0 = SubResource("StandardMaterial3D_fjy18")
+
+[node name="Patient" type="Node3D" parent="." unique_id=1928830847]
+
+[node name="BedCover" type="MeshInstance3D" parent="Patient" unique_id=1356961306]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004425049, 0.15812057, 0.12526804)
+mesh = SubResource("BoxMesh_bjklw")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_cbuj4")
+
+[node name="Pillow" type="MeshInstance3D" parent="Patient" unique_id=1192851303]
+transform = Transform3D(1, 0, 0, 0, 0.62614274, -0.77970845, 0, 0.77970845, 0.62614274, 0.004425049, 0.24336964, -0.89034307)
+mesh = SubResource("BoxMesh_fjy18")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_cbuj4")
+
+[node name="Head" type="MeshInstance3D" parent="Patient" unique_id=1718172121]
+transform = Transform3D(1, 0, 0, 0, 0.62614274, -0.77970845, 0, 0.77970845, 0.62614274, 0.004425049, 0.3197568, -0.74805963)
+mesh = SubResource("BoxMesh_tycb4")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_snt4t")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1106441178]
 

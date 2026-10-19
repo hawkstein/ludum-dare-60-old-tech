@@ -296,7 +296,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.127548, 1, -6.641997)
 target_id = &"minor1_bed1"
 
 [node name="Bed2" parent="Level/MinorInjury1" unique_id=492083183 instance=ExtResource("5_la406")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.124872, 1, -0.8506572)
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, -14.124872, 1, -0.8506572)
 target_id = &"minor1_bed4"
 
 [node name="Bed3" parent="Level/MinorInjury1" unique_id=998168722 instance=ExtResource("5_la406")]
@@ -304,7 +304,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.577789, 1, -6.641997)
 target_id = &"minor1_bed2"
 
 [node name="Bed4" parent="Level/MinorInjury1" unique_id=539740585 instance=ExtResource("5_la406")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.577789, 1, -0.9109609)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.577789, 1, -0.9109609)
 target_id = &"minor1_bed3"
 
 [node name="Sign4" parent="Level/MinorInjury1" unique_id=1818753383 instance=ExtResource("2_owlgm")]
@@ -340,7 +340,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.127548, 1, -6.641997)
 target_id = &"minor2_bed1"
 
 [node name="Bed2" parent="Level/MinorInjury2" unique_id=1950494729 instance=ExtResource("5_la406")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.124872, 1, -0.8506572)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -14.124872, 1, -0.8506572)
 target_id = &"minor2_bed4"
 
 [node name="Bed3" parent="Level/MinorInjury2" unique_id=38470701 instance=ExtResource("5_la406")]
@@ -348,7 +348,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.577789, 1, -6.641997)
 target_id = &"minor2_bed2"
 
 [node name="Bed4" parent="Level/MinorInjury2" unique_id=1116705578 instance=ExtResource("5_la406")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.577789, 1, -0.9109609)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.577789, 1, -0.9109609)
 target_id = &"minor2_bed3"
 
 [node name="Partition" type="CSGBox3D" parent="Level/MinorInjury2" unique_id=526375188]
@@ -406,7 +406,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.127548, 1, -6.641997)
 target_id = &"major1_bed1"
 
 [node name="Bed2" parent="Level/MajorInjury1" unique_id=1704311982 instance=ExtResource("5_la406")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.124872, 1, -0.8506572)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -14.124872, 1, -0.8506572)
 target_id = &"major1_bed4"
 
 [node name="Bed3" parent="Level/MajorInjury1" unique_id=1529092411 instance=ExtResource("5_la406")]
@@ -414,7 +414,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.577789, 1, -6.641997)
 target_id = &"major1_bed2"
 
 [node name="Bed4" parent="Level/MajorInjury1" unique_id=635063061 instance=ExtResource("5_la406")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.577789, 1, -0.9109609)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.577789, 1, -0.9109609)
 target_id = &"major1_bed3"
 
 [node name="Partition" type="CSGBox3D" parent="Level/MajorInjury1" unique_id=764796555]
@@ -550,7 +550,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.349543, 1, -6.6419964)
 target_id = &"major2_bed3"
 
 [node name="Bed2" parent="Level/MajorInjury2" unique_id=1166896544 instance=ExtResource("5_la406")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.346867, 1, -0.8506565)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -13.346867, 1, -0.8506565)
 target_id = &"major2_bed2"
 
 [node name="Bed3" parent="Level/MajorInjury2" unique_id=532422691 instance=ExtResource("5_la406")]
@@ -558,7 +558,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.799784, 1, -6.6419964)
 target_id = &"major2_bed4"
 
 [node name="Bed4" parent="Level/MajorInjury2" unique_id=1981504861 instance=ExtResource("5_la406")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.799784, 1, -0.91096115)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8.799784, 1, -0.91096115)
 target_id = &"major2_bed1"
 
 [node name="Partition" type="CSGBox3D" parent="Level/MajorInjury2" unique_id=1464697296]
@@ -756,7 +756,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1218605, 1, -6.6419964)
 target_id = &"icu1_bed3"
 
 [node name="Bed2" parent="Level/ICU1" unique_id=1937328568 instance=ExtResource("5_la406")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.119183, 1, -0.8506564)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -13.119183, 1, -0.8506564)
 target_id = &"icu1_bed2"
 
 [node name="Bed3" parent="Level/ICU1" unique_id=684894297 instance=ExtResource("5_la406")]
@@ -764,7 +764,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.572102, 1, -6.6419964)
 target_id = &"icu1_bed4"
 
 [node name="Bed4" parent="Level/ICU1" unique_id=1498109922 instance=ExtResource("5_la406")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.572102, 1, -0.91096103)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8.572102, 1, -0.91096103)
 target_id = &"icu1_bed1"
 
 [node name="Partition" type="CSGBox3D" parent="Level/ICU1" unique_id=989218459]
@@ -819,7 +819,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1218605, 1, -6.6419964)
 target_id = &"recovery1_bed3"
 
 [node name="Bed2" parent="Level/Recovery1" unique_id=63573679 instance=ExtResource("5_la406")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.119183, 1, -0.8506564)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -13.119183, 1, -0.8506564)
 target_id = &"recovery1_bed2"
 
 [node name="Bed3" parent="Level/Recovery1" unique_id=495851137 instance=ExtResource("5_la406")]
@@ -827,7 +827,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.572102, 1, -6.6419964)
 target_id = &"recovery1_bed4"
 
 [node name="Bed4" parent="Level/Recovery1" unique_id=1852886829 instance=ExtResource("5_la406")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.572102, 1, -0.91096103)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8.572102, 1, -0.91096103)
 target_id = &"recovery1_bed1"
 
 [node name="Partition" type="CSGBox3D" parent="Level/Recovery1" unique_id=1782933722]
@@ -871,11 +871,11 @@ arrow_direction = 0
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.8010025, 0, 58.561855)
 
 [node name="Bed2" parent="Level/Preop1" unique_id=645283675 instance=ExtResource("5_la406")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.119183, 1, -0.8506564)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -13.119183, 1, -0.8506564)
 target_id = &"preop1_bed2"
 
 [node name="Bed1" parent="Level/Preop1" unique_id=1702828196 instance=ExtResource("5_la406")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.572102, 1.141304, -0.9109616)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8.572102, 1.141304, -0.9109616)
 target_id = &"preop1_bed1"
 
 [node name="Partition" type="CSGBox3D" parent="Level/Preop1" unique_id=1066067395]
@@ -907,7 +907,7 @@ arrow_direction = 0
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 12.822571, 0, 58.561855)
 
 [node name="Bed" parent="Level/Surgery1" unique_id=531717322 instance=ExtResource("5_la406")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.86359, 1, -3.1483064)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.86359, 1, -3.1483064)
 target_id = &"surgery1_bed1"
 
 [node name="Partition" type="CSGBox3D" parent="Level/Surgery1" unique_id=1179853056]
@@ -938,7 +938,7 @@ arrow_direction = 0
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.780067, 0, 58.561855)
 
 [node name="Bed" parent="Level/Surgery2" unique_id=1331819155 instance=ExtResource("5_la406")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.86359, 1, -3.1483064)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.86359, 1, -3.1483064)
 target_id = &"surgery2_bed1"
 
 [node name="Partition" type="CSGBox3D" parent="Level/Surgery2" unique_id=1568811991]
@@ -999,7 +999,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1218605, 1, -6.6419964)
 target_id = &"icu2_bed3"
 
 [node name="Bed2" parent="Level/ICU2" unique_id=363184265 instance=ExtResource("5_la406")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.119183, 1, -0.8506564)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -13.119183, 1, -0.8506565)
 target_id = &"icu2_bed2"
 
 [node name="Bed3" parent="Level/ICU2" unique_id=1818655699 instance=ExtResource("5_la406")]
@@ -1007,7 +1007,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.572102, 1, -6.6419964)
 target_id = &"icu2_bed4"
 
 [node name="Bed4" parent="Level/ICU2" unique_id=1421928026 instance=ExtResource("5_la406")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.572102, 1, -0.91096103)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8.572102, 1, -0.91096103)
 target_id = &"icu2_bed1"
 
 [node name="Partition" type="CSGBox3D" parent="Level/ICU2" unique_id=228303684]
@@ -1036,7 +1036,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1218605, 1, -6.6419964)
 target_id = &"ccu1_bed3"
 
 [node name="Bed2" parent="Level/CCU1" unique_id=321219832 instance=ExtResource("5_la406")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.119183, 1, -0.8506564)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -13.119183, 1, -0.8506564)
 target_id = &"ccu1_bed2"
 
 [node name="Bed3" parent="Level/CCU1" unique_id=1382940312 instance=ExtResource("5_la406")]
@@ -1044,7 +1044,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.572102, 1, -6.6419964)
 target_id = &"ccu1_bed4"
 
 [node name="Bed4" parent="Level/CCU1" unique_id=677742509 instance=ExtResource("5_la406")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.572102, 1, -0.91096115)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8.572102, 1, -0.91096115)
 target_id = &"ccu1_bed1"
 
 [node name="Partition" type="CSGBox3D" parent="Level/CCU1" unique_id=1567764176]
