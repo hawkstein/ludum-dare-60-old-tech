@@ -123,7 +123,7 @@ metadata/_custom_type_script = "uid://uty2uvhso70y"
 
 [sub_resource type="Resource" id="Resource_k2lyy"]
 script = ExtResource("4_owlgm")
-extension = "7401"
+extension = "7201"
 suffix = "999"
 message = "Urgent request for patient's previous doctor in Surgery 2!"
 target_id = &"surgery2_bed1"
@@ -153,7 +153,7 @@ metadata/_custom_type_script = "uid://uty2uvhso70y"
 
 [sub_resource type="Resource" id="Resource_yxj50"]
 script = ExtResource("4_owlgm")
-extension = "7401"
+extension = "7201"
 suffix = "2222"
 message = "Patient is in arrest! Code resuscitation in Surgery 2!"
 target_id = &"surgery2_bed1"
@@ -168,7 +168,7 @@ metadata/_custom_type_script = "uid://uty2uvhso70y"
 
 [sub_resource type="Resource" id="Resource_i5cpu"]
 script = ExtResource("4_owlgm")
-extension = "7404"
+extension = "7304"
 suffix = "1"
 message = "Patient would like to pass on their thanks and has a few follow up questions in Recovery Bed 4"
 target_id = &"recovery1_bed4"
@@ -183,9 +183,9 @@ metadata/_custom_type_script = "uid://uty2uvhso70y"
 
 [sub_resource type="Resource" id="Resource_ivls5"]
 script = ExtResource("4_owlgm")
-extension = "7103"
+extension = "6103"
 suffix = "4995"
-message = "Consult needed for Intensive Care Unit Bed 3"
+message = "Consult needed for Intensive Care Unit 1 Bed 3"
 target_id = &"icu1_bed3"
 time_limit = 30.0
 metadata/_custom_type_script = "uid://s7rv5glhh784"
@@ -198,7 +198,7 @@ metadata/_custom_type_script = "uid://uty2uvhso70y"
 
 [sub_resource type="Resource" id="Resource_a42hq"]
 script = ExtResource("4_owlgm")
-extension = "7301"
+extension = "7101"
 suffix = "1"
 message = "No rush but there are some follow up questions from the surgical team in Surgery 1"
 target_id = &"surgery1_bed1"
@@ -213,7 +213,7 @@ metadata/_custom_type_script = "uid://uty2uvhso70y"
 
 [sub_resource type="Resource" id="Resource_rv5xl"]
 script = ExtResource("4_owlgm")
-extension = "7504"
+extension = "7304"
 suffix = "4995"
 message = "Feels like this shift will never end, help out with Recovery Bed 4 please"
 target_id = &"recovery1_bed4"
