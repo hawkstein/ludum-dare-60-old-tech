@@ -5,14 +5,9 @@ extends CanvasLayer
 signal message_shown(text: String, speaker: String)
 signal queue_finished
 
-## Which sound a message plays as it appears.
-enum Sound { DEFAULT, SUCCESS, FAILURE, NONE }
-
 @export var default_duration := 4.0
 @export var fade_time := 0.25
 @export var default_sound: AudioStream
-@export var success_sound: AudioStream
-@export var failure_sound: AudioStream
 
 @onready var panel: Control = %Panel
 @onready var speaker_label: Label = %SpeakerLabel
@@ -30,15 +25,15 @@ func _ready() -> void:
 
 
 ## Queue a message
-func show_message(text: String, speaker := "", duration := -1.0, sound := Sound.DEFAULT) -> void:
-	_queue.append(entry(text, speaker, duration, sound))
+func show_message(text: String, speaker := "", duration := -1.0) -> void:
+	_queue.append(entry(text, speaker, duration))
 	if not _running:
 		_run_queue()
 
 
 ## Queue a message ahead of normal ones, behind any earlier show_next messages
-func show_next(text: String, speaker := "", duration := -1.0, sound := Sound.DEFAULT) -> void:
-	var message := entry(text, speaker, duration, sound)
+func show_next(text: String, speaker := "", duration := -1.0) -> void:
+	var message := entry(text, speaker, duration)
 	message.urgent = true
 	var index := _queue.find_custom(func(queued: Dictionary): return not queued.get("urgent", false))
 	_queue.insert(index if index != -1 else _queue.size(), message)
@@ -47,8 +42,8 @@ func show_next(text: String, speaker := "", duration := -1.0, sound := Sound.DEF
 
 
 ## Build a queue entry
-func entry(text: String, speaker := "", duration := -1.0, sound := Sound.DEFAULT) -> Dictionary:
-	return {text = text, speaker = speaker, duration = duration if duration >= 0.0 else default_duration, sound = sound}
+func entry(text: String, speaker := "", duration := -1.0) -> Dictionary:
+	return {text = text, speaker = speaker, duration = duration if duration >= 0.0 else default_duration}
 
 
 ## Drop all queued messages and fade out the current one
@@ -69,9 +64,8 @@ func _run_queue() -> void:
 		speaker_label.visible = not message.speaker.is_empty()
 		message_label.text = message.text
 		panel.show()
-		var stream := _stream_for(message.sound)
-		if stream:
-			sfx_player.stream = stream
+		if default_sound:
+			sfx_player.stream = default_sound
 			sfx_player.play()
 		message_shown.emit(message.text, message.speaker)
 
@@ -88,17 +82,6 @@ func _run_queue() -> void:
 	panel.hide()
 	_running = false
 	queue_finished.emit()
-
-
-func _stream_for(sound: Sound) -> AudioStream:
-	match sound:
-		Sound.SUCCESS:
-			return success_sound
-		Sound.FAILURE:
-			return failure_sound
-		Sound.NONE:
-			return null
-	return default_sound
 
 
 func _fade(alpha: float) -> Tween:
