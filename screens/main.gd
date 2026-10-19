@@ -1,7 +1,6 @@
 extends Node3D
 
 @export var max_normal_failures := 6
-@export var end_speaker := "Medical Director"
 @export var end_message_duration := 2.5
 @export var end_lead_in_duration := 1.0
 
@@ -31,16 +30,16 @@ func _on_event_failed(bleep: Bleep, severity: Bleep.Severity) -> void:
 	var normal_failures: int = tracker.failed.get(Bleep.Severity.NORMAL, 0)
 	var missed := "Missed a bleep! (%d/%d)" % [normal_failures, max_normal_failures]
 	if severity == Bleep.Severity.CRITICAL:
-		_end(&"failure", [_closing_line("Patient lost! You didn't make it in time.", MessageLayer.Sound.FAILURE)])
+		_end(&"failure", [_closing_line("Patient lost! You didn't make it in time.", FeedbackLayer.Kind.FAILURE)])
 	elif normal_failures >= max_normal_failures:
 		_end(&"failure", [
-			_lead_in(missed, MessageLayer.Sound.FAILURE),
-			_closing_line("Too many bleeps went unanswered.", MessageLayer.Sound.FAILURE),
+			_lead_in(missed, FeedbackLayer.Kind.FAILURE),
+			_closing_line("Too many bleeps went unanswered.", FeedbackLayer.Kind.FAILURE),
 		])
 	elif _shift_over():
-		_end(&"success", [_lead_in(missed, MessageLayer.Sound.FAILURE), _shift_end_line()])
+		_end(&"success", [_lead_in(missed, FeedbackLayer.Kind.FAILURE), _shift_end_line()])
 	else:
-		feedback.show_message(missed, end_speaker, -1.0, MessageLayer.Sound.FAILURE)
+		feedback.show_message(missed, FeedbackLayer.Kind.FAILURE)
 
 
 func _on_event_resolved(bleep: Bleep) -> void:
@@ -48,9 +47,9 @@ func _on_event_resolved(bleep: Bleep) -> void:
 		return
 	pager.remove_bleep(bleep)
 	if _shift_over():
-		_end(&"success", [_lead_in("Well done", MessageLayer.Sound.SUCCESS), _shift_end_line()])
+		_end(&"success", [_lead_in("Well done", FeedbackLayer.Kind.SUCCESS), _shift_end_line()])
 	else:
-		feedback.show_now("Well done", end_speaker, -1.0, MessageLayer.Sound.SUCCESS)
+		feedback.show_now("Well done", FeedbackLayer.Kind.SUCCESS)
 
 
 func _on_timeline_finished() -> void:
@@ -62,16 +61,16 @@ func _shift_over() -> bool:
 	return timeline.is_finished() and tracker.is_idle()
 
 
-func _lead_in(text: String, sound: MessageLayer.Sound) -> Dictionary:
-	return feedback.entry(text, end_speaker, end_lead_in_duration, sound)
+func _lead_in(text: String, kind: FeedbackLayer.Kind) -> Dictionary:
+	return feedback.entry(text, kind, end_lead_in_duration)
 
 
-func _closing_line(text: String, sound: MessageLayer.Sound) -> Dictionary:
-	return feedback.entry(text, end_speaker, end_message_duration, sound)
+func _closing_line(text: String, kind: FeedbackLayer.Kind) -> Dictionary:
+	return feedback.entry(text, kind, end_message_duration)
 
 
 func _shift_end_line() -> Dictionary:
-	return _closing_line("That's the end of your shift.", MessageLayer.Sound.SUCCESS)
+	return _closing_line("That's the end of your shift.", FeedbackLayer.Kind.SUCCESS)
 
 
 ## Play the closing lines, then fade to the end screen. Only the first call counts.

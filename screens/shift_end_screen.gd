@@ -7,7 +7,8 @@ extends Control
 @onready var score_label: Label = %ScoreLabel
 @onready var play_again_button: Button = %PlayAgainButton
 @onready var main_menu_button: Button = %MainMenuButton
-@onready var tips_button: Button = %TipsButton
+## Only the failure screen has one.
+@onready var tips_button: Button = get_node_or_null(^"%TipsButton")
 
 func _ready() -> void:
 	# Arriving from gameplay, where the mouse is captured.

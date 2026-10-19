@@ -32,7 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.50275356, 0.11104006, 0.118564956, 1)
+color = Color(0.5019608, 0.10980392, 0.11764706, 1)
 
 [node name="FadeTextureRect" type="TextureRect" parent="." unique_id=1255652635]
 layout_mode = 1
