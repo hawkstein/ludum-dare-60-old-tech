@@ -40,6 +40,7 @@ color = Color(0.08627451, 0.30588236, 0.2784314, 1)
 metadata/_edit_lock_ = true
 
 [node name="FadeTextureRect" type="TextureRect" parent="." unique_id=362116662]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

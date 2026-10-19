@@ -12,6 +12,10 @@ enum Corner { TOP_LEFT, TOP_RIGHT, BOTTOM_RIGHT }
 @export var slide_time := 0.5
 @export var slide_distance := 300.0
 @export var slide_trans: Tween.TransitionType = Tween.TRANS_BACK
+@export var director_pop_time := 0.35
+@export var director_pop_delay := 0.3
+## How far below the authored rest position the director hides.
+@export var director_drop := 120.0
 # Cast prevents Godot parse error on enum-typed array literals - investigate more at some point
 @export var corners: Array[Corner] = [Corner.BOTTOM_RIGHT as Corner]
 @export var success_sound: AudioStream
@@ -22,13 +26,16 @@ enum Corner { TOP_LEFT, TOP_RIGHT, BOTTOM_RIGHT }
 @onready var failure_background: Control = %FailureBackground
 @onready var message_label: Label = %MessageLabel
 @onready var sfx_player: AudioStreamPlayer = %SfxPlayer
+@onready var director: Control = %Director
 
 var _queue: Array[Dictionary] = []
 var _running := false
 var _run_id := 0
 var _tween: Tween
+var _director_shown_y: float
 
 func _ready() -> void:
+	_director_shown_y = director.position.y
 	panel.modulate.a = 0.0
 	panel.hide()
 
@@ -79,6 +86,7 @@ func _run_queue() -> void:
 		
 		offset.x = side * slide_distance
 		panel.modulate.a = 0.0
+		director.position.y = _director_shown_y + director_drop
 		await _animate(0.0, 1.0, Tween.EASE_OUT).finished
 		if run != _run_id:
 			return
@@ -109,4 +117,9 @@ func _animate(x: float, alpha: float, easing: Tween.EaseType) -> Tween:
 	_tween = create_tween().set_parallel()
 	_tween.tween_property(self, "offset:x", x, slide_time).set_trans(slide_trans).set_ease(easing)
 	_tween.tween_property(panel, "modulate:a", alpha, fade_time)
+	# Pops up once the panel has mostly arrived, ducks straight away on the way out.
+	var showing := alpha > 0.0
+	var director_y := _director_shown_y if showing else _director_shown_y + director_drop
+	_tween.tween_property(director, "position:y", director_y, director_pop_time) \
+		.set_trans(Tween.TRANS_BACK).set_ease(easing).set_delay(director_pop_delay if showing else 0.0)
 	return _tween

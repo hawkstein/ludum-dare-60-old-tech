@@ -4,6 +4,12 @@
 [ext_resource type="AudioStream" uid="uid://du5k8wt4wsjvk" path="res://utils/ui/Happy Chime.wav" id="2_s72a1"]
 [ext_resource type="AudioStream" uid="uid://bnmk5x04xlet0" path="res://utils/ui/Soft Failure.wav" id="3_susgo"]
 [ext_resource type="FontFile" uid="uid://br3rou4c1jn8a" path="res://assets/fonts/Lato-Bold.ttf" id="4_2s6hm"]
+[ext_resource type="PackedScene" path="res://entities/medical_director.tscn" id="5_dirct"]
+
+[sub_resource type="Environment" id="Environment_dirct"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.6
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fb001"]
 
@@ -49,6 +55,48 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_fb001")
+
+[node name="DirectorArea" type="Control" parent="MarginContainer/Panel"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="DirectorClip" type="Control" parent="MarginContainer/Panel/DirectorArea"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -110.0
+offset_bottom = 8.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="Director" type="SubViewportContainer" parent="MarginContainer/Panel/DirectorArea/DirectorClip"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 38.0
+offset_top = -56.0
+offset_right = 182.0
+offset_bottom = 136.0
+rotation = -0.5235988
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(72, 192)
+mouse_filter = 2
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/Panel/DirectorArea/DirectorClip/Director"]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(144, 192)
+
+[node name="Camera3D" type="Camera3D" parent="MarginContainer/Panel/DirectorArea/DirectorClip/Director/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 2)
+environment = SubResource("Environment_dirct")
+fov = 30.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="MarginContainer/Panel/DirectorArea/DirectorClip/Director/SubViewport"]
+transform = Transform3D(0.8660254, 0, -0.5, -0.35355338, 0.70710677, -0.6123724, 0.35355338, 0.70710677, 0.6123724, 0, 3, 0)
+
+[node name="MedicalDirector" parent="MarginContainer/Panel/DirectorArea/DirectorClip/Director/SubViewport" instance=ExtResource("5_dirct")]
 
 [node name="SuccessBackground" type="Control" parent="MarginContainer/Panel" unique_id=1275131231]
 unique_name_in_owner = true
