@@ -14,6 +14,7 @@ const MOUSE_SCALE := 0.01
 @onready var model: Node3D = %Model
 @onready var camera_pivot: Node3D = %CameraPivot
 @onready var spring_arm: SpringArm3D = %SpringArm3D
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 var gameplay := DataStore.get_model(&"Gameplay") as GameplayData
 var input_enabled := true
@@ -52,7 +53,17 @@ func _physics_process(delta: float) -> void:
 		model.rotation.y = lerp_angle(model.rotation.y, facing, 1.0 - exp(-turn_speed * delta))
 
 	move_and_slide()
+	_animate()
 
 
 func _look(amount: float) -> void:
 	camera_pivot.rotation.y -= amount
+	
+func _animate() -> void:
+	var ground_speed := Vector2(velocity.x, velocity.z).length()
+	if ground_speed > 2.0:
+		anim_player.play(&"run", 0.2)
+		anim_player.speed_scale = maxf(ground_speed / speed, 0.6)
+	elif anim_player.current_animation != &"idle":
+		anim_player.speed_scale = 1.0
+		anim_player.play_with_capture(&"idle", 0.35, -1, 1.0, false, Tween.TRANS_BACK, Tween.EASE_OUT)
