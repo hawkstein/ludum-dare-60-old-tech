@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://dggvfey44w4bn"]
 
 [ext_resource type="Script" uid="uid://dgmnj8e0lhs8f" path="res://entities/player_zone.gd" id="1_t5kw1"]
+[ext_resource type="Script" uid="uid://j2e64p4olet0" path="res://entities/phone_node.gd" id="2_lmsgd"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_cd33c"]
 radius = 1.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_cd33c"]
-size = Vector3(0.8, 0.8, 0.8)
+size = Vector3(0.8, 0.5280029, 0.8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jsgin"]
 albedo_color = Color(0.92941177, 0.23529412, 0.28235295, 1)
@@ -19,6 +20,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_cd33c")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=739552479]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36400148, 0)
 mesh = SubResource("BoxMesh_cd33c")
 surface_material_override/0 = SubResource("StandardMaterial3D_jsgin")
+
+[node name="PhoneNode" type="Node3D" parent="." unique_id=1953788118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2434037, 0)
+script = ExtResource("2_lmsgd")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="PhoneNode" unique_id=1748116632]
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="PhoneNode/CSGCombiner3D" unique_id=1210120026]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+polygon = PackedVector2Array(0.4, -0.05, 0.5, -0.05, 0.5, 0.05, 0.4, 0.05)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 32
+material = SubResource("StandardMaterial3D_jsgin")
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="PhoneNode/CSGCombiner3D" unique_id=252757788]
+transform = Transform3D(-3.715468e-08, 0, 0.85, 0, 0.85, 0, -0.85, 0, -3.715468e-08, 0, -0.51929724, 0.32940608)
+polygon = PackedVector2Array(0.13611412, 0.62872946, 0.23290956, 0.7586391, 0.4214059, 0.8834541, 0.5513154, 0.9191158, 0.6175438, 0.9089267, 0.6633941, 0.87581253, 0.6710361, 0.8401511, 0.54876816, 0.7255249, 0.5080122, 0.72297764, 0.45706737, 0.7586391, 0.32970488, 0.7000524, 0.2736653, 0.6465602, 0.21253169, 0.5064616, 0.2838546, 0.45042217, 0.29149616, 0.39183545, 0.17687011, 0.28485107, 0.085169196, 0.34343767, 0.08771646, 0.48608363)
+depth = 0.06
+material = SubResource("StandardMaterial3D_jsgin")
