@@ -27,6 +27,11 @@ func is_finished() -> bool:
 	return _remaining == 0
 
 
+## Does any bleep in the timeline point at this target?
+func has_target(target_id: StringName) -> bool:
+	return events.any(func(event: BleepEvent): return event.bleep.target_id == target_id)
+
+
 func total(severity: Bleep.Severity) -> int:
 	return events.filter(func(event: BleepEvent): return event.bleep.severity == severity).size()
 

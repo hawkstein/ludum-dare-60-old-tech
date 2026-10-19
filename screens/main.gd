@@ -3,6 +3,8 @@ extends Node3D
 @export var max_normal_failures := 4
 @export var end_message_duration := 2.5
 @export var end_lead_in_duration := 1.0
+## Chance a bed with no bleeps in the timeline is left empty
+@export_range(0.0, 1.0) var empty_bed_chance := 0.5
 
 @onready var player: ThirdPersonPlayer = %ThirdPersonPlayer
 @onready var pager: PagerLayer = %PagerLayer
@@ -20,7 +22,14 @@ func _ready() -> void:
 	timeline.finished.connect(_on_timeline_finished)
 	tracker.event_failed.connect(_on_event_failed)
 	tracker.event_resolved.connect(_on_event_resolved)
+	_empty_unused_beds()
 	timeline.start()
+
+
+func _empty_unused_beds() -> void:
+	for target: EventTarget in get_tree().get_nodes_in_group(&"event_targets"):
+		if target is Bed and not timeline.has_target(target.target_id) and randf() < empty_bed_chance:
+			target.remove_patient()
 
 
 func _on_event_failed(bleep: Bleep, severity: Bleep.Severity) -> void:

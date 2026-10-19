@@ -94,9 +94,9 @@ metadata/_custom_type_script = "uid://uty2uvhso70y"
 
 [sub_resource type="Resource" id="Resource_owlgm"]
 script = ExtResource("4_owlgm")
-extension = "4010"
+extension = "4110"
 suffix = "4995"
-message = "Some followup on this patient in Major Injury 2, Bed 1  required"
+message = "Some followup on this patient in Major Injury 2, Bed 1 required"
 target_id = &"major2_bed1"
 time_limit = 25.0
 metadata/_custom_type_script = "uid://s7rv5glhh784"

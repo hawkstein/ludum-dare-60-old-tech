@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://mt56oyien0xm"]
 
-[ext_resource type="Script" uid="uid://byc1p4mnq27ey" path="res://entities/event_target.gd" id="1_snt4t"]
+[ext_resource type="Script" uid="uid://xsp7jskhh5jh" path="res://entities/bed.gd" id="1_snt4t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cd33c"]
-size = Vector3(2, 1, 2)
+size = Vector3(2, 1, 2.2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_cd33c"]
 size = Vector3(1, 0.2, 2)
@@ -48,6 +48,7 @@ mesh = SubResource("BoxMesh_snt4t")
 surface_material_override/0 = SubResource("StandardMaterial3D_fjy18")
 
 [node name="Patient" type="Node3D" parent="." unique_id=1928830847]
+unique_name_in_owner = true
 
 [node name="BedCover" type="MeshInstance3D" parent="Patient" unique_id=1356961306]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004425049, 0.15812057, 0.12526804)
@@ -62,6 +63,7 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_cbuj4")
 
 [node name="Head" type="MeshInstance3D" parent="Patient" unique_id=1718172121]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.62614274, -0.77970845, 0, 0.77970845, 0.62614274, 0.004425049, 0.3197568, -0.74805963)
 mesh = SubResource("BoxMesh_tycb4")
 skeleton = NodePath("../..")
