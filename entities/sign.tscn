@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c0hhqkj11qcdv" path="res://entities/sign.gd" id="1_1rpqm"]
 [ext_resource type="FontFile" uid="uid://br3rou4c1jn8a" path="res://assets/fonts/Lato-Bold.ttf" id="2_b621t"]
+[ext_resource type="Texture2D" uid="uid://bep5v4ir58tr0" path="res://entities/arrow.png" id="3_b621t"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_cd33c"]
 resource_local_to_scene = true
@@ -13,6 +14,7 @@ albedo_color = Color(0.16470589, 0.39215687, 0.21568628, 1)
 
 [node name="Sign" type="Node3D" unique_id=866085770]
 script = ExtResource("1_1rpqm")
+arrow_direction = null
 
 [node name="Board" type="MeshInstance3D" parent="." unique_id=1081915273]
 unique_name_in_owner = true
@@ -30,3 +32,9 @@ font_size = 64
 outline_size = 0
 autowrap_mode = 2
 width = 480.0
+
+[node name="Arrow" type="Sprite3D" parent="." unique_id=475085126]
+unique_name_in_owner = true
+double_sided = false
+alpha_cut = 1
+texture = ExtResource("3_b621t")
