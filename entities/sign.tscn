@@ -14,7 +14,6 @@ albedo_color = Color(0.16470589, 0.39215687, 0.21568628, 1)
 
 [node name="Sign" type="Node3D" unique_id=866085770]
 script = ExtResource("1_1rpqm")
-arrow_direction = null
 
 [node name="Board" type="MeshInstance3D" parent="." unique_id=1081915273]
 unique_name_in_owner = true
@@ -35,6 +34,8 @@ width = 480.0
 
 [node name="Arrow" type="Sprite3D" parent="." unique_id=475085126]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.03)
+visible = false
+pixel_size = 0.0018750001
 double_sided = false
-alpha_cut = 1
 texture = ExtResource("3_b621t")
