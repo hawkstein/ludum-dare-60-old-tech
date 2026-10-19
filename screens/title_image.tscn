@@ -1,0 +1,195 @@
+[gd_scene format=3 uid="uid://dltdyo8r8y7bq"]
+
+[ext_resource type="Theme" uid="uid://bes7poiouimn8" path="res://default_theme.tres" id="1_xp5nu"]
+[ext_resource type="PackedScene" uid="uid://5rmr42bul24a" path="res://utils/ui/title.tscn" id="3_5mnfb"]
+[ext_resource type="PackedScene" uid="uid://b66kkg2rf5acq" path="res://entities/medical_director.tscn" id="4_dirct"]
+[ext_resource type="PackedScene" uid="uid://icg5dtww7q44" path="res://entities/player/third_person_player.tscn" id="5_plyr"]
+
+[sub_resource type="Gradient" id="Gradient_5mnfb"]
+offsets = PackedFloat32Array(0.3592233, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.5019608)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5mnfb"]
+gradient = SubResource("Gradient_5mnfb")
+width = 1024
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Environment" id="Environment_title"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.6
+
+[node name="TitleImage" type="Control" unique_id=1530927741]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xp5nu")
+metadata/_edit_lock_ = true
+
+[node name="BackgroundColorRect" type="ColorRect" parent="." unique_id=1188460395]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08627451, 0.30588236, 0.2784314, 1)
+metadata/_edit_lock_ = true
+
+[node name="Frame" type="ReferenceRect" parent="." unique_id=402618853]
+custom_minimum_size = Vector2(640, 512)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -256.0
+offset_right = 320.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="FadeTextureRect" type="TextureRect" parent="Frame" unique_id=1874419061]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_5mnfb")
+
+[node name="MarginContainer" type="MarginContainer" parent="Frame" unique_id=1365211207]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="PagerPanicTitle" parent="Frame/MarginContainer" unique_id=1799258332 instance=ExtResource("3_5mnfb")]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Pager Panic"
+
+[node name="Player" type="SubViewportContainer" parent="Frame" unique_id=1046132385]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_top = -424.0
+offset_right = 356.0
+offset_bottom = -64.0
+grow_vertical = 0
+rotation = -0.19234174
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Frame/Player" unique_id=1713207496]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(300, 360)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Frame/Player/SubViewport" unique_id=1903114276]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1.3, 2.4)
+environment = SubResource("Environment_title")
+current = true
+fov = 40.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Frame/Player/SubViewport" unique_id=1286094307]
+transform = Transform3D(0.8660254, -0.35355338, 0.35355338, 0, 0.70710677, 0.70710677, -0.5, -0.6123724, 0.6123724, 0, 3, 0)
+
+[node name="ThirdPersonPlayer" parent="Frame/Player/SubViewport" unique_id=1577640381 instance=ExtResource("5_plyr")]
+transform = Transform3D(-0.9393727, 0, -0.34289774, 0, 1, 0, 0.34289774, 0, -0.9393727, 0, 0, 0)
+script = null
+
+[node name="LeftShoulder" parent="Frame/Player/SubViewport/ThirdPersonPlayer/Model/Rig" parent_id_path=PackedInt32Array(1577640381, 551271926) index="2" unique_id=1717467927]
+transform = Transform3D(0.9049901, -5.9604645e-08, 0.4254326, 0.19736259, 0.8858822, -0.4198342, -0.37688312, 0.46391028, 0.80171466, -0.24665537, 0.6524652, -7.450581e-09)
+
+[node name="LeftElbow" parent="Frame/Player/SubViewport/ThirdPersonPlayer/Model/Rig/LeftShoulder/LeftArm" parent_id_path=PackedInt32Array(1577640381, 801023143) index="0" unique_id=1022762061]
+transform = Transform3D(0.9534718, -0.12335113, 0.27509284, 0.21750608, -0.3503996, -0.91099465, 0.20876461, 0.928442, -0.30726653, 0.002000004, -0.14999998, 1.1920929e-07)
+
+[node name="RightShoulder" parent="Frame/Player/SubViewport/ThirdPersonPlayer/Model/Rig" parent_id_path=PackedInt32Array(1577640381, 551271926) index="3" unique_id=1870376904]
+transform = Transform3D(0.36080945, -0.9321394, -0.03053925, -0.9270941, -0.35490623, -0.120573945, 0.10155316, 0.07181698, -0.99223447, 0.2138663, 0.65246534, -3.970843e-09)
+
+[node name="RightElbow" parent="Frame/Player/SubViewport/ThirdPersonPlayer/Model/Rig/RightShoulder/RightArm" parent_id_path=PackedInt32Array(1577640381, 419697937) index="0" unique_id=1098736520]
+transform = Transform3D(-0.43532315, 0.8995685, 0.035641294, -0.8953924, -0.42850587, -0.12105849, -0.09362791, -0.0846125, 0.9920053, 0.002000004, -0.15000005, 0)
+rotation_order = 1
+
+[node name="Camera3D" parent="Frame/Player/SubViewport/ThirdPersonPlayer/CameraPivot/SpringArm3D" parent_id_path=PackedInt32Array(1577640381, 77721028) index="0" unique_id=2093415142]
+current = false
+
+[node name="AnimationPlayer" parent="Frame/Player/SubViewport/ThirdPersonPlayer" index="3" unique_id=737649527]
+reset_on_save = false
+
+[node name="Director" type="SubViewportContainer" parent="Frame" unique_id=1820667313]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -361.00003
+offset_top = -465.0
+offset_right = -61.0
+offset_bottom = -105.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = 0.16832258
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Frame/Director" unique_id=1092741603]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(300, 360)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Frame/Director/SubViewport" unique_id=1442176921]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 1.3, 2.4)
+environment = SubResource("Environment_title")
+current = true
+fov = 40.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Frame/Director/SubViewport" unique_id=1960538174]
+transform = Transform3D(0.8660254, -0.35355338, 0.35355338, 0, 0.70710677, 0.70710677, -0.5, -0.6123724, 0.6123724, 0, 3, 0)
+
+[node name="MedicalDirector" parent="Frame/Director/SubViewport" unique_id=1170458232 instance=ExtResource("4_dirct")]
+transform = Transform3D(-0.9393727, 0, -0.34289774, 0, 1, 0, -0.34289774, 0, 0.9393727, 0, 0, 0)
+
+[node name="Neck" parent="Frame/Director/SubViewport/MedicalDirector/Model/Rig" parent_id_path=PackedInt32Array(1170458232, 411007448) index="0" unique_id=149021883]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7555969, 0)
+
+[node name="LeftShoulder" parent="Frame/Director/SubViewport/MedicalDirector/Model/Rig" parent_id_path=PackedInt32Array(1170458232, 411007448) index="2" unique_id=184290774]
+transform = Transform3D(0.9049901, -5.9604645e-08, 0.4254326, 0.19736259, 0.8858822, -0.4198342, -0.37688312, 0.46391028, 0.80171466, -0.24665537, 0.6524652, -7.450581e-09)
+
+[node name="LeftElbow" parent="Frame/Director/SubViewport/MedicalDirector/Model/Rig/LeftShoulder/LeftArm" parent_id_path=PackedInt32Array(1170458232, 844483699) index="0" unique_id=1479292388]
+transform = Transform3D(0.9534718, -0.12335113, 0.27509284, 0.21750608, -0.3503996, -0.91099465, 0.20876461, 0.928442, -0.30726653, 0.0020000935, -0.15000015, 1.7881393e-07)
+
+[node name="RightShoulder" parent="Frame/Director/SubViewport/MedicalDirector/Model/Rig" parent_id_path=PackedInt32Array(1170458232, 411007448) index="3" unique_id=672572295]
+transform = Transform3D(0.36080945, -0.9321394, -0.03053925, -0.9270941, -0.35490623, -0.120573945, 0.10155316, 0.07181698, -0.99223447, 0.2138663, 0.65246534, -3.970843e-09)
+
+[node name="RightElbow" parent="Frame/Director/SubViewport/MedicalDirector/Model/Rig/RightShoulder/RightArm" parent_id_path=PackedInt32Array(1170458232, 599493369) index="0" unique_id=932573398]
+transform = Transform3D(-0.43532315, 0.8995685, 0.035641294, -0.8953924, -0.42850587, -0.12105849, -0.09362791, -0.0846125, 0.9920053, 0.0019999146, -0.15000004, 2.9802322e-08)
+
+[node name="AnimationPlayer" parent="Frame/Director/SubViewport/MedicalDirector" index="1" unique_id=273662227]
+reset_on_save = false
+
+[editable path="Frame/Player/SubViewport/ThirdPersonPlayer"]
+[editable path="Frame/Director/SubViewport/MedicalDirector"]
