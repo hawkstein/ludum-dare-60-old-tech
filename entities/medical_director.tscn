@@ -109,6 +109,96 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Model/Rig/Neck:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.43517616, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bgvu6"]
+resource_name = "failure"
+length = 0.48
+loop_mode = 1
+step = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Model/Rig/RightShoulder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.247, 0.65199995, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Model/Rig/RightShoulder:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-5.9742526e-08, -2.3598217e-08, 0.75237507)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Model/Rig/RightShoulder/RightArm/RightElbow:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.167626e-07, -1.4630518e-07, -1.1874388)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Model/Rig/LeftShoulder:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(5.5604904e-08, -1.9962892e-08, -0.6893633)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Model/Rig/LeftShoulder/LeftArm/LeftElbow:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-8.72191e-08, -8.145912e-08, 1.5025275)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Model/Rig/Neck:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.24005006, 0.47847748),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.43517616, 0), Vector3(0, -0.46792915, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_kfbx8"]
 resource_name = "idle"
@@ -239,10 +329,23 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector3(1.1456894, 2.4113855, 2.5860646), Vector3(1.4346372, 0.61788905, 0.7639593), Vector3(1.2105942, 2.3248615, 2.3554285), Vector3(0.63844997, 2.7655904, 2.771308)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Model/Rig/Neck:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fkif2"]
 _data = {
 &"RESET": SubResource("Animation_fkif2"),
+&"failure": SubResource("Animation_bgvu6"),
 &"idle": SubResource("Animation_kfbx8"),
 &"success": SubResource("Animation_syuia")
 }
@@ -257,7 +360,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6867914, 0)
 
 [node name="Neck" type="Node3D" parent="Model/Rig" unique_id=149021883]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.7555969, 0)
+transform = Transform3D(0.90679574, 0, 0.4215701, 0, 1, 0, -0.42157012, 0, 0.9067957, 0, 0.7555969, 0)
 
 [node name="Head" type="MeshInstance3D" parent="Model/Rig/Neck" unique_id=1825283220]
 transform = Transform3D(1, 0, 0, 0, 0.9999984, 0, 0, 0, 0.9999984, 0.002722174, 0.10458815, 0)
@@ -324,7 +427,7 @@ skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_lkf2a")
 
 [node name="LeftElbow" type="Node3D" parent="Model/Rig/LeftShoulder/LeftArm" unique_id=1479292388]
-transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.002000004, -0.1500001, 1.7881393e-07)
+transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0.0020000935, -0.15000015, 1.7881393e-07)
 
 [node name="LeftForearm" type="MeshInstance3D" parent="Model/Rig/LeftShoulder/LeftArm/LeftElbow" unique_id=920202790]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002000004, -0.14999998, 0)
@@ -333,7 +436,7 @@ skeleton = NodePath("../../../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_lkf2a")
 
 [node name="RightShoulder" type="Node3D" parent="Model/Rig" unique_id=672572295]
-transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0.247, 0.652, 0)
+transform = Transform3D(0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0, 1.0000001, 0.247, 0.652, 0)
 
 [node name="RightArm" type="MeshInstance3D" parent="Model/Rig/RightShoulder" unique_id=599493369]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011260241, -0.14999998, 0)
@@ -342,7 +445,7 @@ skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_lkf2a")
 
 [node name="RightElbow" type="Node3D" parent="Model/Rig/RightShoulder/RightArm" unique_id=932573398]
-transform = Transform3D(1.0000001, 0, 0, 0, 0.99999976, 0, 0, 0, 1.0000001, 0.0019999743, -0.1500001, 2.9802322e-08)
+transform = Transform3D(1.0000001, 0, 0, 0, 0.99999976, 0, 0, 0, 1.0000001, 0.0019999146, -0.15000004, 2.9802322e-08)
 rotation_order = 1
 
 [node name="RightForearm" type="MeshInstance3D" parent="Model/Rig/RightShoulder/RightArm/RightElbow" unique_id=1138148233]

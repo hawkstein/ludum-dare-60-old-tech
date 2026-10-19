@@ -21,7 +21,7 @@ enum Corner { TOP_LEFT, TOP_RIGHT, BOTTOM_RIGHT }
 @export var success_sound: AudioStream
 @export var failure_sound: AudioStream
 @export var success_animation := &"success"
-@export var failure_animation := &"idle"
+@export var failure_animation := &"failure"
 
 @onready var panel: Control = %Panel
 @onready var success_background: Control = %SuccessBackground
@@ -116,8 +116,6 @@ func _place(corner: Corner) -> float:
 
 
 func _play_director(animation: StringName) -> void:
-	# Back to the rest pose first, or tracks the new animation doesn't key stay where the last one left them.
-	director_animation.play(&"RESET")
 	director_animation.advance(0.0)
 	director_animation.play(animation)
 
